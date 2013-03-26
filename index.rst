@@ -13,7 +13,7 @@ Contents:
 
    intro
    gettingstarted
-   images
+   basicusage
    
 
 Indices and tables
