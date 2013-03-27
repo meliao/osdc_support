@@ -2,9 +2,11 @@ Getting Started with the Open Science Data Cloud
 ================================================
 
 
+
 Who should apply for an OSDC Account?
 -------------------------------------
 The OSDC is intended to provide resources for scientists and researchers that are working on data-intensive projects...
+
 
 
 Requesting an OSCD Account
@@ -22,9 +24,9 @@ On a UNIX machine (a machine running Linux, Mac OS X, etc.) open Terminal. Enter
 
   ``ssh-keygen -t rsa -C "youremail@yourdomain.ext"\``
 
-You will be prompted to enter a filename; you may press return for the default file name, or make up your own. You will then be prompted for a passphrase. After entering a passphrase for the key, your public-private keypair will have been generated. 
+You will be prompted to enter a filename; if the default presented is ``id_rsa``, just press enter to accept. If the default presented is not that name, it may be because another file by that name already exists. Check the the ~/.ssh directory, and if this is the case, you should back up the existing ``id_rsa`` file. After checking and backing up if the file already existed, enter ``id_rsa`` for the filename of the new keypair you are generating. You will then be prompted for a passphrase. After entering a passphrase for the key, your public-private keypair will have been generated. 
 
-Now, you must copy the *public* key to a plain text file to upload on the Account Application page. Important note: you should **never** share your private key with another party, sharing is what the public key is for. If you are using Mac OS X, to copy your public key to your clipboard, enter:
+Now, you must copy the *public* key to a plain text file to upload on the Account Application page. It is important to note that you should **never** share your private key with another party; sharing is what the public key is for. Sharing your private key could allow others to maliciously access systems that you trust. If you are using Mac OS X, to copy your public key to your clipboard, enter:
 
   ``pbcopy < ~/.ssh/id_rsa.pub``
   
@@ -34,12 +36,13 @@ Or on Linux:
   
   ``xclip -sel clip < ~/.ssh/id_rsa.pub``
   
-In either case, replacing ``id_rsa`` with the filename you selected above. Now, just create a text file, paste the key into the file, and upload that file on the Account Application page.
+Now, just create a text file, paste the key into the file, and upload that file on the Account Application page.
 
 On Windows
 ^^^^^^^^^^
 On a Windows machine, download and install `PuTTY <http://www.chiark.greenend.org.uk/~sgtatham/putty/>`_, an SSH protocol client program for Windows. Navigate to the Start menu, and under the PuTTY submenu open the PuTTYgen program. Press Generate
-.. more to be added here
+..more to be added here
+
 
 
 OSDC Monthly Maintenance
@@ -47,10 +50,11 @@ OSDC Monthly Maintenance
 Monthly maintenance will take place on the last Tuesday of each month at 0900CT. Please make sure to save your work and shutdown all instances by that time. A reminder will be sent each month.
 
 
+
 Connecting to the OSDC
 ----------------------
-Connection to the OSDC can be done through two ways: connection through a Secure Shell (SSH), or connection through the Console.
-.. more to be added here
+Connection to the OSDC can be done through two ways: connection through a Secure Shell (SSH), or connection through the Console. 
+
 
 Connecting through SSH
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -62,11 +66,12 @@ To connect to the login server from a UNIX machine, open the Terminal and enter:
 
   ``ssh -A username@login2.opensciencedatacloud.org``
 
-Including ``-A`` is necessary because it will allow the server to forward your credentials to the virtual machine (VM). Otherwise, you will get an error when you attempt to connect to the VM. You will be prompted for a passphrase; this will be the passphrase you selected when generating the key. Enter it. 
+Including ``-A`` allows for `agent forwarding <http://www.unixwiz.net/techtips/ssh-agent-forwarding.html>`_; it is necessary because it will allow the server to forward your credentials to the virtual machine (VM). If it is not included, you will get an error when you attempt to connect to the VM. You will be prompted for a passphrase; this will be the passphrase you selected when generating the key. Enter it. 
 
 SSH on Windows
 ^^^^^^^^^^^^^^
 To connect to the login server from a Windows machine, 
+
 
 Connection through the Console
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

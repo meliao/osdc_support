@@ -1,14 +1,14 @@
 Introduction to the Open Science Data Cloud
 ===========================================
 
-The `Open Science Data Cloud <www.opensciencedatacloud.org>`_ is a distributed, cloud-based infrastructure for managing, analyzing, archiving and sharing scientific datasets.
+The `Open Science Data Cloud <https://opensciencedatacloud.org>`_ is a distributed, cloud-based infrastructure for managing, analyzing, archiving and sharing scientific datasets.
 
 
 
 "Big-Picture" Diagram of OSDC Infrastructure
 --------------------------------------------
 
-The Open Science Data Cloud is currently composed of **Adler**, a cloud based on Eucalyptus, and **Sullivan**, a cloud based on OpenStack.
+The Open Science Data Cloud is currently composed two cloud systems: **Adler**, based on `Eucalyptus <http://www.eucalyptus.com/eucalyptus-cloud/iaas>`_; and **Sullivan**, based on `OpenStack <http://www.openstack.org/>`_.
 
 ``Internet (users)``
 
