@@ -8,12 +8,37 @@ The `Open Science Data Cloud <https://opensciencedatacloud.org>`_ is a distribut
 "Big-Picture" Diagram of OSDC Infrastructure
 --------------------------------------------
 
-The Open Science Data Cloud is currently composed two cloud systems: **Adler**, based on `Eucalyptus <http://www.eucalyptus.com/eucalyptus-cloud/iaas>`_; and **Sullivan**, based on `OpenStack <http://www.openstack.org/>`_.
+.. figure:: OSDCinfrastructure.png
+   :height: 392
+   :width: 531
+   :align: center
 
-``Internet (users)``
+   Figure illustrating OSDC infrastructure
+
+   Figure legend: 
+
+   +-----------------------+-------------------------------------------------------------------------------+
+   | Element               | Description								   |
+   +=======================+===============================================================================+
+   |     		   |										   |
+   | .. image:: user.png   | You (internet user)							   |
+   |  	:width: 30         |		   								   |
+   |	:height: 29        |                         							   |
+   |	                   |										   |	
+   |			   |										   |
+   |			   |                        							   |
+   +-----------------------+-------------------------------------------------------------------------------+
+   | **Adler**             | `Eucalyptus <http://www.eucalyptus.com/eucalyptus-cloud/iaas>`_ based cloud   |
+   +-----------------------+-------------------------------------------------------------------------------+
+   | **Sullivan**          | `OpenStack <http://www.openstack.org/>`_ based cloud                          |
+   +-----------------------+-------------------------------------------------------------------------------+
+   | **GlusterFS**         | Shared file system local to the cloud                                         |
+   +-----------------------+-------------------------------------------------------------------------------+
+   | **Root**              | Public data storage location shared by the clouds                             |
+   +-----------------------+-------------------------------------------------------------------------------+
+
 
 ``ssh -A login1.opensciencedatacloud.org (Adler)`` or ``ssh -A login2.opensciencedatacloud.org (Sullivan)``
 
 ``Open Science Data Cloud (VMs) -->-- NAT -->-- Internet``
 
-``GlusterFs/CIFS (shared filesystem)``
