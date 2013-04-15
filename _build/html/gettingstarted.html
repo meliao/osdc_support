@@ -1,0 +1,208 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Getting Started with the Open Science Data Cloud &mdash; Open Science Data Cloud 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Open Science Data Cloud 1.0 documentation" href="index.html" />
+    <link rel="next" title="Open Science Data Cloud Basic Usage" href="basicusage.html" />
+    <link rel="prev" title="Introduction to the Open Science Data Cloud" href="intro.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="basicusage.html" title="Open Science Data Cloud Basic Usage"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="intro.html" title="Introduction to the Open Science Data Cloud"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Open Science Data Cloud 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="getting-started-with-the-open-science-data-cloud">
+<h1>Getting Started with the Open Science Data Cloud<a class="headerlink" href="#getting-started-with-the-open-science-data-cloud" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="who-should-apply-for-an-osdc-account">
+<h2>Who should apply for an OSDC Account?<a class="headerlink" href="#who-should-apply-for-an-osdc-account" title="Permalink to this headline">¶</a></h2>
+<p>The OSDC is intended to provide resources for scientists and researchers that are working on data-intensive projects...</p>
+</div>
+<div class="section" id="requesting-an-oscd-account">
+<h2>Requesting an OSCD Account<a class="headerlink" href="#requesting-an-oscd-account" title="Permalink to this headline">¶</a></h2>
+<p>To request an account on the OSDC, please visit the <a class="reference external" href="https://www.opensciencedatacloud.org/apply/">Account Application page</a> and provide the necessary information.</p>
+<div class="section" id="key-generation">
+<h3>Key Generation<a class="headerlink" href="#key-generation" title="Permalink to this headline">¶</a></h3>
+<p>To apply for an account on the OSDC, you must provide an SSH public key. This key will allow you to connect to the login server through a Secure Shell (SSH). The SSH public key is one half of a SSH keypair, which is for secure interactions between two networked computers.</p>
+<div class="section" id="on-unix">
+<h4>On UNIX<a class="headerlink" href="#on-unix" title="Permalink to this headline">¶</a></h4>
+<p>On a UNIX machine (a machine running Linux, Mac OS X, etc.) open Terminal. Enter (with your own email address):</p>
+<blockquote>
+<div><tt class="docutils literal"><span class="pre">ssh-keygen</span> <span class="pre">-t</span> <span class="pre">rsa</span> <span class="pre">-C</span> <span class="pre">&quot;youremail&#64;yourdomain.ext&quot;\</span></tt></div></blockquote>
+<p>You will be prompted to enter a filename; if the default presented is <tt class="docutils literal"><span class="pre">id_rsa</span></tt>, just press enter to accept. If the default presented is not that name, it may be because another file by that name already exists. Check the the ~/.ssh directory, and if this is the case, you should back up the existing <tt class="docutils literal"><span class="pre">id_rsa</span></tt> file. After checking and backing up if the file already existed, enter <tt class="docutils literal"><span class="pre">id_rsa</span></tt> for the filename of the new keypair you are generating. You will then be prompted for a passphrase. After entering a passphrase for the key, your public-private keypair will have been generated.</p>
+<p>Now, you must copy the <em>public</em> key to a plain text file to upload on the Account Application page. It is important to note that you should <strong>never</strong> share your private key with another party; sharing is what the public key is for. Sharing your private key could allow others to maliciously access systems that you trust. If you are using Mac OS X, to copy your public key to your clipboard, enter:</p>
+<blockquote>
+<div><tt class="docutils literal"><span class="pre">pbcopy</span> <span class="pre">&lt;</span> <span class="pre">~/.ssh/id_rsa.pub</span></tt></div></blockquote>
+<p>Or on Linux:</p>
+<blockquote>
+<div><p><tt class="docutils literal"><span class="pre">sudo</span> <span class="pre">apt-get</span> <span class="pre">install</span> <span class="pre">xclip</span></tt></p>
+<p><tt class="docutils literal"><span class="pre">xclip</span> <span class="pre">-sel</span> <span class="pre">clip</span> <span class="pre">&lt;</span> <span class="pre">~/.ssh/id_rsa.pub</span></tt></p>
+</div></blockquote>
+<p>Now, just create a text file, paste the key into the file, and upload that file on the Account Application page.</p>
+</div>
+<div class="section" id="on-windows">
+<h4>On Windows<a class="headerlink" href="#on-windows" title="Permalink to this headline">¶</a></h4>
+<p>On a Windows machine, download and install <a class="reference external" href="http://www.chiark.greenend.org.uk/~sgtatham/putty/">PuTTY</a>, an SSH protocol client program for Windows. Navigate to the Start menu, and under the PuTTY submenu open the PuTTYgen program. Press Generate
+..more to be added here</p>
+</div>
+</div>
+</div>
+<div class="section" id="osdc-monthly-maintenance">
+<h2>OSDC Monthly Maintenance<a class="headerlink" href="#osdc-monthly-maintenance" title="Permalink to this headline">¶</a></h2>
+<p>Monthly maintenance will take place on the last Tuesday of each month at 0900CT. Please make sure to save your work and shutdown all instances by that time. A reminder will be sent each month.</p>
+</div>
+<div class="section" id="connecting-to-the-osdc">
+<h2>Connecting to the OSDC<a class="headerlink" href="#connecting-to-the-osdc" title="Permalink to this headline">¶</a></h2>
+<p>Connection to the OSDC can be done through two ways: connection through a Secure Shell (SSH), or connection through the Console.</p>
+<div class="section" id="connecting-through-ssh">
+<h3>Connecting through SSH<a class="headerlink" href="#connecting-through-ssh" title="Permalink to this headline">¶</a></h3>
+<a class="reference internal image-reference" href="_images/keyforwarding.png"><img alt="_images/keyforwarding.png" class="align-left" src="_images/keyforwarding.png" style="width: 303.3px; height: 416.4px;" /></a>
+<p>Secure Shell (SSH) is a network protocol that allows for secure communication between two networked computers over an unsecured network (e.g., the Internet). It is the protocol that is used to connect to the OSDC through a command line interaface. The method for connecting depends on the operating system of the machine you are using.</p>
+<div class="section" id="ssh-on-a-unix-machine">
+<h4>SSH on a UNIX Machine<a class="headerlink" href="#ssh-on-a-unix-machine" title="Permalink to this headline">¶</a></h4>
+<p>To connect to the login server from a UNIX machine, open the Terminal and enter:</p>
+<blockquote>
+<div><tt class="docutils literal"><span class="pre">ssh</span> <span class="pre">-A</span> <span class="pre">username&#64;login2.opensciencedatacloud.org</span></tt></div></blockquote>
+<p>Including <tt class="docutils literal"><span class="pre">-A</span></tt> allows for <a class="reference external" href="http://www.unixwiz.net/techtips/ssh-agent-forwarding.html">agent forwarding</a>; it is necessary because it will allow the server to forward your credentials to the virtual machine (VM). See figure above. If it is not included, you will get an error when you attempt to connect to the VM. You will be prompted for a passphrase; this will be the passphrase you selected when generating the key. Enter it.</p>
+</div>
+<div class="section" id="ssh-on-windows">
+<h4>SSH on Windows<a class="headerlink" href="#ssh-on-windows" title="Permalink to this headline">¶</a></h4>
+<p>To connect to the login server from a Windows machine,</p>
+</div>
+</div>
+<div class="section" id="connection-through-the-console">
+<h3>Connection through the Console<a class="headerlink" href="#connection-through-the-console" title="Permalink to this headline">¶</a></h3>
+<p>The OCDC allows two options for login through the <a class="reference external" href="www.opensciencedatacloud.org/console/">Console</a>; Shibboleth and OpenID. If you have an account with a college or university, select <tt class="docutils literal"><span class="pre">Shibboleth</span></tt> and then select your institution. Enter and submit your credentials associated with that account (<em>not</em> your OSDC account). If you don&#8217;t have an account with a college or university, enter your OpenID credentials to gaina ccess to the Console.</p>
+<p>After logging in, it is necessary to establish an SSH keypair for your work on the OSDC. Navigate to the &#8220;Access &amp; Control&#8221; page. Now, select &#8220;Import Keypair.&#8221; Enter a name for the keypair (traditionally firstinitiallastname), and then copy and paste your public key as described above (<a href="#id1"><span class="problematic" id="id2">*</span></a>hyperlink). Select &#8220;All resources&#8221; from the drop-down menu, and press submit. This will have established a keypair for use by the OSDC.</p>
+</div>
+</div>
+<div class="section" id="workflow">
+<h2>Workflow<a class="headerlink" href="#workflow" title="Permalink to this headline">¶</a></h2>
+<p>ssh to the login server</p>
+<p>start a VM</p>
+<p>ssh to VM</p>
+<p>mount shared filesystem with own credentials</p>
+<p>…compute!…</p>
+<p>when all done, stop your VM</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Getting Started with the Open Science Data Cloud</a><ul>
+<li><a class="reference internal" href="#who-should-apply-for-an-osdc-account">Who should apply for an OSDC Account?</a></li>
+<li><a class="reference internal" href="#requesting-an-oscd-account">Requesting an OSCD Account</a><ul>
+<li><a class="reference internal" href="#key-generation">Key Generation</a><ul>
+<li><a class="reference internal" href="#on-unix">On UNIX</a></li>
+<li><a class="reference internal" href="#on-windows">On Windows</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#osdc-monthly-maintenance">OSDC Monthly Maintenance</a></li>
+<li><a class="reference internal" href="#connecting-to-the-osdc">Connecting to the OSDC</a><ul>
+<li><a class="reference internal" href="#connecting-through-ssh">Connecting through SSH</a><ul>
+<li><a class="reference internal" href="#ssh-on-a-unix-machine">SSH on a UNIX Machine</a></li>
+<li><a class="reference internal" href="#ssh-on-windows">SSH on Windows</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#connection-through-the-console">Connection through the Console</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#workflow">Workflow</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="intro.html"
+                        title="previous chapter">Introduction to the Open Science Data Cloud</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="basicusage.html"
+                        title="next chapter">Open Science Data Cloud Basic Usage</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/gettingstarted.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="basicusage.html" title="Open Science Data Cloud Basic Usage"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="intro.html" title="Introduction to the Open Science Data Cloud"
+             >previous</a> |</li>
+        <li><a href="index.html">Open Science Data Cloud 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2013, Tyler Kissinger.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2pre.
+    </div>
+  </body>
+</html>

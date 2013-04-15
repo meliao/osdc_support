@@ -1,0 +1,14 @@
+osdc-docs/TODO.txt
+==================
+
+
+Additions
+---------
+Make a quick start guide. 
+Explain the process of key generation through the console.
+Translate the euca commands into nova commands 
+
+
+Enhancements
+------------
+More information about key sharing?
