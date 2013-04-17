@@ -17,6 +17,9 @@ The `Open Science Data Cloud <https://opensciencedatacloud.org>`_ is a distribut
 
    Figure legend: 
 
+
+
+
    +-----------------------+-------------------------------------------------------------------------------+
    | Element               | Description								   |
    +=======================+===============================================================================+
@@ -26,7 +29,7 @@ The `Open Science Data Cloud <https://opensciencedatacloud.org>`_ is a distribut
    |	:height: 29        |                         							   |
    |	                   |										   |	
    |			   |										   |
-   |			   |                        							   |
+   |		   |                        							   |
    +-----------------------+-------------------------------------------------------------------------------+
    | **Adler**             | `Eucalyptus <http://www.eucalyptus.com/eucalyptus-cloud/iaas>`_ based cloud   |
    +-----------------------+-------------------------------------------------------------------------------+
@@ -37,6 +40,17 @@ The `Open Science Data Cloud <https://opensciencedatacloud.org>`_ is a distribut
    | **Root**              | Public data storage location shared by the clouds                             |
    +-----------------------+-------------------------------------------------------------------------------+
 
+<<<<<<< HEAD
+=======
+
+.. image:: _static/OSDCinfrastructure.png
+   :height: 784
+   :width: 1062
+   :scale: 45
+   :alt: "Big-Picture" Diagram of OSDC Infrastructure
+
+``Internet (users)``
+>>>>>>> 4e42cf3e9d3f08da39a6507b72ace7b1fd1a0bcc
 
 ``ssh -A login1.opensciencedatacloud.org (Adler)`` or ``ssh -A login2.opensciencedatacloud.org (Sullivan)``
 
