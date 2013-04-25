@@ -13,7 +13,7 @@ Contents:
 
    intro
    quickstart
-   tukey
+   console
    commandline
    ssh_troubleshooting
 

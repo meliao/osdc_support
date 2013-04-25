@@ -1,4 +1,4 @@
-Using Tukey, The OSDC Console
+Using The OSDC Console
 =============================
 Once you have an `OSDC account  <https://www.opensciencedatacloud.org/apply/>`_ you can manage your cloud resources through the `OSDC Console <https://www.opensciencedatacloud.org/consle/>`_ .
 
@@ -27,7 +27,7 @@ Example:
 
 .. figure:: _static/create_keypair.png
 
-* Launch and instance and select the keypair "osdc_keypair.
+* Launch and instance and select the keypair "osdc_keypair".
 * If you are using OpenSSH (see :doc:`/ssh_troubleshooting` for other SSH clients) ``ssh-add osdc_keypair.pem``
 * ``ssh -A -i osdc_keypair.pem login2.opensciencedatacloud.org`` to access the login node.
 * SSH to your vm ``ssh ubuntu@INSTANCE_IP``.  If you are not launching instances on the Sullivan cloud replace login2.opensciencedatacloud.org with the hostname of that cloud and replace ubuntu as shown in :doc:`/quickstart`
