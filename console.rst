@@ -5,9 +5,24 @@ Once you have an `OSDC account  <https://www.opensciencedatacloud.org/apply/>`_ 
 
 Login
 -----
-Users authenticate to the OSDC console using Single Sign-On.  We recommend users login using The `InCommon Federation <https://incommon.org/federation/>`_.  If you do not have credentials from a `participating organization <https://incommon.org/federation/info/all-entities.html>`_ you can use Google or Yahoo!
+Users authenticate to the OSDC console using Single Sign-On.  We recommend users login using credentials from an institution or organization that is part of `The InCommon Federation <https://incommon.org/federation/>`_.  If you are not affiliated with a `participating organization <https://incommon.org/federation/info/all-entities.html>`_ you can use a gmail or yahoo account.
 
-To sign in select the organization of the "Login E-mail" you provided in your application.  For example if I entered mgreenway@uchicago.edu in my application I would select "University of Chicago".  The console will then redirect to your identity provider's login page.  Once you have authenticated your identity provider will redirect you back to the OSDC Console.
+
+Example
+^^^^^^^
+* Select the organization of the "Login E-mail" from your application.  If my Login E-mail is mgreenway@uchicago.edu I would select "University of Chicago".
+
+.. figure:: _static/login.png
+    :alt: Single Sign-On Identity Provider Selection
+    :align: center
+
+    Select Your Identity Provider
+
+* Click "Sign in".  The console will redirect to your institution's login page.
+
+* Once you authenticate your institution will redirect you back to the OSDC Console.
+
+
 
 
 Managing SSH Keys
@@ -26,6 +41,9 @@ Example:
 * Click "Create Keypair"
 
 .. figure:: _static/create_keypair.png
+    :alt: Create Keypair Dialog with Choices Made
+
+    Enter the Keypair Details
 
 * Launch and instance and select the keypair "osdc_keypair".
 * If you are using OpenSSH (see :doc:`/ssh_troubleshooting` for other SSH clients) ``ssh-add osdc_keypair.pem``
@@ -35,7 +53,7 @@ Example:
 
 Importing Keys
 ~~~~~~~~~~~~~~
-To import a public key click "Import Keypair" name the keypair then paste the OpenSSH format text of the public key into the Public Key field.  The public key text must all be on one line.  Then select the resource you will use this keypair to access.
+To import a public key click "Import Keypair".  Enter a name for the keypair then paste the OpenSSH format text of the public key into the Public Key field.  The public key text must all be on one line.  Then select the resource you will use this keypair to access.
 
 
 Differences Between Protected Clouds and Public Clouds
