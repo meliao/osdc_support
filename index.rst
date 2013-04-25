@@ -15,7 +15,7 @@ Contents:
    quickstart
    basicusage
    ssh_troubleshooting
-   tukey
+   console
 
 
 Indices and tables

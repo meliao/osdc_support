@@ -3,9 +3,9 @@ Trouble Shooting SSH connections
 
 Can not ssh into the Login nodes?
 ---------------------------------
-    #. Have you Uploaded your Key via tukey :doc:`/tukey` ?
+    #. Have you Uploaded your Key via tukey :doc:`/console` ?
     #. Have you loaded your private key in :ref:`a ssh agent <ssh-key-forwarding>` ?
-   
+
 Can you not login to your VM's once created.
 --------------------------------------------
     #. :ref:`Ensure that you have enabled ssh key forwarding <ssh-key-forwarding>` ?
@@ -66,10 +66,10 @@ Showing keys loaded into your agent on Linux/OSX/etc
 ----------------------------------------------------
 Running the ``ssh-add -l``  command will display all keys currently loaded into your ssh agent.  Run this command from a shell (if not using putty) before ssh'ing into the login node to confirm that your key is properly loaded. Run it again once you have ssh'ed into the login node to confirm the key has properly forwarded.  If you do not see the key showing up on the login node, you will not be able to access your started Virtual Machines.
 
-Example Output: 
+Example Output:
 .. code-block:: bash
 
-    $ ssh-add -l 
+    $ ssh-add -l
     1024 1a:22:33:44:55:66:77:88:99:aa:bb:cc:dd:ee:ff:f1 /Users/JohnSmith/.ssh/id_dsa (DSA)`
 
 .. _ssh-A:
@@ -80,6 +80,6 @@ Once your agent is configured you need to enable forwarding.  You can use any on
 
 * Open the ``ssh_config`` file located globally at ``/etc/ssh/ssh_config`` or locally at ``~/.ssh/config``. If this file does not exist under ``~/.ssh/`` then create it.  Add the following line ``ForwardAgent yes`` to this file.  All new connections will use forwarding.
 * When ssh'ing to the login node, use the ``-A`` flag.  This turns on forwarding on a case by case basis.  IF you have multiple login nodes that you are transversing, you will need to use the ``-A`` flag for all hops.  Example: ``ssh -A JohnSmith@sullivan.opensciencedatacloud.org``
-* Alias ``ssh -A`` as ``ssh`` via your shells prefered method.  On bash you can ``ALIAS ssh='ssh -A'``. 
+* Alias ``ssh -A`` as ``ssh`` via your shells prefered method.  On bash you can ``ALIAS ssh='ssh -A'``.
 
 
