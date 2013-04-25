@@ -12,10 +12,11 @@ Contents:
    :maxdepth: 2
 
    intro
-   quickstart   
+   quickstart
    basicusage
    ssh_troubleshooting
-   
+   tukey
+
 
 Indices and tables
 ==================
