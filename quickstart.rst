@@ -10,7 +10,7 @@ OSDC Quickstart
 
 4. From the console, launch a virtual machine (VM) (details ref)
 
-5. From a terminal, or a program like PuTTY in Windows, access your virtual machine by first ssh'ing into the appropriate login node with the username provided to you and then ssh'ing to your VM. If you're having trouble, please see :doc:`ssh_troubleshooting`. The login nodes and the user to login into your VM is:
+5. From a terminal, or a program like PuTTY in Windows, access your virtual machine by first ssh'ing into the appropriate login node with the username provided to you and then ssh'ing to your VM. If you're having trouble, please see :doc:`ssh_troubleshooting`. The login nodes and the user to login into your VM are:
 
   =============  ====================================== ==================
   Cloud          Login Node                             VM Username
