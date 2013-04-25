@@ -187,7 +187,7 @@ latex_elements = {
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
   ('index', 'OpenScienceDataCloud.tex', u'Open Science Data Cloud Documentation',
-   u'Tyler Kissinger', 'manual'),
+   u'Open Science Data Cloud', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
@@ -217,7 +217,7 @@ latex_documents = [
 # (source start file, name, description, authors, manual section).
 man_pages = [
     ('index', 'opensciencedatacloud', u'Open Science Data Cloud Documentation',
-     [u'Tyler Kissinger'], 1)
+     ['Open Science Data Cloud'], 1)
 ]
 
 # If true, show URL addresses after external links.
