@@ -13,15 +13,9 @@ Contents:
 
    intro
    quickstart
-   basicusage
-   ssh_troubleshooting
    console
+   commandline
+   ssh_troubleshooting
 
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
 * :ref:`search`
 
