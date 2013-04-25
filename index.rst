@@ -3,7 +3,7 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Open Science Data Cloud's documentation!
+Open Science Data Cloud (OSDC) Documentation
 ===================================================
 
 Contents:
@@ -12,8 +12,10 @@ Contents:
    :maxdepth: 2
 
    intro
+   quickstart   
    gettingstarted
    basicusage
+   ssh_troubleshooting
    
 
 Indices and tables
