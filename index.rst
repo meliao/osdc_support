@@ -13,7 +13,6 @@ Contents:
 
    intro
    quickstart   
-   gettingstarted
    basicusage
    ssh_troubleshooting
    
