@@ -40,4 +40,4 @@ To import a public key click "Import Keypair" name the keypair then paste the Op
 
 Differences Between Protected Clouds and Public Clouds
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-On public clouds such as Adler and Sullivan you must have keypair for your virtual machine instances.  On protected clouds your home directory is shared between the login nodes and the virtual machines.  On both public and protect clouds you will need a keypair for the login server.  On protected clouds you can use this same keypair to access VMs using SSH key forwarding.
+On public clouds such as Adler and Sullivan you must have a keypair for your virtual machine instances.  On protected clouds your home directory is shared between the login nodes and the virtual machines.  On both public and protect clouds you will need a keypair for the login server.  On protected clouds you can use this same keypair to access VMs using SSH key forwarding.
