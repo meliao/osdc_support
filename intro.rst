@@ -1,56 +1,22 @@
-Introduction to the Open Science Data Cloud
+Introduction to the OSDC
 ===========================================
 
-The `Open Science Data Cloud <https://opensciencedatacloud.org>`_ is a distributed, cloud-based infrastructure for managing, analyzing, archiving and sharing scientific datasets.
+The `Open Science Data Cloud <https://opensciencedatacloud.org>`_
+(OSDC) is a distributed, cloud-based infrastructure for managing,
+analyzing, archiving and sharing scientific datasets. 
 
+The OSDC operates two major public compute clouds named Adler and Sullivan and one storage cloud named Root. Adler is a `Eucalyptus <http://www.eucalyptus.com/>`_ based cloud and is also the host of Bionimbus Community Cloud. Sullivan is a newer `OpenStack <http://www.openstack.org/>`_ based cloud and the default cloud new users are placed on. Root hosts about 1 PB of `public datasets <http://www.opensciencedatacloud.org/publicdata>`_ and is accessible from all of the OSDC clouds.
 
+The OSDC also operates several protected clouds to provide platforms for users to compute over large protected human genomic datasets. These include the `Bionimbus Protected Data Cloud <https://bionimbus-pdc.opensciencedatacloud.org>`_ and the `Bionimbus Conte Cloud <http://www.contechicago.org/conte-cores/core-b>`_.
 
-"Big-Picture" Diagram of OSDC Infrastructure
---------------------------------------------
+Each cloud has a distributed `Gluster File System <http://www.gluster.org/>`_ where users can store their data and access from all of their VMs.
 
-.. figure:: OSDCinfrastructure.png
-   :height: 392
-   :width: 531
+The OSDC manages two Hadoop clusters, OCC-Y and LVOC, for select projects. The current documentation here does not cover the Hadoop clusters. if you are interested in these please contact us at info@opencloudconsortium.org.
+
+.. figure:: _static/OSDCinfrastructure.png
+   :width: 500
+   :height: 396
+   :alt: Overview of OSDC Public Infrastructure
    :align: center
 
-   Figure illustrating OSDC infrastructure
-
-   Figure legend: 
-
-
-
-
-   +-----------------------+-------------------------------------------------------------------------------+
-   | Element               | Description								   |
-   +=======================+===============================================================================+
-   |     		   |										   |
-   | .. image:: user.png   | You (internet user)							   |
-   |  	:width: 30         |		   								   |
-   |	:height: 29        |                         							   |
-   |	                   |										   |	
-   |			   |										   |
-   |		   |                        							   |
-   +-----------------------+-------------------------------------------------------------------------------+
-   | **Adler**             | `Eucalyptus <http://www.eucalyptus.com/eucalyptus-cloud/iaas>`_ based cloud   |
-   +-----------------------+-------------------------------------------------------------------------------+
-   | **Sullivan**          | `OpenStack <http://www.openstack.org/>`_ based cloud                          |
-   +-----------------------+-------------------------------------------------------------------------------+
-   | **GlusterFS**         | Shared file system local to the cloud                                         |
-   +-----------------------+-------------------------------------------------------------------------------+
-   | **Root**              | Public data storage location shared by the clouds                             |
-   +-----------------------+-------------------------------------------------------------------------------+
-
-=======
-
-.. image:: _static/OSDCinfrastructure.png
-   :height: 784
-   :width: 1062
-   :scale: 45
-   :alt: "Big-Picture" Diagram of OSDC Infrastructure
-
-``Internet (users)``
-
-``ssh -A login1.opensciencedatacloud.org (Adler)`` or ``ssh -A login2.opensciencedatacloud.org (Sullivan)``
-
-``Open Science Data Cloud (VMs) -->-- NAT -->-- Internet``
-
+   Overview of OSDC Public Infrastructure

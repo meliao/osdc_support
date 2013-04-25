@@ -41,7 +41,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'Open Science Data Cloud'
-copyright = u'2013, Tyler Kissinger'
+copyright = u'2013, Open Science Data Cloud'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
