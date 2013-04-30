@@ -62,24 +62,30 @@ On public clouds such as Adler and Sullivan you must have a keypair for your vir
 
 Video Tutorial
 ~~~~~~~~~~~~~~
+
+Using the OSDC - Logging in for the First Time
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. raw:: html
 
-        <object width="480" height="385"><param name="movie"
+        <p><object width="480" height="385"><param name="movie"
         value="http://www.youtube.com/v/QXo89lttfUM&hl=en_US&fs=1&rel=0"></param><param
         name="allowFullScreen" value="true"></param><param
         name="allowscriptaccess" value="always"></param><embed
         src="http://www.youtube.com/v/QXo89lttfUM&hl=en_US&fs=1&rel=0"
         type="application/x-shockwave-flash" allowscriptaccess="always"
         allowfullscreen="true" width="480"
-        height="385"></embed></object>
+        height="385"></embed></object></p>
+
+Using the OSDC - Launching and Instance
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. raw:: html
 
-        <object width="480" height="385"><param name="movie"
+        <p><object width="480" height="385"><param name="movie"
         value="http://www.youtube.com/v/2aPMOhCgIHw&hl=en_US&fs=1&rel=0"></param><param
         name="allowFullScreen" value="true"></param><param
         name="allowscriptaccess" value="always"></param><embed
         src="http://www.youtube.com/v/2aPMOhCgIHw&hl=en_US&fs=1&rel=0"
         type="application/x-shockwave-flash" allowscriptaccess="always"
         allowfullscreen="true" width="480"
-        height="385"></embed></object>
+        height="385"></embed></object></p>
