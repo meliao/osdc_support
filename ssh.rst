@@ -100,6 +100,7 @@ Windows
 Convert OpenSSH key to Putty ppk format
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     Pageant.exe uses a different format then openssh for its keys.  We will need to convert the key to the ppk format.  
+
     #. Start PuttyGen.exe
     #. Click ``Conversions``, then Click ``Import Key``
     #. Select the key you created and saved.  A screen will update extracting details from your key.  If your key is passworded you will need to manually enter the passphrase next to  ``Key passphrase`` and ``Confirm passphrase``.
