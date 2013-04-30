@@ -77,7 +77,7 @@ Using the OSDC - Logging in for the First Time
         allowfullscreen="true" width="480"
         height="385"></embed></object></p>
 
-Using the OSDC - Launching and Instance
+Using the OSDC - Launching an Instance
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. raw:: html
 
