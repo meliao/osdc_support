@@ -106,6 +106,10 @@ Convert OpenSSH key to Putty ppk format
     #. Select the key you created and saved.  A screen will update extracting details from your key.  If your key is passworded you will need to manually enter the passphrase next to  ``Key passphrase`` and ``Confirm passphrase``.
     #. Click ``Save private key``
     #. This will now save the private key in a format understandable by Pageant
+        .. figure:: _static/puttygen.png
+            :alt: PuttyGen.exe main screen
+            :align: center
+
 
 .. _ssh-windows-pageant:
 
@@ -113,15 +117,24 @@ Start Pageant
 ~~~~~~~~~~~~~
     #. Start Pageant.exe
     #. If the key is not listed in ``Pageant Key List``, Click ``Add``, then add the ppk file that you created ref:`above <ssh-windows-puttygen>`.  If it is already listed simply minimize Pageant.
+        .. figure:: _static/pageant.png
+            :alt: Pageant.exe import screen
+            :align: center
 
 .. _ssh-windows-putty:
 
 Configuring Putty to use SSH Key Forwarding and Pageant
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    #. Open Putty, 
+    #. Open Putty
+        .. figure:: _static/putty.png
+            :alt: Putty.exe main screen
+            :align: center
     #. Set ``Host Name (or IP address)`` to the hostname of the target login server provided to you. Port will be the default ``22``
     #. On the left side is a tree of available options called ``Category``.  Locate ``Connection`` and expand it, locate  ``SSH`` and expand it, finally select Auth.  
     #. Make sure the checkboxes for "Attempt authentication using Pageant" and "Allow ageant forwarding” are selected.  Select them if not
+        .. figure:: _static/putty-config-auth.png
+            :alt: Putty.exe config auth screen
+            :align: center
     #. Return to the ``Session`` category and enter a name for this session under ``Saved Sessions``, then click save.  From now on you need only ``Load`` this session to have all the proper settings preset.
 
 
