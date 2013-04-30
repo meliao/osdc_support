@@ -1,4 +1,4 @@
-Connecting via SSH
+SSH Connections
 ==================
 
 How to connect initially
@@ -8,15 +8,15 @@ How to connect initially
 
 
 Troubleshooting your ssh connections
-====================================
+------------------------------------
 
 Can not ssh into the Login nodes?
----------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     #. Have you created/uploaded  your ssh key pairs via web console: :doc:`/console` ?
     #. Have you loaded your private key into a ssh ageant?  :ref:`Linux/OSX  <ssh-linux-ageant>` :ref:`Windows <ssh-windows-puttygen>` ?
    
 Can you not login to your VM's once created.
---------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     #. Ensure that you have loaded your keys in your ageant. :ref:`Linux/OSX <ssh-linux-ageant>` or :ref:`Windows <ssh-windows-pageant>` ?
     #. Ensure that you have enabled ssh key forwarding :ref:`Linux/OSX <ssh-key-forwarding>` or :ref:`Windows <ssh-windows-putty>` ?
     #. :ref:`Is the ssh key showing up as forwarded on the login node <display-ageant-keys>`?
@@ -25,10 +25,10 @@ Can you not login to your VM's once created.
 .. _ssh-linux:
 
 Linux/OSX
-=========
+---------
 
 Loading your private key into an SSH ageant
--------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. _ssh-linux-ageant:
 
@@ -70,7 +70,7 @@ Script to Auto start the ssh ageant
 .. _display-ageant-keys:
 
 Showing keys loaded into your ageant on Linux/OSX/etc
-------------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     Running the ``ssh-add -l``  command will display all keys currently loaded into your ssh ageant.  Run this command from a shell (if not using putty) before ssh'ing into the login node to confirm that your key is properly loaded. Run it again once you have ssh'ed into the login node to confirm the key has properly forwarded.  If you do not see the key showing up on the login node, you will not be able to access your started Virtual Machines.
     Example Output
 
@@ -82,7 +82,7 @@ Showing keys loaded into your ageant on Linux/OSX/etc
 .. _ssh-key-forwarding:
 
 Enabling SSH key forwarding
----------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
     Once your ageant is configured you need to enable forwarding.  You can use any one of the below methods.
 
     * Open the ``ssh_config`` file located globally at ``/etc/ssh/ssh_config`` or locally at ``~/.ssh/config``. If this file does not exist under ``~/.ssh/`` then create it.  Add the following line ``ForwardAgent yes`` to this file.  All new connections will use forwarding.
@@ -93,12 +93,12 @@ Enabling SSH key forwarding
 .. _ssh-windows:
 
 Windows
-=======
+-------
 
 .. _ssh-windows-puttygen:
 
 Convert OpenSSH key to Putty ppk format
----------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     Pageant.exe uses a different format then openssh for its keys.  We will need to convert the key to the ppk format.  
     #. Start PuttyGen.exe
     #. Click ``Conversions``, then Click ``Import Key``
@@ -109,14 +109,14 @@ Convert OpenSSH key to Putty ppk format
 .. _ssh-windows-pageant:
 
 Start Pageant
--------------
+~~~~~~~~~~~~~
     #. Start Pageant.exe
     #. If the key is not listed in ``Pageant Key List``, Click ``Add``, then add the ppk file that you created ref:`above <ssh-windows-puttygen>`.  If it is already listed simply minimize Pageant.
 
 .. _ssh-windows-putty:
 
 Configuring Putty to use SSH Key Forwarding and Pageant
--------------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     #. Open Putty, 
     #. Set ``Host Name (or IP address)`` to the hostname of the target login server provided to you. Port will be the default ``22``
     #. On the left side is a tree of available options called ``Category``.  Locate ``Connection`` and expand it, locate  ``SSH`` and expand it, finally select Auth.  

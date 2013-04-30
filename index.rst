@@ -15,7 +15,7 @@ Contents:
    quickstart
    console
    commandline
-   ssh_troubleshooting
+   ssh
 
 * :ref:`search`
 
