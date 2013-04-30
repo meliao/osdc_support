@@ -12,7 +12,7 @@ Troubleshooting your ssh connections
 
 Can not ssh into the Login nodes?
 ---------------------------------
-    #. Have you created/uploaded  your ssh key pairs via tukey :doc:`/tukey` ?
+    #. Have you created/uploaded  your ssh key pairs via web console: :doc:`/console` ?
     #. Have you loaded your private key into a ssh ageant?  :ref:`Linux/OSX  <ssh-linux-ageant>` :ref:`Windows <ssh-windows-puttygen>` ?
    
 Can you not login to your VM's once created.
