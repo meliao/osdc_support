@@ -18,7 +18,7 @@ OSDC Quickstart
   OSDC Adler     login.opensciencedatacloud.org         root
   OSDC Sullivan  login2.opensciencedatacloud.org        ubuntu
   Bionimbus PDC  bionimbus-pdc.opensciencedatacloud.org same as login node
-  Conte          conte.opensciencedatacloud.org         same as login node
+  Conte          conte.bionimbus.org         same as login node
   =============  ====================================== ==================
 
 6. Compute over data!
