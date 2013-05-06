@@ -105,7 +105,7 @@ Convert OpenSSH key to Putty ppk format
     #. Start PuttyGen.exe
     #. Click ``Conversions``, then Click ``Import Key``
     #. Select the key you created and saved.  A screen will update
-       extracting details from your key.  If your key is passworded you will need to manually enter the pass phrase next to  ``Key pass phrase`` and ``Confirm pass phrase``.
+       extracting details from your key.  If your key is passworded you will need to manually enter the pass phrase next to  ``Key passphrase`` and ``Confirm passphrase``.
     #. Click ``Save private key``
     #. This will now save the private key in a format understandable by Pageant
         .. figure:: _static/puttygen.png
