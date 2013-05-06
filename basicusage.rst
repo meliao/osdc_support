@@ -1,6 +1,7 @@
 Open Science Data Cloud Basic Usage
 ======================================
-In your home directory on the login server (login1.opensciencedatacloud.org), there is a .euca subdirectory containing your EC2 (eucalyptus) credentials. This directory has mode 700 as it contains cryptographic keys for accessing EC2. Keep it protected.
+In your home directory on the login server
+(login1.opensciencedatacloud.org), there is a .euca subdirectory containing your EC2 (eucalyptus) credentials. This directory has mode 700 as it contains cryptographic keys for accessing EC2. Keep it protected.
 
 To list images, run:
 

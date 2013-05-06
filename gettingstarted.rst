@@ -64,7 +64,7 @@ Connecting through SSH
     :align: left
     :scale: 30
     
-Secure Shell (SSH) is a network protocol that allows for secure communication between two networked computers over an unsecured network (e.g., the Internet). It is the protocol that is used to connect to the OSDC through a command line interaface. The method for connecting depends on the operating system of the machine you are using.
+Secure Shell (SSH) is a network protocol that allows for secure communication between two networked computers over an unsecured network (e.g., the Internet). It is the protocol that is used to connect to the OSDC through a command line interface. The method for connecting depends on the operating system of the machine you are using.
 
 SSH on a UNIX Machine
 ^^^^^^^^^^^^^^^^^^^^^
