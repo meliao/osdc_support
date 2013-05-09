@@ -112,4 +112,4 @@ Why is there no root access on the PDC?
 
 Why is http access blocked on the VMs?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  All the VMs use an http_proxy that filters content based on a whitelist we maintain. If you need access to a specific resource let us know and we can easily add it to the whitelist.
+  All the VMs use an http_proxy that filters content based on a whitelist we maintain. If you need access to a specific resource, please `contact us <support@opensciencedatacloud.org>`_ and we can easily add it to the whitelist.
