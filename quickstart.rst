@@ -12,13 +12,13 @@ OSDC Quickstart
 
 5. From a terminal, or a program like PuTTY in Windows, access your virtual machine by first ssh'ing into the appropriate login node with the username provided to you and then ssh'ing to your VM. If you're having trouble, please see :doc:`ssh`. The login nodes and the user to login into your VM are:
 
-  =============  ====================================== ==================
-  Cloud          Login Node                             VM Username
-  =============  ====================================== ==================
-  OSDC Adler     login.opensciencedatacloud.org         root
-  OSDC Sullivan  login2.opensciencedatacloud.org        ubuntu
-  Bionimbus PDC  bionimbus-pdc.opensciencedatacloud.org same as login node
-  Conte          conte.bionimbus.org         same as login node
-  =============  ====================================== ==================
+  ====================  ====================================== ==================
+  Cloud                 Login Node                             VM Username
+  ====================  ====================================== ==================
+  OSDC Adler            login.opensciencedatacloud.org         root
+  OSDC Sullivan         login2.opensciencedatacloud.org        ubuntu
+  Bionimbus PDC         bionimbus-pdc.opensciencedatacloud.org same as login node
+  OSDC Atwood (Conte)   conte.bionimbus.org                    same as login node
+  ====================  ====================================== ==================
 
 6. Compute over data!
