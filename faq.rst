@@ -51,7 +51,7 @@ Why are there quotas?
 
 How do I contribute a new public data set?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  Please contact us and we can set up a folder where you place your public data for the community to use.
+  Please `contact us <support@opensciencedatacloud.org>`_ and we can set up a folder where you place your public data for the community to use.
 
 .. _osdc-6:
 
@@ -63,7 +63,7 @@ What is the fastest way to transfer data to/from the cloud?
 
 How do I share data with just my collaborators?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  Contact us and we can set up project groups that you can use to share data only with other users in that group. This is done by using Linux ACLs.
+  `Contact us <support@opensciencedatacloud.org>`_ and we can set up project groups that you can use to share data only with other users in that group. This is done by using Linux ACLs.
 
 .. _osdc-8:
 
