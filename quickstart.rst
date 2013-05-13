@@ -15,10 +15,10 @@ OSDC Quickstart
   ====================  ====================================== ==================
   Cloud                 Login Node                             VM Username
   ====================  ====================================== ==================
-  OSDC Adler            login.opensciencedatacloud.org         root
-  OSDC Sullivan         login2.opensciencedatacloud.org        ubuntu
+  OSDC Adler            adler.opensciencedatacloud.org         root
+  OSDC Sullivan         sullivan.opensciencedatacloud.org        ubuntu
   Bionimbus PDC         bionimbus-pdc.opensciencedatacloud.org same as login node
-  OSDC Atwood (Conte)   conte.bionimbus.org                    same as login node
+  OSDC Atwood (Conte)   atwood.opensciencedatacloud.org        same as login node
   ====================  ====================================== ==================
 
 6. Compute over data!
