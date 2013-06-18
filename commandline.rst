@@ -28,6 +28,7 @@ Start Instances
 OpenStack: ``nova boot <SERVER NAME> --image <IMAGE ID> --flavor <FLAVOR ID> --key_name <KEY NAME> --user_data ~/.smbpasswd.sh``
 
 The --user_data ~/.smbpasswd.sh provides the credentials to your VM to mount the GlusterFS share.
+On Sullivan you can also manually mount /glusterfs after the fact by running '/cloudconf/mount-glusterfs $USERNAME'.  The password is located in your home directory at "smbpassword.txt" 
 
 Eucalyptus: ``euca-run-instances -k <USER NAME> -n 1 -t <INSTANCE TYPE> <EMI ID>``
 
