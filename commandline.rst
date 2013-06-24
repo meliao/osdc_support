@@ -28,7 +28,7 @@ Start Instances
 OpenStack: ``nova boot <SERVER NAME> --image <IMAGE ID> --flavor <FLAVOR ID> --key_name <KEY NAME> --user_data ~/.smbpasswd.sh``
 
 The --user_data ~/.smbpasswd.sh provides the credentials to your VM to mount the GlusterFS share.
-On Sullivan you can also manually mount /glusterfs after the fact by running '/cloudconf/mount-glusterfs $USERNAME'.  The password is located in your home directory at "smbpassword.txt" 
+On Sullivan you can also manually mount /glusterfs after the fact by running '/cloudconf/mount-glusterfs $USERNAME'.  The password is located in your home directory at "smbpassword.txt"
 
 Eucalyptus: ``euca-run-instances -k <USER NAME> -n 1 -t <INSTANCE TYPE> <EMI ID>``
 
@@ -54,7 +54,7 @@ On the OpenStack clouds to create an image/snapshot:
 It's a good idea to make the new image name informative.
 
 By default the new images are private and can only be seen by you. To make images public:
-  ``glance update <IMAGE ID> is_public=true``
+  ``glance update <IMAGE ID> is_public=true image_type=snapshot``
 
 Adler (Eucalyptus)
 ~~~~~~~~~~~~~~~~~~
@@ -68,11 +68,11 @@ On the running VM run:
 Copy your .euca/ directory from the login1.opensciencedatacloud.org server to the instance. On the login server run:
 
   ``rsync -avu .euca root@INSTANCE_IP:`` (**Be sure to include the colon**)
-  
+
 Source euca env (inside running VM):
 
   ``source ~/.euca/eucarc``
-  
+
 Bundle the image:
 
   ``euca-bundle-image -d /scratch/ -i /scratch/"new-unique-name-DATE-ENUM"``
@@ -80,21 +80,21 @@ Bundle the image:
 Upload the bundle:
 
   ``euca-upload-bundle -b BUCKET_NAME -m /scratch/"new-unique-name-DATE-ENUM".manifest.xml``
-  
+
 Register the image:
   ``euca-register BUCKET_NAME/"new-unique-name-DATE-ENUM".manifest.xml``
-  
+
 Check if available:
   ``euca-describe-images``
 
 Make sure to make a copy your MY-UPDATED-VM.img.manifest.xml file to the login1.opensciencedatacloud.org server, in order to easily remove an image at a later time. On the login server run:
 
   ``rsync -avu root@INSTANCE_IP:/scratch/"new-unique-name-DATE-ENUM".manifest.xml .``
-  
+
 To remove images (at a later time):
 
   ``euca-deregister emi-ID``
-  
+
   ``euca-delete-bundle -b BUCKET_NAME -m ./"new-unique-name-DATE-ENUM".manifest.xml``
 
 
