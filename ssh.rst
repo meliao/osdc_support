@@ -15,7 +15,7 @@ Can not ssh into the Login nodes?
     #. Have you created/uploaded  your ssh key pairs via web console: :doc:`/console` ?
     #. Have you loaded your private key into a ssh agent?
        :ref:`Linux/OSX  <ssh-linux-agent>` :ref:`Windows <ssh-windows-puttygen>` ?
-   
+
 Can you not login to your VM's once created.
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     #. Ensure that you have loaded your keys in your agent. :ref:`Linux/OSX <ssh-linux-agent>` or :ref:`Windows <ssh-windows-pageant>` ?
@@ -68,7 +68,7 @@ Script to Auto start the ssh agent
          start_agent;
     fi
 
-.. _display-agent-keys: 
+.. _display-agent-keys:
 
 Showing keys loaded into your agent on Linux/OSX/etc
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -77,7 +77,7 @@ Showing keys loaded into your agent on Linux/OSX/etc
 
 .. code-block:: bash
 
-    #ssh-add -l 
+    #ssh-add -l
     1024 1a:22:33:44:55:66:77:88:99:aa:bb:cc:dd:ee:ff:f1 /Users/JohnSmith/.ssh/id_dsa (DSA)`
 
 .. _ssh-key-forwarding:
@@ -88,7 +88,7 @@ Enabling SSH key forwarding
 
     * Open the ``ssh_config`` file located globally at ``/etc/ssh/ssh_config`` or locally at ``~/.ssh/config``. If this file does not exist under ``~/.ssh/`` then create it.  Add the following line ``ForwardAgent yes`` to this file.  All new connections will use forwarding.
     * When ssh'ing to the login node, use the ``-A`` flag.  This turns on forwarding on a case by case basis.  IF you have multiple login nodes that you are transversing, you will need to use the ``-A`` flag for all hops.  Example: ``ssh -A JohnSmith@sullivan.opensciencedatacloud.org``
-    * Alias ``ssh -A`` as ``ssh`` via your shells preferred method.  On bash you can ``ALIAS ssh='ssh -A'``. 
+    * Alias ``ssh -A`` as ``ssh`` via your shells preferred method.  On bash you can ``ALIAS ssh='ssh -A'``.
 
 
 .. _ssh-windows:
@@ -100,7 +100,7 @@ Windows
 
 Convert OpenSSH key to Putty ppk format
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    Pageant.exe uses a different format then openssh for its keys.  We will need to convert the key to the ppk format.  
+    Pageant.exe uses a different format then openssh for its keys.  We will need to convert the key to the ppk format.
 
     #. Start PuttyGen.exe
     #. Click ``Conversions``, then Click ``Import Key``
@@ -132,7 +132,8 @@ Configuring Putty to use SSH Key Forwarding and Pageant
             :alt: Putty.exe main screen
             :align: center
     #. Set ``Host Name (or IP address)`` to the hostname of the target login server provided to you. Port will be the default ``22``
-    #. On the left side is a tree of available options called ``Category``.  Locate ``Connection`` and expand it, locate  ``SSH`` and expand it, finally select Auth.  
+    #. On the left side is a tree of available options called ``Category``.  Locate ``Connection`` and expand it, and select ``Data``.  Then enter your OSDC username in the ``username`` field.
+    #. Return to the ``Connection`` category, locate  ``SSH`` and expand it then select Auth.
     #. Make sure the checkboxes for "Attempt authentication using Pageant" and "Allow agent forwarding” are selected.  Select them if not
         .. figure:: _static/putty-config-auth.png
             :alt: Putty.exe config auth screen
