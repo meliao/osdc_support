@@ -47,8 +47,8 @@ Example:
 
 * Launch and instance and select the keypair "osdc_keypair".
 * If you are using OpenSSH (see :doc:`/ssh` for other SSH clients) ``ssh-add osdc_keypair.pem``
-* ``ssh -A -i osdc_keypair.pem login2.opensciencedatacloud.org`` to access the login node.
-* SSH to your vm ``ssh ubuntu@INSTANCE_IP``.  If you are not launching instances on the Sullivan cloud replace login2.opensciencedatacloud.org with the hostname of that cloud and replace ubuntu as shown in :doc:`/quickstart`
+* ``ssh -A -i osdc_keypair.pem sullivan.opensciencedatacloud.org`` to access the login node.
+* SSH to your vm ``ssh ubuntu@INSTANCE_IP``.  If you are not launching instances on the Sullivan cloud replace sullivan.opensciencedatacloud.org with the hostname of that cloud and replace ubuntu as shown in :doc:`/quickstart`
 
 
 Importing Keys
