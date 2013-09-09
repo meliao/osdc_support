@@ -53,7 +53,7 @@ Script to Auto start the ssh agent
 
     function start_agent {
         echo "Initializing new SSH agent..."
-        /usr/bin/ssh-ageant | sed 's/^echo/#echo/' > "${SSH_ENV}"
+        /usr/bin/ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
         echo succeeded
         chmod 600 "${SSH_ENV}"
         . "${SSH_ENV}" > /dev/null
