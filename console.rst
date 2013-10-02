@@ -60,6 +60,12 @@ Differences Between Protected Clouds and Public Clouds
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 On public clouds such as Adler and Sullivan you must have a keypair for your virtual machine instances.  On protected clouds your home directory is shared between the login nodes and the virtual machines.  On both public and protect clouds you will need a keypair for the login server.  On protected clouds you can use this same keypair to access VMs using SSH key forwarding.
 
+
+Launching a Virtual TORQUE Cluster
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+To launch a
+
+
 Video Tutorials
 --------------
 
@@ -69,10 +75,10 @@ Using the OSDC - Logging in for the First Time
 .. raw:: html
 
         <p><object width="480" height="385"><param name="movie"
-        value="http://www.youtube.com/v/QXo89lttfUM&hl=en_US&fs=1&rel=0"></param><param
+        value="https://www.youtube.com/v/QXo89lttfUM&hl=en_US&fs=1&rel=0"></param><param
         name="allowFullScreen" value="true"></param><param
         name="allowscriptaccess" value="always"></param><embed
-        src="http://www.youtube.com/v/QXo89lttfUM&hl=en_US&fs=1&rel=0"
+        src="https://www.youtube.com/v/QXo89lttfUM&hl=en_US&fs=1&rel=0"
         type="application/x-shockwave-flash" allowscriptaccess="always"
         allowfullscreen="true" width="480"
         height="385"></embed></object></p>
@@ -82,10 +88,10 @@ Using the OSDC - Launching an Instance
 .. raw:: html
 
         <p><object width="480" height="385"><param name="movie"
-        value="http://www.youtube.com/v/2aPMOhCgIHw&hl=en_US&fs=1&rel=0"></param><param
+        value="https://www.youtube.com/v/2aPMOhCgIHw&hl=en_US&fs=1&rel=0"></param><param
         name="allowFullScreen" value="true"></param><param
         name="allowscriptaccess" value="always"></param><embed
-        src="http://www.youtube.com/v/2aPMOhCgIHw&hl=en_US&fs=1&rel=0"
+        src="https://www.youtube.com/v/2aPMOhCgIHw&hl=en_US&fs=1&rel=0"
         type="application/x-shockwave-flash" allowscriptaccess="always"
         allowfullscreen="true" width="480"
         height="385"></embed></object></p>
