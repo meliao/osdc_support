@@ -16,10 +16,12 @@ OSDC Quickstart
   Cloud                 Login Node                             VM Username
   ====================  ====================================== ==================
   OSDC Adler            adler.opensciencedatacloud.org         root
-  OSDC Sullivan         sullivan.opensciencedatacloud.org        ubuntu
+  OSDC Sullivan         sullivan.opensciencedatacloud.org      ubuntu
   Bionimbus PDC         bionimbus-pdc.opensciencedatacloud.org same as login node
   OSDC Atwood (Conte)   atwood.opensciencedatacloud.org        same as login node
+  OSDC Goldberg         goldberg.opensciencedatacloud.org      same as login node
   ====================  ====================================== ==================
-6. If on the protected data clouds your user data is automatically mounted.  If on Adler and Sullivan you must manually mount your user data in your vms.  The script 'sudo /cloudconf/mount-glusterfs $USERNAME' will mount /glusterfs.  Your password is stored on the login node at either ~/smbpassword.txt or ~/glusterfs-password
+
+6. On Sullivan and the protected data clouds your user data is automatically mounted.  If on Adler you must manually mount your user data in your vms.  The script 'sudo /cloudconf/mount-glusterfs $USERNAME' will mount /glusterfs.  Your password is stored on the login node at either ~/smbpassword.txt or ~/glusterfs-password
 
 7. Compute over data!
