@@ -1,5 +1,5 @@
-Using The OSDC Console
-======================
+Uusing The OSDC Console
+=======================
 Once you have an `OSDC account  <https://www.opensciencedatacloud.org/apply/>`_ you can manage your cloud resources through the `OSDC Console <https://www.opensciencedatacloud.org/console/>`_ .
 
 
@@ -8,8 +8,8 @@ Login
 Users authenticate to the OSDC console using Single Sign-On.  We recommend users login using credentials from an institution or organization that is part of `The InCommon Federation <https://incommon.org/federation/>`_.  If you are not affiliated with a `participating organization <https://incommon.org/federation/info/all-entities.html>`_ you can use a gmail or yahoo account.
 
 
-Example
-^^^^^^^
+Example:
+^^^^^^^^
 * Select the organization of the "Login E-mail" from your application.  If my Login E-mail is mgreenway@uchicago.edu I would select "University of Chicago".
 
 .. figure:: _static/login.png
@@ -24,17 +24,16 @@ Example
 
 
 
-
 Managing SSH Keys
 -----------------
 Users access OSDC login nodes and virtual machines through SSH using keypair authentication.  Before launching a virtual machine you must import a public key or create a new keypair.  To mange your keypairs go to `Access & Security <https://www.opensciencedatacloud.org/project/access_and_security/>`_.
 
 Creating Keypairs
-~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^
 To create a keypair click "Create Keypair" name the keypair then select the resource.  Click "Create Keypair" then Download keypair on the download page.
 
 Example:
-^^^^^^^^
+~~~~~~~~
 * Click "Create Keypair"
 * In "Keypair Name" enter "osdc_keypair"
 * Under "Resources" select "All Resources"
@@ -52,7 +51,7 @@ Example:
 
 
 Importing Keys
-~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^
 To import a public key click "Import Keypair".  Enter a name for the keypair then paste the OpenSSH format text of the public key into the Public Key field.  The public key text must all be on one line.  Then select the resource you will use this keypair to access.
 
 
@@ -61,13 +60,8 @@ Differences Between Protected Clouds and Public Clouds
 On public clouds such as Adler and Sullivan you must have a keypair for your virtual machine instances.  On protected clouds your home directory is shared between the login nodes and the virtual machines.  On both public and protect clouds you will need a keypair for the login server.  On protected clouds you can use this same keypair to access VMs using SSH key forwarding.
 
 
-Launching a Virtual TORQUE Cluster
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-To launch a
-
-
 Video Tutorials
---------------
+---------------
 
 Using the OSDC - Logging in for the First Time
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
