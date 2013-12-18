@@ -1,4 +1,4 @@
-Uusing The OSDC Console
+Using The OSDC Console
 =======================
 Once you have an `OSDC account  <https://www.opensciencedatacloud.org/apply/>`_ you can manage your cloud resources through the `OSDC Console <https://www.opensciencedatacloud.org/console/>`_ .
 
