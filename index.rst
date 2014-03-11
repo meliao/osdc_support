@@ -17,6 +17,7 @@ Contents:
    commandline
    ssh
    hadoop
+   sdk
    faq
 
 * :ref:`search`
