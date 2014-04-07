@@ -19,6 +19,7 @@ Contents:
    hadoop
    sdk
    faq
+   structure test
 
 * :ref:`search`
 
