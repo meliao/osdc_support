@@ -31,7 +31,7 @@ OSDC Sullivan Quickstart
 
 Sullivan Quickstart - Terminal Commands
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Below is a screencapture of a terminal session showing the command line tools necessary to login to the OSDC Sullivan headnode and then a VM.  Feel free to copy and past commands to your own shell, adjusting usernames and VM IPs as needed.
+Below is a screencapture of a terminal session showing the command line tools necessary to login to the OSDC Sullivan headnode and then a VM.  Feel free to copy and paste commands to your own shell, adjusting usernames and VM IPs as needed.
 
 .. raw:: html
 
@@ -41,7 +41,7 @@ OSDC Atwood (Placeholder) Quickstart
 -------------------------------------
 1. Apply for and obtain a resource allocation and an account via the `OSDC application <http://www.opensciencedatacloud.org/apply>`_.   Please allow 2-3 weeks for our allocation committee to review your application.
 
-  * **Note**: The OSDC consoles uses federated login. If your organization is on the list of `InCommons members <https://incommon.org/federation/info/all-orgs.html>`_, `UK Federation members <http://www.ukfederation.org.uk/content/Documents/MemberList>`_, or `CANARIE members <http://www.canarie.ca/en/about/partners/members>`_,please apply using those credentials.
+  * **Note**: The OSDC consoles uses federated login. If your organization is on the list of `InCommons members <https://incommon.org/federation/info/all-orgs.html>`_, `UK Federation members <http://www.ukfederation.org.uk/content/Documents/MemberList>`_, or `CANARIE members <http://www.canarie.ca/en/about/partners/members>`_, please apply using those credentials.
 
 2. Once your request has been approved and you receive a welcome email with details, log into the `main OSDC console <http://www.opensciencedatacloud.org/console>`_.
 
@@ -75,4 +75,4 @@ Below is a screencapture of a terminal session showing the command line tools ne
 
 .. raw:: html
 
-	<p><script type="text/javascript" src="https://asciinema.org/a/8758.js" id="asciicast-8758" async></script></p>
+	<p><script type="text/javascript" src="https://asciinema.org/a/8754.js" id="asciicast-8754" async></script></p>
