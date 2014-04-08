@@ -1,10 +1,27 @@
-Using The OSDC Console
-=======================
+Tukey - The OSDC Console
+=========================
 Once you have an `OSDC account  <https://www.opensciencedatacloud.org/apply/>`_ you can manage your cloud resources through the `OSDC Console <https://www.opensciencedatacloud.org/console/>`_ .
 
+What is Tukey?
+-------------------------
 
-Login
------
+.. sidebar::  Who was John Tukey?
+
+	sample text
+
+Tukey on Github
+-------------------------
+
+Metering and Quotas
+-------------------------
+
+.. sidebar::   What is a core hr?
+
+	sample text
+
+
+Login and Authentication
+-------------------------
 Users authenticate to the OSDC console using Single Sign-On.  We recommend users login using credentials from an institution or organization that is part of `The InCommon Federation <https://incommon.org/federation/>`_.  If you are not affiliated with a `participating organization <https://incommon.org/federation/info/all-entities.html>`_ you can use a gmail or yahoo account.
 
 
@@ -26,7 +43,12 @@ Example:
 
 Managing SSH Keys
 -----------------
+
 Users access OSDC login nodes and virtual machines through SSH using keypair authentication.  Before launching a virtual machine you must import a public key or create a new keypair.  To mange your keypairs go to `Access & Security <https://www.opensciencedatacloud.org/project/access_and_security/>`_.
+
+.. sidebar:: What is a Pubkey?
+
+	sample text
 
 Creating Keypairs
 ^^^^^^^^^^^^^^^^^

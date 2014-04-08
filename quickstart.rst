@@ -33,6 +33,8 @@ OSDC Sullivan Quickstart
 
 9. NEED A FUNCTIONAL EXAMPLE OF DOING AN ANALYSIS ON THAT DATA USING A VM
 
+10.  Remember to terminate your VMs in the Tukey console when not in use to free up valuable cores for other OSDC users.  Make sure if it's something you built from scratch, to snapshot it first!
+
 
 Sullivan Quickstart - Terminal Commands
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

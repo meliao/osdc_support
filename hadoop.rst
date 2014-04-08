@@ -1,8 +1,11 @@
-Hadoop Commands
-===============
+Resource Guide - OCC-Y and Skidmore (Hadoop)
+============================================
+
+Overview of OSDC Hadoop Resources
+----------------------------------
 
 Manipulating files in HDFS
----------------------
+--------------------------
 * the "hadoop fs" contains all the commands you need to manipulate files in HDFS.  run ``hadoop fs -help`` to see all options
 
 Loading files into HDFS
