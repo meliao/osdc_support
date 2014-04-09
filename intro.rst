@@ -1,7 +1,10 @@
 Introduction to the OSDC
 ===========================================
 
-The `Open Science Data Cloud <https://opensciencedatacloud.org>`_
+Overview
+^^^^^^^^
+
+The `Open Science Data Cloud <https://www.opensciencedatacloud.org>`_
 (OSDC) is a distributed, cloud-based infrastructure for managing,
 analyzing, archiving and sharing scientific data sets.   
 
@@ -9,9 +12,7 @@ The OSDC operates one major public compute cloud named Sullivan and one storage 
 Sullivan is an `OpenStack <http://www.openstack.org/>`_ based cloud and the default cloud for
 new users. Root hosts about 1 PB of `public data sets <http://www.opensciencedatacloud.org/publicdata>`_ and is accessible from all OSDC resources.
 
-.. Sidebar:: OSDC Resource Names
-
-	OSDC resources are generally named after prominent Chicago Architects ie:  Sullivan = Louis Sullivan;
+.. NOTE:: OSDC resources are generally named after prominent Chicago Architects ie:  Sullivan = Louis Sullivan;
 	Atwood = Charles Atwood,  etc...
 
 The OSDC also operates several protected clouds to provide platforms for users to compute over large protected human genomic datasets. These include the `Bionimbus Protected Data Cloud <https://bionimbus-pdc.opensciencedatacloud.org>`_ and the `Atwood (or Conte) Cloud <http://www.contechicago.org/conte-cores/core-b>`_.
@@ -21,8 +22,30 @@ Each cloud has a distributed `Gluster File System <http://www.gluster.org/>`_ wh
 The OSDC manages two Hadoop clusters, OCC-Y and Skidmore, for select projects. The current documentation here does not cover the Hadoop clusters. If you are interested in these please contact us at info@opencloudconsortium.org.
 
 
-OSDC Demo
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+OSDC Resource Allocations
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+A resource allocation on the OSDC can be requested through the `application 
+process <https://www.opensciencedatacloud.org/apply>`_.   Once you've applied, you'll hear back from us shortly
+with any additional follow up questions regarding your request for resources.   Your 
+request will then be considered by our resource allocation committee.  Please allow
+2-3 weeks for review.   Due to space limitations, not all requests will be approved.
+
+Once your application is approved and your account is created, you'll receive an email 
+welcome with instructions for getting started.   
+
+Resource allocations will be reviewed periodically to make sure recipients are making
+progress with their research questions and making appropriate use of their allocations. 
+This will be done via surveys and direct emails.   
+
+Recipients of OSDC resource allocations are expected to:
+
+*	Make appropriate use of OSDC resources and use :ref:`good social behavior  <metering>`.
+*	:ref:`Cite  <cite>` the OSDC in any papers describing research
+*	Let us know about papers published when asked in surveys
+
+VIDEO: OSDC Demo
+^^^^^^^^^^^^^^^^
 
 You can learn more about the OSDC in general by watching this OSDC Demo webconference. 
 

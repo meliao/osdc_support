@@ -36,7 +36,7 @@ OSDC Sullivan Quickstart
 10.  Remember to terminate your VMs in the Tukey console when not in use to free up valuable cores for other OSDC users.  Make sure if it's something you built from scratch, to snapshot it first!
 
 
-Sullivan Quickstart - Terminal Commands
+TERMINAL SESSION: Sullivan Quickstart
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Below is a screencapture of a terminal session showing the command line tools necessary to login to the OSDC Sullivan headnode and then a VM.  Feel free to copy and paste commands to your own shell, adjusting usernames and VM IPs as needed.
 
@@ -76,7 +76,7 @@ OSDC Atwood (Placeholder) Quickstart
 
 8. Compute over data!
 
-Atwood Quickstart - Terminal Commands
+TERMINAL SESSION: Atwood Quickstart
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Below is a screencapture of a terminal session showing the command line tools necessary to login to the OSDC Sullivan headnode and then a VM.  Feel free to copy and past commands to your own shell, adjusting usernames and VM IPs as needed.
 
@@ -87,6 +87,11 @@ Below is a screencapture of a terminal session showing the command line tools ne
 OSDC Bionimbus-PDC (Placeholder) Quickstart
 --------------------------------------------
 
+TERMINAL SESSION: PDC Quickstart
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Hadoop (OCC-Y and Skidmore) (Placeholder) Quickstart
 ----------------------------------------------------
+
+TERMINAL SESSION: Hadoop Quickstart
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

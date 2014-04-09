@@ -9,13 +9,13 @@ Open Science Data Cloud (OSDC) Documentation
 Contents:
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
 
    intro
    quickstart
    console
-   instances
    ssh
+   instances
    sdk
    publicdata
    sullivan
