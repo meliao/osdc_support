@@ -25,8 +25,11 @@ The OSDC manages two Hadoop clusters, OCC-Y and Skidmore, for select projects. T
 OSDC Resource Allocations
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-A resource allocation on the OSDC can be requested through the `application 
-process <https://www.opensciencedatacloud.org/apply>`_.   Once you've applied, you'll hear back from us shortly
+A general resource allocation on the OSDC can be requested through the `application 
+process <https://www.opensciencedatacloud.org/apply>`_.   Special protected resources
+like the `Bionimbus-PDC <https://bionimbus-pdc.opensciencedatacloud.org/>`_ have their own separate application process. 
+
+Once you've applied, you'll hear back from us shortly
 with any additional follow up questions regarding your request for resources.   Your 
 request will then be considered by our resource allocation committee.  Please allow
 2-3 weeks for review.   Due to space limitations, not all requests will be approved.

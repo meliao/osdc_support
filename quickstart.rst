@@ -9,9 +9,9 @@ OSDC Sullivan Quickstart
 
 2. Once your request has been approved and you receive a welcome email with details, log into the `main OSDC console <http://www.opensciencedatacloud.org/console>`_.
 
-3. From the console, upload or generate a key pair to use for cloud access (:doc:`Details <console>`)
+3. From the console, upload or generate a key pair to use for cloud access (:doc:`Details <ssh>`)
 
-4. From the console, launch a virtual machine (VM) (:doc:`Details <console>`).   You can start with a plain vanilla image, or use a preexisting snapshot or image that has been already set up by your lab or another user with the required tools and software.  
+4. From the console, launch a virtual machine (VM) (:doc:`Details <instances>`).   You can start with a plain vanilla image, or use a preexisting snapshot or image that has been already set up by your lab or another user with the required tools and software.  
 
 .. Topic:: Coming Soon - Currently in BETA
 	

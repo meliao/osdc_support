@@ -64,7 +64,16 @@ that we are able to obtain; and 3) pass on to other categories of users our actu
 so that OSDC facilities and resources can be sustainable.  We assume that large 
 scientific projects (a fourth category of potential users) will build their own infrastructure 
 or use commercial offerings and will not be using OSDC resources.
-	
+
+Quotas are set at the time an account is created.  If you need a larger quota for a particular
+research project, send an email to accounts@opencloudconsortium.org with the start and end
+dates for the requested upgrade, what you need upgraded, and the reason for the need.
+
+..  topic::  Quota upgrade request example
+
+	I need 32 cores and 5TB of storage for once month starting on Jan 1st to help meet
+	a publication deadline for my research on ________.   I will be using these additional 
+	cores and storage to ______________.
 
 Login and Authentication
 -------------------------
