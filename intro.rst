@@ -19,7 +19,7 @@ The OSDC also operates several protected clouds to provide platforms for users t
 
 Each cloud has a distributed `Gluster File System <http://www.gluster.org/>`_ where users can store their data and access it from all of their VMs.
 
-The OSDC manages two Hadoop clusters, OCC-Y and Skidmore, for select projects. The current documentation here does not cover the Hadoop clusters. If you are interested in these please contact us at info@opencloudconsortium.org.
+The OSDC manages two Hadoop clusters, OCC-Y and Skidmore, for select projects. 
 
 
 OSDC Resource Allocations

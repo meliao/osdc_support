@@ -5,16 +5,15 @@ Overview
 -----------------
 
 
+
 Command Line Tools
 ------------------
 
 Floating IPs
-----------------------------
-Intro to Floating IPs
+------------
 
 Floating IPs are currently only available on the Sullivan cloud and in limited quantities.  
 Please contact `support <support@opensciencedatacloud.org>`_ if you wish to obtain a floating IP.
-
 
 Assign Floating IP to a VM
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~

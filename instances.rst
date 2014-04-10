@@ -12,16 +12,16 @@ Instances are another term for “virtual machine”.
 
 .. _flavors:
 
-VM Flavors
+OSDC VM Flavors
 -----------------
 
 There are a number of "flavors" you can use when spinning up a VM.  Below is a list
 of the specifications for each available OSDC instance.   VCPU indicates the number of cores
 activated when that flavor is used.   
 
-Some jobs may require larger instances, some may require multiple smaller instances. 
-Your resource allocation :ref:`quota  <metering>` will determine the size and quantity of
-instance you can spin up.   
+Some jobs may require larger instances, some may require a small instance, 
+others may require multiple smaller instances.  Your resource allocation :ref:`quota  <metering>` 
+will determine the size and quantity of instance you can spin up.   
 
   =============  ========  ===============  ============
   Flavor         VCPUs     VM Disk (GB)     RAM (GB)           

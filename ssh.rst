@@ -33,7 +33,7 @@ Users access OSDC login nodes and virtual machines through
 SSH using keypair authentication.  Before launching a virtual 
 machine you must import a public key or create a new keypair.  
 To mange your keypairs login to the console and go to 
-`Access & Security <https://www.opensciencedatacloud.org/project/access_and_security/>`_.
+`Access & Security <https://www.opensciencedatacloud.org/project/access_and_security/>`_ in the console.
 	
 Key pairs are SSH key pairs. When you launch a VM, you will choose what key pair to inject into
 the VM. 
@@ -70,7 +70,11 @@ To import a public key click "Import Keypair".  Enter a name for the keypair the
 
 Differences Between Protected Clouds and Public Clouds
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-On public clouds such as Adler and Sullivan you must have a keypair for your virtual machine instances.  On protected clouds your home directory is shared between the login nodes and the virtual machines.  On both public and protect clouds you will need a keypair for the login server.  On protected clouds you can use this same keypair to access VMs using SSH key forwarding.
+On public clouds such as Sullivan you must have a keypair for your 
+virtual machine instances.  On protected clouds your home directory is 
+shared between the login nodes and the virtual machines.  On both public 
+and protect clouds you will need a keypair for the login server.  On protected 
+clouds you can use this same keypair to access VMs using SSH key forwarding.
 
 VIDEO - Managing Pubkeys
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -113,7 +117,7 @@ Adding a key to your ssh-agent on LINUX/OSX
 
 Before you can load your key into ssh-agent you must ensure it is running.  On OSX this is automatic, 
 on Linux you may need to do it manually or with a :ref:`script <ssh-agent-script>`.
-To load your key into the ssh-agent simply run ``ssh-add ~/.ssh/keyname``. If you 
+To load your key into the ssh-agent simply run ``ssh-add ~/.ssh/<keyname>``. If you 
 password protected your private key you will be asked to enter the password.   
 By default keyname will be either ``~/.ssh/id_dsa`` or ``~/.ssh/id_rsa``.  
 You will most likely need to run this  command each time you start a 

@@ -11,7 +11,7 @@ OSDC Sullivan Quickstart
 
 3. From the console, upload or generate a key pair to use for cloud access (:doc:`Details <ssh>`)
 
-4. From the console, launch a virtual machine (VM) (:doc:`Details <instances>`).   You can start with a plain vanilla image, or use a preexisting snapshot or image that has been already set up by your lab or another user with the required tools and software.  
+4. From the console, launch a virtual machine (VM) (:doc:`Details <sullivan>`).   You can start with a plain vanilla image, or use a preexisting snapshot or image that has been already set up by your lab or another user with the required tools and software.  
 
 .. Topic:: Coming Soon - Currently in BETA
 	

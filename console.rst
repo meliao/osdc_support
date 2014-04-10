@@ -38,7 +38,7 @@ Metering and Quotas
 -------------------------
 
 To help distribute limited resources among many different research projects, we set quotas
-on core hours and storage, give users a snapshot of current use in the Overview tab of the console, 
+on core hours and storage, allow users to view current use vs quota in the Overview tab of the console, 
 and send monthly metering statements to individual users and PIs and administrators of larger projects.   
 We have found this to be a helpful way for individuals and labs to see the magnitude of resources they're using. 
 This promotes good social behavior like freeing up valuable resources for other projects by terminating 
