@@ -1,4 +1,4 @@
-Instances
+Virtual Machines (VMs)
 ===========================================
 
 What is a VM?
@@ -55,6 +55,7 @@ The OSDC Sullivan cloud currently has the following images:
 
 Other clouds have...................
 
+.. _snapshot:
 
 What is a Snapshot?
 --------------------
@@ -71,6 +72,8 @@ A snapshot preserves the state and data of a virtual machine at a given point in
 What is a Cluster?
 ------------------
 
+
+.. _launch:
 
 Launching an Instance in Tukey (General)
 ----------------------------------------
@@ -92,6 +95,11 @@ VIDEO: Launching an Instance
         type="application/x-shockwave-flash" allowscriptaccess="always"
         allowfullscreen="true" width="480"
         height="385"></embed></object></p>
+
+.. _inst_status:
+
+Reviewing Instance Status
+----------------------------
 
 List of Available Snapshots?
 ----------------------------

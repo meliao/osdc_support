@@ -27,12 +27,20 @@ OSDC Resource Allocations
 
 A general resource allocation on the OSDC can be requested through the `application 
 process <https://www.opensciencedatacloud.org/apply>`_.   Special protected resources
-like the `Bionimbus-PDC <https://bionimbus-pdc.opensciencedatacloud.org/>`_ have their own separate application process. 
+like the `Bionimbus-PDC <https://bionimbus-pdc.opensciencedatacloud.org/>`_ have their own 
+separate application process. 
 
-Once you've applied, you'll hear back from us shortly
-with any additional follow up questions regarding your request for resources.   Your 
-request will then be considered by our resource allocation committee.  Please allow
-2-3 weeks for review.   Due to space limitations, not all requests will be approved.
+.. NOTE:: The OSDC console uses federated login. If your organization is on the list of 
+	`InCommons members <https://incommon.org/federation/info/all-orgs.html>`_, 
+	`UK Federation members <http://www.ukfederation.org.uk/content/Documents/MemberList>`_, 
+	or `CANARIE members <http://www.canarie.ca/en/about/partners/members>`_, 
+	please apply using those credentials.   The Bionimbus PDC uses `eRA Commons <https://commons.era.nih.gov/>`_ 
+	for secure authentication. 
+
+Once you've applied, you'll hear back from us shortly with any additional follow up 
+questions regarding your request for resources.   Your  request will then be considered 
+by our resource allocation committee.  Please allow 2-3 weeks for review.   Due to space 
+limitations, not all requests will be approved.
 
 Once your application is approved and your account is created, you'll receive an email 
 welcome with instructions for getting started.   

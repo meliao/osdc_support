@@ -1,7 +1,7 @@
-Software Development Kits
+Cloud API Access
 =========================
 
-The are several SDKs with support for OpenStack.
+The are several Software Development Kits (SDKs) with support for OpenStack.
 Below are specifics for using some SDKs with the OSDC.
 
 Libcloud

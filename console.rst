@@ -32,13 +32,23 @@ Apache License, Version 2.0.
 *	`Tukey Middleware  <https://github.com/LabAdvComp/tukey_middleware>`_ 
 *	`Tukey Portal  <https://github.com/LabAdvComp/tukey_portal>`_ 
 
+In brief, Tukey is a user-friendly webconsole interface that allows OSDC users to:
+
+*   :ref:`Securely login and gain authenticated access <login>`
+*	:ref:`Manage keypairs <managekeypair>`
+*	:ref:`Select and launch VMs and clusters <launch>`
+*	:ref:`Review the status of launched VMs <inst_status>`
+*	:ref:`Snapshot VMs <snapshot>`
+* 	:ref:`View Core and Storage use <metering>`
+
+
 .. _metering:
 
 Metering and Quotas
 -------------------------
 
 To help distribute limited resources among many different research projects, we set quotas
-on core hours and storage, allow users to view current use vs quota in the Overview tab of the console, 
+on core hours and storage, allow users to view current use vs quota in the Overview tab of the Tukey console, 
 and send monthly metering statements to individual users and PIs and administrators of larger projects.   
 We have found this to be a helpful way for individuals and labs to see the magnitude of resources they're using. 
 This promotes good social behavior like freeing up valuable resources for other projects by terminating 
@@ -74,6 +84,8 @@ dates for the requested upgrade, what you need upgraded, and the reason for the 
 	I need 32 cores and 5TB of storage for once month starting on Jan 1st to help meet
 	a publication deadline for my research on ________.   I will be using these additional 
 	cores and storage to ______________.
+
+.. _login:
 
 Login and Authentication
 -------------------------

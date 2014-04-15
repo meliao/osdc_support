@@ -5,8 +5,6 @@ OSDC Sullivan Quickstart
 -------------------------
 1. Apply for and obtain a resource allocation and an account via the `OSDC application <http://www.opensciencedatacloud.org/apply>`_.   Please allow 2-3 weeks for our allocation committee to review your application.
 
-.. NOTE:: The OSDC console uses federated login. If your organization is on the list of `InCommons members <https://incommon.org/federation/info/all-orgs.html>`_, `UK Federation members <http://www.ukfederation.org.uk/content/Documents/MemberList>`_, or `CANARIE members <http://www.canarie.ca/en/about/partners/members>`_, please apply using those credentials.
-
 2. Once your request has been approved and you receive a welcome email with details, log into the `main OSDC console <http://www.opensciencedatacloud.org/console>`_.
 
 3. From the console, upload or generate a key pair to use for cloud access (:doc:`Details <ssh>`)
@@ -27,7 +25,7 @@ OSDC Sullivan Quickstart
 
 6. On Sullivan and the protected data clouds your user data is automatically mounted.  
 
-7. Install any necessary software packages, etc necessary for your research.   
+7. Install any software packages on the VM using ``apt-get install <packagename>``.   
 
 8. NEED A FUNCTIONAL EXAMPLE OF LOADING A DATASET FROM ROOT
 

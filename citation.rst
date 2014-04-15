@@ -11,8 +11,8 @@ OSDC
 -------------
 
 Reference:
-Heath AP, Greenway M, Powell R, Wells W, Suarez R, Alvarez H, Harvey C, 
-Atkinson M, Klampanos I, Mambretti J, White KP and Grossman RL,  The Design of a Community Science Cloud:
+Grossman RL, Greenway M, Heath AP, Powell R, Suarez R, Wells W, White KP, Atkinson M, Klampanos I, 
+Alvarez H, Harvey C and Mambretti J, The Design of a Community Science Cloud:
 The Open Science Data Cloud Perspective. 
 (2012) doi:10.1109/SC.Companion.2012.127
 
