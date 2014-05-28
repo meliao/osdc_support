@@ -85,6 +85,12 @@ dates for the requested upgrade, what you need upgraded, and the reason for the 
 	a publication deadline for my research on ________.   I will be using these additional 
 	cores and storage to ______________.
 
+.. figure:: _static/quota.png
+    :alt: Sample Quota
+    :align: center
+
+    Sample Quota / Resource Screen
+
 .. _login:
 
 Login and Authentication

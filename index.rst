@@ -18,10 +18,8 @@ Contents:
    console
    ssh
    instances
+   commandline
    publicdata
-   sullivan
-   atwood
-   pdc
    hadoop
    sdk
    faq

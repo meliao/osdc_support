@@ -31,8 +31,4 @@ to your home folder.
 *	On Sullivan your home folder can be found at:  ``glusterfs/users/<username>``
 *	On Atwood and PDC, you login to the VM with your username, so the dir you
 	login to is your home dir.   
-
-
-
-OCC-Y
-^^^^^
+*   For Hadoop resources, please review the :ref:`Hadoop Resource Guide  <hadoop>`
