@@ -11,7 +11,7 @@ Open Science Data Cloud (OSDC) Documentation
 Contents:
 
 .. toctree::
-   :maxdepth: 3
+   :maxdepth: 2
 
    intro
    quickstart

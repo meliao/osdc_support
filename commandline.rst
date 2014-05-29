@@ -1,6 +1,8 @@
 Command Line Tools and Floating IPs
 ===================================
 
+.. _commandline:
+
 In addition to the OSDC console, there are a number of command line tools to manage virtual machines and cloud settings. 
 The OpenStack tools have a variety of names, the primary one being 'nova'.  On Sullivan and the protected data clouds we do recommend using the 
 OpenStack tools because they have a number of nice features. This page will describe some of the more common tasks, 

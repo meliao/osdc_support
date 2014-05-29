@@ -1,4 +1,4 @@
-Cloud API Access
+Software Development Kits
 =========================
 
 The are several Software Development Kits (SDKs) with support for OpenStack.

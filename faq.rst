@@ -1,4 +1,4 @@
-Frequently Asked Questions (FAQ)
+Frequently Asked Questions (FAQ) / Best Practices
 =====================================================
 General Questions
 -----------------------------------------------------
@@ -10,6 +10,7 @@ General Questions
 - :ref:`osdc-6`
 - :ref:`osdc-7`
 - :ref:`osdc-8`
+- :ref:`osdc-9`
 
 Protected Data Clouds
 -----------------------------------------------------
@@ -19,9 +20,11 @@ Protected Data Clouds
 - :ref:`pdc-4`
 - :ref:`pdc-5`
 - :ref:`pdc-6`
+- :ref:`pdc-7`
+- :ref:`pdc-8`
 
 General Questions
------------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. _osdc-1:
 
@@ -66,6 +69,16 @@ How do I share data with just my collaborators?
   `Contact us <support@opensciencedatacloud.org>`_ and we can set up project groups that you can use to share data only with other users in that group. This is done by using Linux ACLs.
 
 .. _osdc-8:
+
+What's the best approach to setup a new pipeline and install the packages?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  Depending on your pipeline the software may need to be installed on all of the nodes 
+  and will definitely need to be installed on the compute nodes. A good way to do this 
+  is to start a VM and install the packages you need using `apt <https://help.ubuntu.com/community/AptGet/Howto>`_ 
+  or under /usr/local/bin and then creating a :ref:`snapshot <snapshot>` of that VM. Then select 
+  that image when launching your cluster for both the headnode and compute nodes.
+
+.. _osdc-9:
 
 Who should I contact with further questions?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -113,3 +126,18 @@ Why is there no root access on the PDC?
 Why is http access blocked on the VMs?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   All the VMs use an http_proxy that filters content based on a whitelist we maintain. If you need access to a specific resource, please `contact us <support@opensciencedatacloud.org>`_ and we can easily add it to the whitelist.
+
+.. _pdc-7:
+
+How do I get access to TCGA data required to use the PDC?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  You can learn more about how to get the proper credentials to use the PDC `by reviewing this FAQ <https://bionimbus-pdc.opensciencedatacloud.org/static/BionimbusAccessFAQ.pdf>`_.
+  
+.. _pdc-8:
+
+How do I gain access to the Conte resource?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  The resource we maintain for Conte is called Atwood.   If you are part of a project hosted by 
+  Conte, please fill out the main OSDC application page and select Protected OpenStack Cloud - 
+  then in the Project description please note the need for access to the Atwood resource, and the 
+  protected Conte datasets to which you're requesting access.

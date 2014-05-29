@@ -53,8 +53,6 @@ The OSDC Sullivan cloud currently has the following images:
 *	CentOS-6.0-v1.0
 *	Ubuntu-12.04-LTS-v1.3
 
-Other clouds have...................
-
 .. _snapshot:
 
 What is a Snapshot?
@@ -64,6 +62,16 @@ A snapshot preserves the state and data of a virtual machine at a given point in
 
 *	State refers to the virtual machine’s power state (for example, powered‐on, powered‐off, suspended).
 *	Data includes all the files that make‐up the virtual machine, including disks, memory, and other devices.
+
+On the OSDC you can publicly share your own snapshots or use already existing snapshots.   This process will help users and 
+labs from duplicating work.   While currently in BETA, we're working on making changes to the metadata associated
+with snapshots so that users can provide descriptions of the software packages, general purpose of the 
+snapshot, and other helpful information. 
+
+As a general rule of thumb, anything installed using ``apt-get`` will be saved during a snapshot.  Almost 
+anything on the filesystem that's not in ``/tmp`` or ``/glusterfs`` will be saved. A helpful 
+way to confirm that files in an image will snapshot correctly is is to run ``stat -c "%m" FILENAME``.   
+If the output is "/" then your files will snapshot correctly.
 
 ..  warning::  Snapshots are not backups. The snapshot file is only a change log 
 	of the original virtual disk, do not rely upon it as a direct backup process.
@@ -101,5 +109,10 @@ VIDEO: Launching an Instance
 Reviewing Instance Status
 ----------------------------
 
-List of Available Snapshots?
-----------------------------
+Instance Status can be easily reviewed from both the :ref:`command line  <commandline>` and the console.  
+
+.. figure:: _static/instances.png
+    :alt: Instance status
+    :align: center
+
+    3 instance statuses - Terminating, Built, and Spawning

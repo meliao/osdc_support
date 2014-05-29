@@ -1,4 +1,4 @@
-Resource Guide - OCC-Y and Skidmore (Hadoop)
+Hadoop Resource Guide - OCC-Y and Skidmore
 ============================================
 
 .. _hadoop:
