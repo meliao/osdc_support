@@ -45,7 +45,8 @@ What is an Image?
 
 A virtual machine image is a single file which contains a virtual disk that 
 has a bootable operating system installed on it.  Virtual machine images come in 
-different formats. 
+different formats.  On the OSDC we use the term "Image" to denote the plain vanilla 
+VMs we provide.
 
 The OSDC Sullivan cloud currently has the following images:
 
@@ -58,15 +59,19 @@ The OSDC Sullivan cloud currently has the following images:
 What is a Snapshot?
 --------------------
 
-A snapshot preserves the state and data of a virtual machine at a given point in time.
-
-*	State refers to the virtual machine’s power state (for example, powered‐on, powered‐off, suspended).
-*	Data includes all the files that make‐up the virtual machine, including disks, memory, and other devices.
+On the OSDC a "snapshot" preserves the state and data of a virtual machine at a given point in time.   If a user
+installs software and packages on a plain vanilla image, they can take a snapshot so that new image can 
+later be used by themselves or others.   
 
 On the OSDC you can publicly share your own snapshots or use already existing snapshots.   This process will help users and 
 labs from duplicating work.   While currently in BETA, we're working on making changes to the metadata associated
 with snapshots so that users can provide descriptions of the software packages, general purpose of the 
 snapshot, and other helpful information. 
+
+..  topic::  Snapshotting Tip
+
+	Once a snapshot has completed in the OSDC console, we recommend launching a test version
+	of that snapshot, and confirming its integrity before terminating the original VM that snapshot was taken from.
 
 As a general rule of thumb, anything installed using ``apt-get`` will be saved during a snapshot.  Almost 
 anything on the filesystem that's not in ``/tmp`` or ``/glusterfs`` will be saved. A helpful 
