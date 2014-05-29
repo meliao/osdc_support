@@ -36,7 +36,7 @@ In brief, Tukey is a user-friendly webconsole interface that allows OSDC users t
 
 *   :ref:`Securely login and gain authenticated access <login>`
 *	:ref:`Manage keypairs <managekeypair>`
-*	:ref:`Select and launch VMs and clusters <launch>`
+*	:ref:`Select, launch, and terminate VMs and clusters <launch>`
 *	:ref:`Review the status of launched VMs <inst_status>`
 *	:ref:`Snapshot VMs <snapshot>`
 * 	:ref:`View Core and Storage use <metering>`

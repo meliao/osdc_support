@@ -11,6 +11,8 @@ General Questions
 - :ref:`osdc-7`
 - :ref:`osdc-8`
 - :ref:`osdc-9`
+- :ref:`osdc-10`
+- :ref:`osdc-11`
 
 Protected Data Clouds
 -----------------------------------------------------
@@ -48,7 +50,7 @@ What is GlusterFS?
 
 Why are there quotas?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  We are providing a shared community resource so there are default quotas for storage and number of cores on each cloud for new users. If you require more resources for a specific project we can work with you to increase these quotas.
+  We are providing a shared community resource so there are default quotas for storage and number of cores on each cloud for new users. If you require more resources for a specific project we can work with you to increase these :ref:`quotas <metering>`.
 
 .. _osdc-5:
 
@@ -70,7 +72,7 @@ How do I share data with just my collaborators?
 
 .. _osdc-8:
 
-What's the best approach to setup a new pipeline and install the packages?
+What's the best approach to setup a new pipeline and install packages?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   Depending on your pipeline the software may need to be installed on all of the nodes 
   and will definitely need to be installed on the compute nodes. A good way to do this 
@@ -80,9 +82,31 @@ What's the best approach to setup a new pipeline and install the packages?
 
 .. _osdc-9:
 
+What should I know about snapshots?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  You can go to the :ref:`snapshot <snapshot>` section of our instance page to learn more, 
+  but in short, snapshots are ways to share and save packages you've installed on instances for later use.
+  We're currently working on setting up methods for users to add additional metadata so that 
+  you and other OSDC users can understand what types of packages are installed and what type of analysis
+  was conducted with said VM.
+  
+.. _osdc-10:
+
+Why is it important that I terminate my VMs?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  The OSDC is a publicly shared resource, and supports a wide variety of researchers from a number of 
+  different scientific disciplines.   When you have instances that are not in use, but are not terminated, 
+  those cores are still reserved for your idling instances.   That prevents other researchers from 
+  using those cores.   Note:   Suspending images still keeps those cores reserved and will continue to be
+  counted in :ref:`metering <metering>`.  Terminating images not in use is definitely the best practice.
+  
+.. _osdc-11:
+
 Who should I contact with further questions?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   Please email support@opensciencedatacloud.org for the fastest response.
+
+
 
 Protected Data Clouds
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -141,3 +165,8 @@ How do I gain access to the Conte resource?
   Conte, please fill out the main OSDC application page and select Protected OpenStack Cloud - 
   then in the Project description please note the need for access to the Atwood resource, and the 
   protected Conte datasets to which you're requesting access.
+  
+I've reviewed the available documentation, but still have an issue.  What now?
+--------------------------------------------------------------------------------------
+
+Contact us at `support@opensciencedatacloud.org <support@opensciencedatacloud.org>`_.   This will create a ticket we can track and a member of our support team will review and contact you as soon as possible. 

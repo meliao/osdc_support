@@ -26,7 +26,9 @@ OSDC Quickstart Guide
 
 ..  warning::
 	
-		Remember to terminate your VMs in the Tukey console when not in use to free up valuable cores for other OSDC users.  Make sure if it's something you built from scratch, to snapshot it first!
+		Remember to terminate your VMs in the Tukey console when not in use to free up valuable 
+		cores for other OSDC users.  Make sure if it's something you built from scratch, to 
+		snapshot it first!  To learn more visit the :ref:`VM <instances>` or :ref:`FAQ/Best Practices <osdc-9>` sections.
 
 QUICKSTART TERMINAL SESSION: SSH'ing 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -40,9 +42,11 @@ Below is a screencapture of a terminal session showing the command line tools ne
 
 7. Install any software packages on the VM using ``apt-get install <packagename>``.   
 
-8. On Sullivan, you can find the datasets in the OSDC Public Data Commons at ``/glusterfs/osdc_public_data`` or your home folder at ``/glusterfs/users/<username>``.  For additional details and for other resources, please review the documents at :ref:`Details <publicdata>`
+8. On Sullivan, you can find the datasets in the OSDC Public Data Commons at ``/glusterfs/osdc_public_data`` or your home folder at ``/glusterfs/users/<username>``.  For additional details and for other resources, please review the documents available on :ref:`Public Data Sets <publicdata>`
 
-9. Follow the Tutorial below for a hands-on demonstration of how to use the OSDC
+9. Follow the Tutorial below for a hands-on demonstration of how to use the OSDC.
+
+10.  When you have technical issues, please review this support guide.   If you are unable to resolve them, contact us at `support@opensciencedatacloud.org <support@opensciencedatacloud.org>`_.   A member of our support team will review and contact you as soon as possible. 
 
 .. _EO-1Tutorial:
 
@@ -141,9 +145,9 @@ can also look at the classified GeoTiff we have provided using the above procedu
 .. Topic:: INTERMISSION - Project Matsu
 	
 		This demonstration comes from analysis demonstrated by one of our OSDC 
-		projects `Project Matsu <http://matsu.opensciencedatacloud.org/>`_.  Project Matsu is a collaboration between 
+		projects called `Project Matsu <http://matsu.opensciencedatacloud.org/>`_.  Project Matsu is a collaboration between 
 		NASA and the Open Cloud Consortium to develop open source technology for cloud-based processing of 
-		satellite imagery to support the earth sciences. 
+		satellite imagery to support the earth sciences and disaster relief. 
 
 Viewing the Results
 ~~~~~~~~~~~~~~~~~~~

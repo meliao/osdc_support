@@ -5,6 +5,8 @@ What is SSH?
 -----------------
 
 .. sidebar:: What is an SSH key?
+	
+	*From Archlinux* `Wiki <https://wiki.archlinux.org/index.php/SSH_Keys>`_:
 
 	SSH keys serve as a means of identifying yourself to an SSH server using public-key 
 	cryptography. One immediate advantage this method has over traditional password 
@@ -16,7 +18,7 @@ What is SSH?
 	agent, SSH keys can allow you to connect to a server, or multiple servers, without having 
 	to remember or enter your password for each system.    We sometimes call the public facing 
 	version a "pubkey."
-	
+		
 Secure Shell (SSH) is a cryptographic network protocol for secure 
 data communication, remote command-line login, remote command 
 execution, and other secure network services between two 

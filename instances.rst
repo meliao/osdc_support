@@ -1,10 +1,12 @@
 Virtual Machines (VMs)
 ===========================================
 
+.. _instances: 
+
 What is a VM?
 -----------------
 
-A virtual machine (VM) is a software-based emulation of a computer. 
+*From the Wikipedia entry for VMs:* A virtual machine (VM) is a software-based emulation of a computer. 
 Virtual machines operate based on the computer architecture and functions 
 of a real or hypothetical computer.
 
@@ -81,19 +83,12 @@ If the output is "/" then your files will snapshot correctly.
 ..  warning::  Snapshots are not backups. The snapshot file is only a change log 
 	of the original virtual disk, do not rely upon it as a direct backup process.
 
-
-What is a Cluster?
-------------------
-
-
 .. _launch:
 
 Launching an Instance in Tukey (General)
 ----------------------------------------
 
-Below is a video on how to launch an instance from the Tukey console. For specifics
-on how to launch an instance from your cloud, refer to the Resource Guide section of the support
-documents for your particular resource.
+Launching an instance in Tukey is a relatively simple process.  Below is a video on how to launch an instance from the Tukey console. 
 
 
 VIDEO: Launching an Instance
@@ -110,6 +105,13 @@ VIDEO: Launching an Instance
         height="385"></embed></object></p>
 
 .. _inst_status:
+
+Terminating Instances
+----------------------------
+
+It's important that OSDC users terminate VMs that are not in use.   This helps ensure that resources
+will be available for all OSDC researchers and projects.   To learn more about best practices regarding VMs
+please visit our :REF:`FAQ/Best Practices <osdc-9>` section.
 
 Reviewing Instance Status
 ----------------------------
