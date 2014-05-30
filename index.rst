@@ -1,7 +1,9 @@
 .. Open Science Data Cloud documentation master file, created by
-   sphinx-quickstart on Mon Mar 25 14:35:58 2013.
+   sphinx-quickstart on Mon Mar 25 14:35:58 2014.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
+   
+.. _index:
 
 Open Science Data Cloud (OSDC) Documentation
 ===================================================
@@ -14,11 +16,16 @@ Contents:
    intro
    quickstart
    console
-   commandline
    ssh
+   instances
+   commandline
+   publicdata
    hadoop
    sdk
    faq
+   citation
+
 
 * :ref:`search`
+* :ref:`index`
 

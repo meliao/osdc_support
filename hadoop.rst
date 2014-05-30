@@ -1,8 +1,81 @@
-Hadoop Commands
-===============
+Hadoop Resource Guide - OCC-Y and Skidmore
+============================================
+
+.. _hadoop:
+
+OCC-Y
+-----
+
+Connecting to the OCC-Y Hadoop cluster:
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+*  You must log in to one of the two servers available.  All files not stored in HDFS should be stored in 
+	your home directory.  Your home directory is shared between the two login nodes below.
+
+	*  If you are on a internet2/starlight accessible network you ssh into occy-starlight.opensciencedatacloud.org
+		``ssh -A username@occy-starlight.opensciencedatacloud.org``
+	*  If you are using normal internet1 then you need to use  occy.opensciencedatacloud.org .
+		``ssh -A username@occy.opensciencedatacloud.org``
+ 
+*  Once logged in you may issue commands as needed. 
+
+	*  example of seeing files in your hdfs directory:
+		``hadoop fs -ls  /user/$USER``
+	*  example of launching a job:
+		``hadoop jar /opt/hadoop/hadoop-examples-0.20.203.0.jar wordcount /user/$USER/in/ /user/$USER/out/``
+
+
+
+Loading and Accessing Data on the OCC Y Hadoop Cluster:
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+#. Before Hadoop jobs can be run over data it needs to be loaded into the Hadoop filesystem HDFS. Loading data in 
+   and out of the Hadoop cloud is done in two stages.  First data must be loaded into your home directory.  Then from 
+   there it is loaded into HDFS.  All users have a home directory inside hdfs at /user/$USER.  Please note that the 
+   HDFS filesystem is completely separate from the usual linux filesystem.  Please only reference /user/$USER inside 
+   HDFS.  Please use scp, sftp, rsync, or UDR to load data in and out of OCC Y.			
+
+#. Once the files exist on your home directory they can be loaded into your HDFS directory  at /user/$USER with 
+   the `hadoop fs/dfs commands <http://hadoop.apache.org/common/docs/r0.20.0/hdfs_shell.html>`_.
+
+	* Copy files into hadoop 
+		``hadoop fs -moveFromLocal /home/$USER/source_on_local_disk /user/$USER/target_in_hdfs``
+	* Copy files out of hadoop
+		``hadoop fs -copyToLocal /user/$USER/source_in_hdfs /home/$USER/target_on_local_disk``
+
+
+Skidmore
+--------
+
+Connecting to the Skidmore cluster:
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+1.	ssh, forwarding your ssh key, into skidmore.opensciencedatacloud.
+ 
+	``ssh -A username@skidmore.opensciencedatacloud.org`` 
+
+2.	Once logged into skidmore.opensciencedatacloud.org, you may issue commands as needed.  Make sure /opt/hadoop/bin is in your path.
+
+	* example of seeing files in your hdfs directory:
+		``hadoop fs -ls  /user/$USER``
+	* example of launching a job:
+		``hadoop jar /opt/hadoop/hadoop-examples-0.20.203.0.jar wordcount /user/$USERNAME/in/ /user/$USERNAME/out/``
+
+Loading and Accessing Data on the Skidmore Hadoop Cluster:
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+1.	Before Hadoop jobs can be run over data it needs to be loaded into the Hadoop filesystem HDFS. Loading data in and out of the Hadoop cloud is done in two stages.  First data must be loaded into your home directory on the starlight server.  Then from there it is loaded into HDFS.  All users have a home directory inside hdfs at /user/$USER.  Please note that the HDFS filesystem is completely separate from the ussual linux filesystem.  Please only reference /user/$USER inside HDFS.
+			
+2.	Once the files exist on your home directory they can be loaded into your HDFS directory  at /user/$USER with the hdfs or hadoop fs/dfs commands (http://hadoop.apache.org/common/docs/r0.20.0/hdfs_shell.html)
+
+	* Copy files into hadoop 
+	  ``hadoop -moveFromLocal /home/$USER/source_on_local_disk /user/$USER/target_in_hdfs``
+	* Copy files out of hadoop
+	  ``hadoop fs -copyToLocal /user/$USER/source_in_hdfs /home/$USER/target_on_local_disk``
+   	
 
 Manipulating files in HDFS
----------------------
+--------------------------
 * the "hadoop fs" contains all the commands you need to manipulate files in HDFS.  run ``hadoop fs -help`` to see all options
 
 Loading files into HDFS
@@ -21,7 +94,7 @@ Pulling files out of HDFS
 In order to copy the file out of the Hadoop clouds, you first need to copy the file off of HDFS to your home dirctory.
 
 * Copy the files out of HDFS to your home directoy. 
-    ``hadoop fs -CopyToLocal /user/$USERNAME/out ~/myfiles_out``
+    ``hadoop fs -copyToLocal /user/$USERNAME/out ~/myfiles_out``
 
 * scp/sftp/rsync/UDR the files out of your home directory on the linux filesystem.  
     ``scp -r $USERNAME@$CLOUD.opensciencedatacloud.org:myfiles_out ./``
