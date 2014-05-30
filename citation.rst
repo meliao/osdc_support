@@ -25,6 +25,46 @@ The Open Science Data Cloud Perspective.
 
 https://www.opensciencedatacloud.org/
 
+**LaTex:**
+
+::
+
+	@inproceedings{DBLP:conf/sc/GrossmanGHPSWWAKAHM12,
+  	  author    = {Robert L. Grossman and
+                 Matthew Greenway and
+                 Allison P. Heath and
+                 Ray Powell and
+                 Rafael D. Suarez and
+                 Walt Wells and
+                 Kevin P. White and
+                 Malcolm P. Atkinson and
+                 Iraklis A. Klampanos and
+                 Heidi L. Alvarez and
+                 Christine Harvey and
+                 Joe Mambretti},
+  	  title     = {The Design of a Community Science Cloud: The Open Science
+                 Data Cloud Perspective},
+  	  booktitle = {SC Companion},
+  	  year      = {2012},
+  	  pages     = {1051-1057},
+  	  ee        = {http://doi.ieeecomputersociety.org/10.1109/SC.Companion.2012.127},
+  	  crossref  = {DBLP:conf/sc/2012c},
+  	  bibsource = {DBLP, http://dblp.uni-trier.de}
+	}
+
+	  @proceedings{DBLP:conf/sc/2012c,
+  	  title     = {2012 SC Companion: High Performance Computing, Networking
+                   Storage and Analysis, Salt Lake City, UT, USA, November
+                   10-16, 2012},
+  	  booktitle = {SC Companion},
+  	  publisher = {IEEE Computer Society},
+  	  year      = {2012},
+  	  isbn      = {978-1-4673-6218-4},
+  	  ee        = {http://ieeexplore.ieee.org/xpl/mostRecentIssue.jsp?punumber=6494369},
+  	  bibsource = {DBLP, http://dblp.uni-trier.de}
+	}
+
+
 Bionimbus PDC
 -------------
 
@@ -40,3 +80,20 @@ Analyzing and Sharing Large Genomics Datasets. J Am Med Inform Assoc
 (2014) doi:10.1136/amiajnl-2013-002155
 
 https://www.bionimbus-pdc.opensciencedatacloud.org/
+
+
+**LaTex:**
+
+::
+
+	@article{Heath24012014,
+	  author = {Heath, Allison P and Greenway, Matthew and Powell, Raymond and Spring, 
+	    Jonathan and Suarez, Rafael and Hanley, David and Bandlamudi, Chai and McNerney, 
+	    Megan E and White, Kevin P and Grossman, Robert L}, 
+	  title = {Bionimbus: a cloud for managing, analyzing and sharing large genomics datasets},
+	  year = {2014}, 
+	  doi = {10.1136/amiajnl-2013-002155}, 
+	  URL = {http://jamia.bmj.com/content/early/2014/01/24/amiajnl-2013-002155.abstract}, 
+	  eprint = {http://jamia.bmj.com/content/early/2014/01/24/amiajnl-2013-002155.full.pdf+html}, 
+	  journal = {Journal of the American Medical Informatics Association} 
+	}

@@ -51,7 +51,7 @@ so if you lose it, you won't be able to access your VMs with that key any more.
 EXAMPLE: Creating Keypairs
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 * Click "Create Keypair"
-* In "Keypair Name" enter "osdc_keypair"
+* In "Keypair Name" enter "osdc_keypair", for example. 
 * Under "Resources" select "All Resources"
 * Click "Create Keypair"
 
@@ -63,7 +63,7 @@ EXAMPLE: Creating Keypairs
 * Launch and instance and select the keypair "osdc_keypair".
 * If you are using OpenSSH (see :doc:`/ssh` for other SSH clients) ``ssh-add osdc_keypair.pem``
 * ``ssh -A <username>@sullivan.opensciencedatacloud.org`` to access the login node.
-* SSH to your vm ``ssh ubuntu@INSTANCE_IP``.  If you are not launching instances on the Sullivan cloud replace sullivan.opensciencedatacloud.org with the hostname of that cloud and replace ubuntu as shown in :doc:`/quickstart`
+* SSH to your vm ``ssh -A ubuntu@<INSTANCE_IP>``.  If you are not launching instances on the Sullivan cloud replace sullivan.opensciencedatacloud.org with the hostname of that cloud and replace ubuntu as shown in :doc:`/quickstart`
 
 
 Importing Keys

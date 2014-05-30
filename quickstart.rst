@@ -36,7 +36,7 @@ Below is a screencapture of a terminal session showing the command line tools ne
 
 .. raw:: html
 
-	<p><script type="text/javascript" src="https://asciinema.org/a/8758.js" id="asciicast-8758" async></script></p>
+	<p><script type="text/javascript" src="https://asciinema.org/a/9880.js" id="asciicast-9880" async></script></p>
 	
 6. On Sullivan and the protected data clouds your user data is automatically mounted.  
 
@@ -91,7 +91,8 @@ In the console, under 'Images and Snapshots', scroll down to find the section la
 and launch the snapshot called 'OSDC_DatasetExplorer_EO1'.   Tiny or small flavor will be suitable for our purposes.  
 
 When you ssh in to both the login node and the instance, make sure and add both the "A" and the "X" flags.  The A is for key forwarding, the X
-is for X11 forwarding.  IE:  ``ssh -AX <username>@sullivan.opensciencedatacloud.org``
+is for X11 forwarding.  IE:  ``ssh -AX <username>@sullivan.opensciencedatacloud.org`` and then ``ssh -AX ubuntu@<INSTANCE.IP>``.  If you're doing a lot of 
+GUI work like looking at plots and images, you'll want to use this X flag often.
 
 Viewing a GeoTiff
 ~~~~~~~~~~~~~~~~~
