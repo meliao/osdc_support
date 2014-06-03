@@ -78,8 +78,8 @@ shared between the login nodes and the virtual machines.  On both public
 and protect clouds you will need a keypair for the login server.  On protected 
 clouds you can use this same keypair to access VMs using SSH key forwarding.
 
-VIDEO - Managing Pubkeys
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+VIDEO: Managing Pubkeys
+------------------------
 
 .. raw:: html
 
