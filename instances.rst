@@ -92,7 +92,7 @@ Launching an instance in Tukey is a relatively simple process.  Below is a video
 
 
 VIDEO: Launching an Instance
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+----------------------------
 .. raw:: html
 
         <p><object width="480" height="385"><param name="movie"
