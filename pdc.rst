@@ -62,6 +62,18 @@ Next, create a new VM.
 
 * ``nova boot --image <IMAGE_ID> --flavor <FLAVOR_NAME_OR_NUMBER VM_NAME>``
 
+A list of currently available VM Flavors is available below.
+
+  =============  ========  ===============  ============
+  Flavor         VCPUs     VM Disk (GB)     RAM (GB)           
+  =============  ========  ===============  ============
+  m1.tiny        1         0                .5          
+  m1.small       1         20               2          
+  m1.medium      2         20               4         
+  m1.large       4         20               8          
+  m1.xlarge      8         20               16               
+  =============  ========  ===============  ============
+
 We suggest creating three Cinder volumes, INPUT for input data, SCRATCH for intermediate 
 scratch output, and OUTPUT for final results.  To create the following volumes with 
 sample sizes (INPUT (1TB); SCRATCH (2TB); OUTPUT (1TB))
