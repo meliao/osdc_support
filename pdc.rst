@@ -5,7 +5,7 @@ Bionimbus PDC Resource Guide
 
 .. sidebar:: Storage types - Swift (Object) vs. Cinder (Block)
 	
-		Swift:
+		**Swift:**
 		Object storage provides access to whole objects, or blobs of data and generally 
 		does so with an API specific to that system. Unlike file storage, object storage 
 		generally does not allow the ability to write to one part of a file. Objects must 
@@ -14,7 +14,7 @@ Bionimbus PDC Resource Guide
 		systems is their ability to reliably store a large amount of data at relatively 
 		low cost.
 		
-		Cinder:
+		**Cinder:**
 		Block storage gives you access to the “bare metal”. There is no concept 
 		of “files” at this level. There are just evenly sized blocks of data. Generally, 
 		using block storage offers the best performance, but it is quite low-level. 
@@ -33,8 +33,8 @@ provide reliable and fast data storage devices.   Best practices on the PDC invo
 * Execute pipelines and store intermediate files in Cinder
 * Push results back to Swift
 
-General Use
-------------
+General PDC Use
+----------------
 For general instructions on PDC use, please refer to the OSDC 
 :doc:`Quickstart. <quickstart>`  
 
