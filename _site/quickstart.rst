@@ -20,7 +20,7 @@ OSDC Quickstart Guide
   ====================  ===================================================== ==================
   OSDC Adler            ``<username>@adler.opensciencedatacloud.org``         ``root@<VM.IP>`` 
   OSDC Sullivan         ``<username>@sullivan.opensciencedatacloud.org``      ``ubuntu@<VM.IP>`` 
-  Bionimbus PDC         ``<username>@bionimbus-pdc.opensciencedatacloud.org`` ``ubuntu@<VM.IP>`` 
+  Bionimbus PDC         ``<username>@bionimbus-pdc.opensciencedatacloud.org`` ``<username>@<VM.IP>`` 
   OSDC Atwood (Conte)   ``<username>@atwood.opensciencedatacloud.org``        ``<username>@<VM.IP>`` 
   ====================  ===================================================== ==================
 
