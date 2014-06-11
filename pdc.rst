@@ -48,12 +48,14 @@ What follows is a step by step guide on how to work with Cinder and Swift to:
 
 * Create Cinder volumes and attach to a VM from the login node
 * Mount Cinder volumes to a VM while in the VM
+* Moving Cinder volumes
+* Unmounting Cinder volumes
 * Copy files and execute pipelines
 
 CLI - Creating Cinder Volumes
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Below is a step by step guide to creating and attaching Cinder to VMs via the CLI.   This 
+First we'll create and attach Cinder volumes to VMs via the CLI.   This 
 is done from the login node.  First ssh to the login node.
 
 * ``ssh -A <username>@bionimbus-pdc.opensciencedatacloud.org``
@@ -107,17 +109,41 @@ Next we'll want to make a directory, install xfs, construct xfs, and finally mou
 volume.   The example below gives the commands to do so for the "INPUT" volume we created
 earlier.  You'll want to repeat these commands for the "SCRATCH" AND "OUTPUT" volumes.
 
-* ``mkdir -p /mnt/cinder/INPUT``
+* ``mkdir -p /mnt/cinder/<INPUT>``
 * ``sudo apt-get -y install xfsprogs``
 * ``mkfs.xfs/dev/vdb``
-* ``mount/dev/vdb /mnt/cinder/INPUT/``
+* ``mount /dev/vdb /mnt/cinder/<INPUT>/``
+
+.. Topic:: Moving your Cinder Volume
+	
+		One of the advantages to working with Cinder volumes is that once you have the
+		files you need in them, you can move them to other VMs.  To do so, follow the steps to 
+		unmount listed below.   
+		
+		To remount them, follow the directions above, but make sure you don't reinstall xfs or run
+		the mkfs command.   Doing so once your volume has been created would delete the contents.
+
+CLI - Unmounting and Unattaching Cinder Volumes
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Once you have the information you'd like in a Cinder volume, you should detach it and unmount it.  
+To unmount the "INPUT" volume example from above:
+
+* ``unmount mnt/cinder/<INPUT>``
+
+Then exit the VM, so you're back on the login node. 
+
+* ``exit``
+
+Then you'll want to detach the volume, so it can be reattached and remounted elsewhere.
+
+* ``nova volume-detach <VM UUID> <CINDER VOL UUID>``
 
 CLI - Copying Files, Executing Pipelines
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 We recommend you copy files from Swift to /mnt/cinder/input/, dump temp files into /mnt/cinder/scratch/,
 write your output to /mnt/cinder/output/ and finally move your output back to your home dir on Swift.
-"WHEN SWIFT IT UP, WE WILL INTRODUCE SWIFT'S API TO TRANSFER DATA BETWN CINDER AND SWIFT?" 
 
 Make sure your pipeline codes reflect these input, scratch, and output locations.   Please make sure and run 
 your pipelines in Cinder volumes so that all temp files will be stored there.
