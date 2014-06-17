@@ -118,10 +118,10 @@ Next we'll want to make a directory, install xfs, construct xfs, and finally mou
 volume.   The example below gives the commands to do so for the "INPUT" volume we created
 earlier.  You'll want to repeat these commands for the "SCRATCH" AND "OUTPUT" volumes.
 
-* ``mkdir -p /mnt/cinder/<INPUT>``
+* ``sudo mkdir -p /mnt/cinder/INPUT``
 * ``sudo apt-get -y install xfsprogs``
-* ``mkfs.xfs/dev/vdb``
-* ``mount /dev/vdb /mnt/cinder/<INPUT>/``
+* ``sudo mkfs.xfs/dev/vdb``
+* ``sudo mount /dev/vdb /mnt/cinder/INPUT/``
 
 .. Topic:: Moving your Cinder Volume
 	
@@ -138,7 +138,7 @@ CLI - Unmounting and Unattaching Cinder Volumes
 Once you have the information you'd like in a Cinder volume, you should detach it and unmount it.  
 To unmount the "INPUT" volume example from above:
 
-* ``unmount mnt/cinder/<INPUT>``
+* ``sudo umount mnt/cinder/INPUT``
 
 Then exit the VM, so you're back on the login node. 
 
