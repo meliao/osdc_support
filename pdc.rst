@@ -41,6 +41,12 @@ For general instructions on PDC use, please refer to the OSDC
 To work on the command line, please refer to the OSDC support 
 on :doc:`Command Line Tools. <commandline>`
 
+CLI -SSH Keypairs BETA 
+-----------------------
+Until the Tukey console is available, keypairs to login to VMs will need to be managed from the command line.  To do so
+please refer to these `Openstack support docs <http://docs.openstack.org/user-guide/content/create_import_keys.html>`_.
+
+
 Workflow Guide
 --------------
 
@@ -62,7 +68,7 @@ is done from the login node.  First ssh to the login node.
 
 Next, create a new VM. 
 
-* ``nova boot --image <IMAGE_ID> --flavor <FLAVOR_NAME_OR_NUMBER VM_NAME>``
+* ``nova boot --image <IMAGE_ID> --flavor <FLAVOR_NAME_OR_NUMBER VM_NAME> --key_name <KEYPAIR_NAME>``
 
 A list of currently available VM Flavors is available below.
 
@@ -80,9 +86,9 @@ We suggest creating three Cinder volumes, INPUT for input data, SCRATCH for inte
 scratch output, and OUTPUT for final results.  To create the following volumes with 
 sample sizes (INPUT (1TB); SCRATCH (2TB); OUTPUT (1TB))
 
-* ``nova volume-create -- display-name INPUT 1024``
-* ``nova volume-create -- display-name SCRATCH 2048``
-* ``nova volume-create -- display-name OUTPUT 1024``
+* ``nova volume-create --display-name INPUT 1024``
+* ``nova volume-create --display-name SCRATCH 2048``
+* ``nova volume-create --display-name OUTPUT 1024``
 
 Next, list existing VMs and Cinder volumes and get the relevant UUID.  
 
