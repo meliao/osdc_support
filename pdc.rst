@@ -46,6 +46,9 @@ CLI -SSH Keypairs BETA
 Until the Tukey console is available, keypairs to login to VMs will need to be managed from the command line.  To do so
 please refer to these `Openstack support docs <http://docs.openstack.org/user-guide/content/create_import_keys.html>`_.
 
+It is likely you will just need to tell Nova about your keypairs which can be done using:
+
+* ``nova keypair-add --pub_key ~/.ssh/id_rsa.pub KEY_NAME``
 
 Workflow Guide
 --------------
