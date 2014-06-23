@@ -71,7 +71,7 @@ is done from the login node.  First ssh to the login node.
 
 Next, create a new VM. 
 
-* ``nova boot --image <IMAGE_ID> --flavor <FLAVOR_NAME_OR_NUMBER> <VM_NAME> --key_name <KEYPAIR_NAME>``
+* ``nova boot --image <IMAGE_ID> --flavor <FLAVOR_NAME_OR_NUMBER> --key_name <KEYPAIR_NAME> <VM_NAME>``
 
 A list of currently available VM Flavors is available below.
 
