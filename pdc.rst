@@ -120,7 +120,7 @@ earlier.  You'll want to repeat these commands for the "SCRATCH" AND "OUTPUT" vo
 
 * ``sudo mkdir -p /mnt/cinder/INPUT``
 * ``sudo apt-get -y install xfsprogs``
-* ``sudo mkfs.xfs/dev/vdb``
+* ``sudo mkfs.xfs /dev/vdb``
 * ``sudo mount /dev/vdb /mnt/cinder/INPUT/``
 
 .. Topic:: Moving your Cinder Volume
