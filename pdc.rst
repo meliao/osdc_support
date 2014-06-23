@@ -78,11 +78,12 @@ A list of currently available VM Flavors is available below.
   =============  ========  ===============  ============
   Flavor         VCPUs     VM Disk (GB)     RAM (GB)           
   =============  ========  ===============  ============
-  m1.tiny        1         0                .5          
   m1.small       1         20               2          
   m1.medium      2         20               4         
   m1.large       4         20               8          
-  m1.xlarge      8         20               16               
+  m1.xlarge      8         20               16  
+  m1.xxlarge	 16	   20	            48
+  m1.xxxlarge    32        20	            96
   =============  ========  ===============  ============
 
 We suggest creating three Cinder volumes, INPUT for input data, SCRATCH for intermediate 
