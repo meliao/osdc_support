@@ -158,9 +158,64 @@ write your output to /mnt/cinder/output/ and finally move your output back to yo
 Make sure your pipeline codes reflect these input, scratch, and output locations.   Please make sure and run 
 your pipelines in Cinder volumes so that all temp files will be stored there.
 
-Swift Commands
+Using Swift
 --------------
-A full list of swift commands can be found in the `OpenStack user guide. <http://docs.openstack.org/user-guide/content/swift_commands.html>`_
 
-Sample commands to mount TCGA data?
-Need to install on VM?
+Copying OpenStack Environment Variables to VM
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Currently, before running any swift command in your VM, you need to first copy ./novarc, 
+which contains the OpenStack environment variables from head node to your VM, and source it.
+
+In your head node:
+
+* ``scp ~/.novarc ubuntu@<VM_IP>:/home/ubuntu``
+* ``ssh ubuntu@<VM_IP>``
+* ``source ~/.novarc``
+
+If swift client is not installed, please get it via:
+
+* ``sudo apt-get install python-swiftclient``
+
+Swift Subcommands
+^^^^^^^^^^^^^^^^^
+
+A full list of Swift commands can be found in the `OpenStack user guide. <http://docs.openstack.org/user-guide/content/swift_commands.html>`_
+Below are some sample commands you may find helpful for working with Swift.
+
+* ``swift stat <CONTAINER_NAME> <OBJECT_NAME>`` 
+	* Displays information for the account, container, or object
+* ``swift list <CONTAINER_NAME> <OBJECT_NAME>``
+	* Lists the objects for a container
+	* If no <CONTAINER_NAME>, lists all containers for the account
+*  ``swift delete <CONTAINER_NAME> <OBJECT_NAME>``
+	* Deletes a container or objects within a container
+* ``swift post <CONTAINER_NAME> <OBJECT_NAME>``
+	* Updates meta information for the account, container, or object
+	* If the container is not found, it will be created automatically
+* ``swift upload <CONTAINER_NAME> <FILE_OR_DIRECTORY_NAME>``
+	* Uploads files or directories to the given container
+	* If the container is not found, it will be created automatically
+	* If the file is larger than 5GB, you must use option ``--segment-size=SEGMENT_SIZE (-S SEGMENT_SIZE)``
+		* NOTE:  Swift will upload files in segments no larger than <SEGMENT_SIZE> into a default container <CONTAINER_NAME>_segments, and then create a "manifest" file in the container <CONTAINER_NAME> that you can later use to download all the segments as if it were the original file.
+* ``swift download <CONTAINER_NAME> <OBJECT_NAME>``
+	* Download objects from containers
+
+Some other useful options that can be used together with some (not all) of the subcommands
+
+* help (-h): show help message
+* verbose (-v): display/print more info
+* lh: Report sizes in human readable format similar to ls -lh
+* skip-identical: Skip uploading/downloading files that are identical on both sides
+
+Examples of use:
+
+* ``swift --help``
+	* Shows help message for swift
+* ``swift post --help``
+	* Shows help message for swift post subcommand
+* ``swift stat --verbose``
+	* Displays more detailed information for the account
+* ``swift list <CONTAINER_NAME>  --lh``
+	* Lists all object in the container with sizes in readable format
+* ``swift download <CONTAINER_NAME> --skip-identical``
+	* Downloads all objects in the container to the current directory, and skip all files that is already in the directory
