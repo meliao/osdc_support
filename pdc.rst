@@ -116,7 +116,7 @@ Next we'll want to make a directory, install xfs, construct xfs, and finally mou
 volume.   The example below gives the commands to do so for the "SCRATCH" volume we created
 earlier.  
 
-* ``sudo mkdir -p /mnt/cinder/SCRATCH`
+* ``sudo mkdir -p /mnt/cinder/SCRATCH``
 * ``sudo apt-get -y install xfsprogs``
 * ``sudo mkfs.xfs /dev/vdb``
 * ``sudo mount /dev/vdb /mnt/cinder/SCRATCH/``
