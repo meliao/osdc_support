@@ -41,6 +41,31 @@ For general instructions on PDC use, please refer to the OSDC
 To work on the command line, please refer to the OSDC support 
 on :doc:`Command Line Tools. <commandline>`
 
+.. _pdcproxy:
+
+Connecting to External Sources
+------------------------------
+
+In order to keep the PDC a secure and compliant work environment, additional steps need to be taken anytime
+you want to connect to an outside resource.  See the :ref:`whitelist <whitelist>` for a full list of currently 
+whitelisted external sites. 
+
+Working with the PDC Proxy Server
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+In order to update or install packages or to access external resources with tools like wget or curl you'll need
+to work with our proxy server.   You'll need to take these steps every time you need to access external resources
+or install or update packages. 
+
+* Login to your VM
+* Run ``export http_proxy=http://cloud-proxy:3128; export https_proxy=http://cloud-proxy:3128;``
+* Access External Sources
+* Once completed, run:  ``unset http_proxy; unset https_proxy``
+
+.. NOTE:: If you do not take these steps, and attempt to try commands that hit the internet w/o running the above 
+	commands to pull over settings from the proxy server, your session will hang and become unresponsive.
+
+
 CLI -SSH Keypairs BETA 
 -----------------------
 Until the Tukey console is available, keypairs to login to VMs will need to be managed from the command line.  To do so
@@ -62,7 +87,7 @@ What follows is a step by step guide on how to work with Cinder and Swift to:
 * Copy files and execute pipelines
 
 CLI - Creating Cinder Volumes
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 First we'll create and attach Cinder volumes to VMs via the CLI.   This 
 is done from the login node.  First ssh to the login node.
@@ -215,3 +240,90 @@ Examples of use:
 	* Lists all object in the container with sizes in readable format
 * ``swift download <CONTAINER_NAME> --skip-identical``
 	* Downloads all objects in the container to the current directory, and skip all files that is already in the directory
+	
+.. _whitelist:
+	
+Whitelisted Resources
+---------------------
+
+Below is a growing list of resources currently whitelisted on the PDC.   If a site with tools you need is 
+not listed below, please open up a ticket with support @ opensciencedatacloud dot org.
+
+Debian/Ubuntu Mirrors
+^^^^^^^^^^^^^^^^^^^^^^
+
+* archive.ubuntu.com
+* security.ubuntu.com
+* mirror.anl.gov
+* security.debian.org
+* http.us.debian.org
+* keyserver.ubuntu.com
+* mirror.csclub.uwaterloo.ca
+* us.archive.ubuntu.com
+* ppa.launchpad.net
+
+Cghub
+^^^^^^^^^^^^^^^^^^^^^^
+
+* cghub.ucsc.edu
+
+Git
+^^^^^^^^^^^^^^^^^^^^^^
+* source.bionimbus.org
+* git.bionimbus.org
+* .github.com
+
+OpenID
+^^^^^^^^^^^^^^^^^^^^^^
+* www.google.com
+
+ClamAV
+^^^^^^^^^^^^^^^^^^^^^^
+
+* db.local.clamav.net
+
+Pypi
+^^^^^^^^^^^^^^^^^^^^^^
+
+* .pypi.python.org
+
+Bioconductor
+^^^^^^^^^^^^^^^^^^^^^^
+
+* .bioconductor.org
+* bioconductor.org
+
+R mirrors
+^^^^^^^^^^^^^^^^^^^^^^
+
+* cran.r-project.org
+* cran.cnr.Berkeley.edu
+* cran.stat.ucla.edu
+* streaming.stat.iastate.edu
+* ftp.ussg.iu.edu
+* rweb.quant.ku.edu
+* watson.nci.nih.gov
+* cran.mtu.edu
+* cran.wustl.edu
+* cran.case.edu
+* ftp.osuosl.org
+* lib.stat.cmu.edu
+* mirrors.nics.utk.edu
+* cran.fhcrc.org
+* cran.cs.wwu.edu
+
+Perl/CPAN mirrors
+^^^^^^^^^^^^^^^^^^^^^^
+
+* cpan.mirrors.tds.net
+* .cpan.org
+* .bitbucket.org
+* .perl.org
+* .metacpan.org
+
+SourceForge
+^^^^^^^^^^^^^^^^^^^^^^
+
+* .sourceforge.net
+
+
