@@ -62,8 +62,14 @@ or install or update packages.
 * Access External Sources
 * Once completed, run:  ``unset http_proxy; unset https_proxy``
 
-.. NOTE:: If you do not take these steps, and attempt to try commands that hit the internet w/o running the above 
+..  warning:: 
+	
+	If you do not take these steps, and attempt to try commands that hit the internet w/o running the above 
 	commands to pull over settings from the proxy server, your session will hang and become unresponsive.
+	
+	If you are trying to access an external site and get a 403 error, the site is not currently on the 
+	:ref:`whitelist <whitelist>`.   You'll need to request access for that site by sending an email to 
+	support @ opensciencedatacloud dot org.
 
 
 CLI -SSH Keypairs BETA 
