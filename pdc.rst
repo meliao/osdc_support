@@ -48,18 +48,18 @@ Connecting to External Sources
 
 In order to keep the PDC a secure and compliant work environment, additional steps need to be taken anytime
 you want to connect to an outside resource.  See the :ref:`whitelist <whitelist>` for a full list of currently 
-whitelisted external sites. 
+available external sites. 
 
 Working with the PDC Proxy Server
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 In order to update or install packages or to access external resources with tools like wget or curl you'll need
-to work with our proxy server.   You'll need to take these steps every time you need to access external resources
+to work with a proxy server.   You'll need to take these steps every time you want to access external resources
 or install or update packages. 
 
 * Login to your VM
 * Run ``export http_proxy=http://cloud-proxy:3128; export https_proxy=http://cloud-proxy:3128;``
-* Access External Sources
+* Access external sources
 * Once completed, run:  ``unset http_proxy; unset https_proxy``
 
 ..  warning:: 
