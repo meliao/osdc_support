@@ -145,10 +145,10 @@ First login to your VM.
 
 Next we'll want to make a directory, install xfs, construct xfs, and finally mount the Cinder 
 volume.   The example below gives the commands to do so for the "SCRATCH" volume we created
-earlier.  
+earlier. To run apt-get successfully you will need to use the proxy per :ref:`Connecting to External Sources <pdcproxy>` 
 
 * ``sudo mkdir -p /mnt/cinder/SCRATCH``
-* ``sudo apt-get -y install xfsprogs``
+* ``sudo -E apt-get -y install xfsprogs``
 * ``sudo mkfs.xfs /dev/vdb``
 * ``sudo mount /dev/vdb /mnt/cinder/SCRATCH/``
 
@@ -201,7 +201,7 @@ In your head node:
 
 If swift client is not installed, please get it via:
 
-* ``sudo apt-get install python-swiftclient``
+* ``sudo -E apt-get install python-swiftclient``
 
 Swift Subcommands
 ^^^^^^^^^^^^^^^^^
