@@ -59,7 +59,7 @@ or install or update packages.
 
 * Login to your VM
 * Run ``export http_proxy=http://cloud-proxy:3128; export https_proxy=http://cloud-proxy:3128;``
-* Access external sources
+* Access external sources - if installing, make sure and use ``sudo -E`` as part of your install/update commands
 * Once completed, run:  ``unset http_proxy; unset https_proxy``
 
 ..  warning:: 
