@@ -25,6 +25,17 @@ The OSDC manages two Hadoop clusters, OCC-Y and Skidmore, for select projects.
 OSDC Resource Allocations
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
+The Open Science Data Cloud has a very active community of BETA users and demand for OSDC services are growing. To 
+help keep up with the demand for computing resources, we review active resource allocations on a quarterly basis 
+and make sure that allocations are adequately distributed among projects based on scientific merit and/or 
+established partnership status with the OSDC. This is done through a process of surveys to active recipients 
+of OSDC resource allocations.
+
+Resource allocation periods are generally for 3 months at a time and begin on January 1, April 1, July 1, October 1. 
+All incoming applications for resources will be reviewed near one of these terms and are due on the 15th of the 
+month prior (e.g., December 15th for the allocation period starting January 1st). During the survey process, a 
+resource allocation extension can be requested if your research is not yet complete.
+
 A general resource allocation on the OSDC can be requested through the `application 
 process <https://www.opensciencedatacloud.org/apply>`_.   Special protected resources
 like the `Bionimbus-PDC <https://bionimbus-pdc.opensciencedatacloud.org/>`_ have their own 
@@ -38,8 +49,8 @@ separate application process.
 	for secure authentication. 
 
 Once you've applied, you'll hear back from us shortly with any additional follow up 
-questions regarding your request for resources.   Your  request will then be considered 
-by our resource allocation committee.  Please allow 2-3 weeks for review.   Due to space 
+questions regarding your request for resources.   Your request will then be considered 
+by our resource allocation committee during the allocation review period.  Due to space 
 limitations, not all requests will be approved.
 
 Once your application is approved and your account is created, you'll receive an email 
@@ -49,7 +60,7 @@ Resource allocations will be reviewed periodically to make sure recipients are m
 progress with their research questions and making appropriate use of their allocations. 
 This will be done via surveys and direct emails.   
 
-Recipients of OSDC resource allocations are expected to:
+Recipients of OSDC resource allocations are expected to
 
 *	Make appropriate use of OSDC resources and use :ref:`good social behavior  <metering>`.
 *	:ref:`Cite  <cite>` the OSDC in any papers describing research
