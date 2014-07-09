@@ -81,7 +81,7 @@ dates for the requested upgrade, what you need upgraded, and the reason for the 
 
 ..  topic::  Quota upgrade request example
 
-	I need 32 cores and 5TB of storage for once month starting on Jan 1st to help meet
+	I need 32 cores and 5TB of storage for one month starting on Jan 1st to help meet
 	a publication deadline for my research on ________.   I will be using these additional 
 	cores and storage to ______________.
 
