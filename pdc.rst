@@ -130,7 +130,7 @@ Next, list existing VMs and Cinder volumes and get the relevant UUID.
 
 Finally, attached Cinder volumes to VMs.   This will need to be done for each Cinder volume.
 
-* ``nova volume-attach <VM UUID> <CINDER VOL UUID>``  
+* ``nova volume-attach <VM UUID> <CINDER VOL UUID> auto``  
 
 
 CLI - Mounting Cinder Volumes to VM
