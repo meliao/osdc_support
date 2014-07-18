@@ -64,7 +64,7 @@ Assign Floating IP to a VM
 Remove Floating IP from a VM
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 *  Run ``nova list`` to get the VM's ID
-*  Remove IP from VM with ``nova remove-floating-ip <UUID FLOATING_IP>``
+*  Remove IP from VM with ``nova remove-floating-ip <ID FLOATING_IP>``
 
 Open Ports
 ~~~~~~~~~~~
