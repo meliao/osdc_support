@@ -58,13 +58,13 @@ Assign Floating IP to a VM
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 *  Run ``nova list`` to get the VM's ID
 *  Find free Floating IP with 'nova floating-ip-list'
-*  Add IP to VM with ``nova add-floating-ip ID FLOATING_IP``
+*  Add IP to VM with ``nova add-floating-ip <ID FLOATING_IP>``
 
 
 Remove Floating IP from a VM
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 *  Run ``nova list`` to get the VM's ID
-*  Remove IP from VM with ``nova remove-floating-ip UUID FLOATING_IP``
+*  Remove IP from VM with ``nova remove-floating-ip <UUID FLOATING_IP>``
 
 Open Ports
 ~~~~~~~~~~~
