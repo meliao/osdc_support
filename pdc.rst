@@ -73,10 +73,11 @@ or install or update packages.
 	support @ opensciencedatacloud dot org.
 
 
-CLI -SSH Keypairs BETA 
+SSH Keypairs 
 -----------------------
-Until the Tukey console is available, keypairs to login to VMs will need to be managed from the command line.  To do so
-please refer to these `Openstack support docs <http://docs.openstack.org/user-guide/content/create_import_keys.html>`_.
+It is necessary to have a keypair setup for both the login node and for instances.   This can be done using the webconsole by importing an ssh key
+or by command line.   To do so from the command line, please refer to 
+these `Openstack support docs <http://docs.openstack.org/user-guide/content/create_import_keys.html>`_.
 
 It is likely you will just need to tell Nova about your keypairs which can be done using:
 
