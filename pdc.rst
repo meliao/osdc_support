@@ -83,6 +83,10 @@ It is likely you will just need to tell Nova about your keypairs which can be do
 
 * ``nova keypair-add --pub_key ~/.ssh/id_rsa.pub KEY_NAME``
 
+..  warning:: 
+	
+	If you plan to manage your ssh connections using Putty, please make sure that you are using v0.63 or beyond.   There are noted connection issues with older versions.
+
 Workflow Guide
 --------------
 
