@@ -9,12 +9,10 @@ OCC-Y
 Connecting to the OCC-Y Hadoop cluster:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-*  You must log in to one of the two servers available.  All files not stored in HDFS should be stored in 
-	your home directory.  Your home directory is shared between the two login nodes below.
+*  You must log in to the available server.  All files not stored in HDFS should be stored in 
+	your home directory.  Your home directory is shared at the login node below.
 
-	*  If you are on a internet2/starlight accessible network you ssh into occy-starlight.opensciencedatacloud.org
-		``ssh -A username@occy-starlight.opensciencedatacloud.org``
-	*  If you are using normal internet1 then you need to use  occy.opensciencedatacloud.org .
+	*  Use occy.opensciencedatacloud.org to ssh to the login node.
 		``ssh -A username@occy.opensciencedatacloud.org``
  
 *  Once logged in you may issue commands as needed. 
