@@ -76,7 +76,7 @@ scientific projects (a fourth category of potential users) will build their own 
 or use commercial offerings and will not be using OSDC resources.
 
 Quotas are set at the time an account is created.  If you need a larger quota for a particular
-research project, send an email to accounts@opencloudconsortium.org with the start and end
+research project, send an email to support@opensciencedatacloud.org with the start and end
 dates for the requested upgrade, what you need upgraded, and the reason for the need.
 
 ..  topic::  Quota upgrade request example
