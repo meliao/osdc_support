@@ -48,17 +48,6 @@ It's a good idea to make the new image name informative.
 By default the new images are private and can only be seen by you. To make images public:
   ``glance update <IMAGE ID> is_public=true image_type=snapshot``
 
-Shrinking Snapshots to run on smaller flavors
-#############################################
-* Find the image you want with ``nova image-list | grep IMAGE_NAME``
-* Download the image  ``glance image-download UUID > IMAGE_NAME.dl``
-* Most likely the image will be in qcow2 format, Check this with ``qemu-img info IMAGE_NAME.dl``.  If you see "file format: qcow2" we need to convert to raw with `` qemu-img qemu-img convert -f qcow2 -O raw IMAGE_NAME.dl IMAGE_NAME.raw``
-* Shrink it to a number larger then "disk size" from the ``qemu-img info IMAGE_NAME.dl`` command (7-10G seems normal) with ``qemu-img resize IMAGE_NAME.raw 10G``
-* Convert it back to qcow2 format ``qemu-img convert -f raw -O qcow2 IMAGE_NAME.raw IMAGE_NAME.qcow2``
-* Upload to glance ``glance image-create --disk-format qcow2 --container-format bare --name "IMAGE_NAME" --file IMAGE_NAME.qcow2``
-* Boot your newly uploaded image as a VM, verify it is working.  Then delete the temporary files you created (IMAGE_NAME.*) and the old oversized image in openstack.
-
-  
 Floating IPs
 ------------
 
