@@ -63,8 +63,10 @@ This will be done via surveys and direct emails.
 Recipients of OSDC resource allocations are expected to
 
 *	Make appropriate use of OSDC resources and use :ref:`good social behavior  <metering>`.
+*       Do not share ssh keys or login information - One user per resource allocation.
 *	:ref:`Cite  <cite>` the OSDC in any papers describing research
 *	Let us know about papers published when asked in surveys
+*       Submit tickets to the OSDC support ticketing system when encountering technical issues not covered by the OSDC support documentation.
 
 VIDEO: OSDC Demo
 ^^^^^^^^^^^^^^^^
