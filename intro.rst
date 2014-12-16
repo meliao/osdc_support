@@ -97,6 +97,7 @@ We require the following documentation:
 About CITI Training:
 ~~~~~~~~~~~~~~~~~~~~ 
 Please complete the following five courses from CITI training.  
+
 * Basics of Health Privacy
 * Health Privacy Issues for Researchers
 * Responsible Conduct of Research (RCR) Basic
