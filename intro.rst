@@ -21,6 +21,7 @@ Each cloud has a distributed `Gluster File System <http://www.gluster.org/>`_ wh
 
 The OSDC manages two Hadoop clusters, OCC-Y and Skidmore, for select projects. 
 
+.. _allocations:
 
 OSDC Resource Allocations
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -74,6 +75,8 @@ Protected Data Resources
 Some protected `OSDC resources <https://www.opensciencedatacloud.org/systems/>`_ or Protected Data Clouds (PDC) require special 
 certification or legal agreements to be shared with our allocation team before a researcher gains access.   Ensuring that PDC
 allocation receipients are trained in handling sensitive data is an important step in keeping these resources secure and compliant. 
+
+.. _citi:
 
 Atwood - Handling Sensitive Data Training:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
