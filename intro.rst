@@ -107,10 +107,10 @@ Here are some details (NOTE:  users at different institutions, and at different 
 * If you do not already have a CITI account, go to "Create an account" --> Register and select your Organization Affiliation.  Be sure to select your home institution as your “Participating Institution,” select a username/password, and fill out all other necessary information requested in registration. 
 * Once this is completed you will be required to complete 4 enrollment questions. This will determine the modules you will need to complete.  
 * Please make the following choices:  
-  * Would you like to take the Conflict of Interest Course? - "Yes"
-  * Select your Division at your Institution.
-  * Researchers involved in protocols need to complete CITI Basic/Refresher - "Need to Enroll for Research Staff"
-  * Responsible and Ethical Conduct of Research course - "Yes"
+    * Would you like to take the Conflict of Interest Course? - "Yes"
+    * Select your Division at your Institution.
+    * Researchers involved in protocols need to complete CITI Basic/Refresher - "Need to Enroll for Research Staff"
+    * Responsible and Ethical Conduct of Research course - "Yes"
 * Once complete, send your certificate and OSDC username to accounts@opencloudconsortium.org
 
 VIDEO: OSDC Demo
