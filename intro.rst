@@ -71,7 +71,7 @@ Recipients of OSDC resource allocations are expected to
 Protected Data Resources
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-Some protected `OSDC resources <https://www.opensciencedatacloud.org/systems/>` or Protected Data Clouds (PDC) require special 
+Some protected `OSDC resources <https://www.opensciencedatacloud.org/systems/>`_ or Protected Data Clouds (PDC) require special 
 certification or legal agreements to be shared with our allocation team before a researcher gains access.   Ensuring that PDC
 allocation receipients are trained in handling sensitive data is an important step in keeping these resources secure and compliant. 
 
@@ -103,7 +103,7 @@ Please complete the following five courses from CITI training.
 
 Here are some details (NOTE:  users at different institutions, and at different depts within an institution may not see these exact messages):
 
-* Go to `CITI home page <www.citiprogram.org>`
+* Go to `CITI home page <www.citiprogram.org>`_
 * If you do not already have a CITI account, go to "Create an account" --> Register and select your Organization Affiliation.  Be sure to select your home institution as your “Participating Institution,” select a username/password, and fill out all other necessary information requested in registration. 
 * Once this is completed you will be required to complete 4 enrollment questions. This will determine the modules you will need to complete.  
 * Please make the following choices:
