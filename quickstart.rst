@@ -1,7 +1,7 @@
 OSDC Quickstart Guide
 =====================
 
-1. Apply for and obtain a resource allocation and an account via the `OSDC application <http://www.opensciencedatacloud.org/apply>`_.   Please allow 2-3 weeks for our allocation committee to review your application.
+1. Apply for and obtain a resource allocation and an account via the `OSDC application <http://www.opensciencedatacloud.org/apply>`_.   Please allow a few weeks for our allocation committee to review your application, depending on when your application is received in the :ref:`quarterly resource allocation cycle <allocation>`.
 
 2. Once your request has been approved and you receive a welcome email with details, log into the `main OSDC console <http://www.opensciencedatacloud.org/console>`_.
 
