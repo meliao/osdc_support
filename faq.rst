@@ -13,6 +13,8 @@ General Questions
 - :ref:`osdc-9`
 - :ref:`osdc-10`
 - :ref:`osdc-11`
+- :ref:`osdc-12`
+- :ref:`osdc-13`
 
 Protected Data Clouds
 -----------------------------------------------------
@@ -46,6 +48,12 @@ What is GlusterFS?
 ******************************************************
   GlusterFS is a scalable, distributed file system that we use on our clouds to provide file level access to data. Each cloud has it's own GlusterFS store that is visible from all nodes and VMs. Additionally, the GlusterFS store that contains the OSDC public datasets is readable from all locations.
 
+.. _osdc-12:
+
+Where is my home directory?
+******************************************************
+  Your Home folder can be found at ``/glusterfs/users/<username>``.
+
 .. _osdc-4:
 
 Why are there quotas?
@@ -64,6 +72,12 @@ What is the fastest way to transfer data to/from the cloud?
 ************************************************************************************************************
   We provide a tool called `UDR <https://github.com/LabAdvComp/UDR>`_ that works just like rsync but utilizes a high performance network protocol called `UDT <http://udt.sourceforge.net/>`_. It is freely available on our `GitHub <https://github.com/LabAdvComp/UDR>`_ page.
 
+.. _osdc-13:
+
+When I transfer data into the OSDC where should it go?
+************************************************************************************************************
+  Transferred data should go to your home directory or a shared directory previously configured for a group project. 
+  
 .. _osdc-7:
 
 How do I share data with just my collaborators?
