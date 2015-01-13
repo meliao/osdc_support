@@ -52,7 +52,7 @@ What is GlusterFS?
 
 Where is my home directory?
 ******************************************************
-  Your Home folder can be found at ``/glusterfs/users/<username>``.
+  Your Home folder can be found at ``/glusterfs/users/<username>``.  This folder is mounted and accessible from all your virtual machines on the cloud you are working on.
 
 .. _osdc-4:
 
