@@ -60,7 +60,7 @@ VMs that are not in use or periodically cleaning out storage.
 	by the VM depends on the :ref:`Flavor  <flavors>` selected when launched. 
 	
 Monthly metering statements are sent via email, and in addition to having details about the number of 
-core hours and GB of storage used during a given period, they also have a corresponding dollar value.   We currently
+core hours and GB of storage (GlusterFS, Block, Object, depending on the OSDC resource) used during a given period, they also have a corresponding dollar value.   We currently
 use pricing competitive with AWS EC2 and S3 rates.  Seeing a dollar figure helps OSDC users
 better understand the value provided by an OSDC resource allocation.   
 
