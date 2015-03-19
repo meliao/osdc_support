@@ -123,7 +123,7 @@ To load your key into the ssh-agent simply run ``ssh-add ~/.ssh/<keyname>``. If 
 password protected your private key you will be asked to enter the password.   
 By default keyname will be either ``~/.ssh/id_dsa`` or ``~/.ssh/id_rsa``.  
 You will most likely need to run this  command each time you start a 
-terminal/cli session. If you are on OSX you can add this key to your OSX key ring by running ``ssh-add -k``. If you password protected your private key you will be asked this once for the password.  Everytime you open a new terminal window, OSX will auto populate the ssh keys you saved via ``ssh-add -k``.
+terminal/cli session. If you are on OSX you can add this key to your OSX key ring by running ``ssh-add -K``. If you password protected your private key you will be asked this once for the password.  Everytime you open a new terminal window, OSX will auto populate the ssh keys you saved via ``ssh-add -k``.
 You can view your currently loaded keys with :ref:`ssh-add -l <display-agent-keys>`.
 
 .. _ssh-agent-script:
