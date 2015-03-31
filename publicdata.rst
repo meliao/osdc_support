@@ -12,8 +12,9 @@ The contents of the `OSDC Public Data Commons <https://www.opensciencedatacloud.
 or high performance networks such as Internet2, as well as computed over directly 
 on the OSDC.  Currently, the OSDC hosts nearly 1PB of publicly available datasets. 
 
-If you have suggestions about data that should be included, please let 
-us know at info@opencloudconsortium.org. 
+If you would like your dataset hosted in the OSDC Public Data Commons please apply 
+at `https://www.opensciencedatacloud.org/keyservice/request/ <https://www.opensciencedatacloud.org/keyservice/request/>`_.   The 
+OSDC Resource Allocation committee reviews applications on a quarterly basis. 
 
 .. _publicdata:
 
