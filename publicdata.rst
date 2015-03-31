@@ -32,3 +32,9 @@ to your home folder.
 *	On Atwood and PDC, you login to the VM with your username, so the dir you
 	login to is your home dir.   
 *   For Hadoop resources, please review the :ref:`Hadoop Resource Guide  <hadoop>`
+
+ARK Key Service
+------------------------
+
+The OSDC Public Data Commons features a key service utilizing ARK codes as permanent identifiers 
+to each dataset.  More information can be found here: `https://www.opensciencedatacloud.org/keyservice/ <https://www.opensciencedatacloud.org/keyservice/>`_
