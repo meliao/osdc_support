@@ -14,12 +14,12 @@ Contents:
    :maxdepth: 2
 
    intro
+   publicdata
    quickstart
    console
    ssh
    instances
    commandline
-   publicdata
    hadoop
    pdc
    sdk
