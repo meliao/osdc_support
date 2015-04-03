@@ -87,11 +87,13 @@ Here we will show you how to use Python to
 Launch the OSDC EO-1 Instance
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 In the console, under 'Images and Snapshots', scroll down to find the section labeled 'All Snapshots'.  Here's you'll want to find 
-and launch the snapshot called 'OSDC_DatasetExplorer_EO1'.   Tiny or small flavor will be suitable for our purposes.  
+and launch the snapshot called 'OSDC_DatasetExplorer_EO1'.   We recommend using a medium instance. 
 
 When you ssh in to both the login node and the instance, make sure and add both the "A" and the "X" flags.  The A is for key forwarding, the X
 is for X11 forwarding.  IE:  ``ssh -AX <username>@sullivan.opensciencedatacloud.org`` and then ``ssh -AX ubuntu@<INSTANCE.IP>``.  If you're doing a lot of 
 GUI work like looking at plots and images, you'll want to use this X flag often.
+
+Once you're in the instance, cd and run all commands from the existing /eo1_demo dir.  
 
 Viewing a GeoTiff
 ~~~~~~~~~~~~~~~~~
