@@ -17,6 +17,8 @@ new users. Root hosts about 1 PB of `public data sets <http://www.opensciencedat
 
 The OSDC also operates several protected clouds to provide platforms for users to compute over large protected human genomic datasets. These include the `Bionimbus Protected Data Cloud <https://bionimbus-pdc.opensciencedatacloud.org>`_ and the `Atwood (or Conte) Cloud <http://www.contechicago.org/conte-cores/core-b>`_.
 
+.. NOTE::   OSDC resources that are not specifically labeled as protected clouds should not be used for analysis or storage of any Protected Health Information (PHI)"
+
 Each cloud has a distributed `Gluster File System <http://www.gluster.org/>`_ where users can store their data and access it from all of their VMs.
 
 The OSDC manages two Hadoop clusters, OCC-Y and Skidmore, for select projects. 
@@ -75,6 +77,8 @@ Protected Data Resources
 Some protected `OSDC resources <https://www.opensciencedatacloud.org/systems/>`_ or Protected Data Clouds (PDC) require special 
 certification or legal agreements to be shared with our allocation team before a researcher gains access.   Ensuring that PDC
 allocation receipients are trained in handling sensitive data is an important step in keeping these resources secure and compliant. 
+
+.. NOTE::   OSDC resources that are not specifically labeled as protected clouds should not be used for analysis or storage of any Protected Health Information (PHI)"
 
 .. _citi:
 
