@@ -90,13 +90,15 @@ that all projects that use protected health information and other sensitive data
 The Atwood Protected Data Cloud provides a computing environment designed to support research with protected health information 
 and other sensitive data, but the computing environment is only one component of what is required to properly secure protected 
 health information or other sensitive data.   Another important requirement is that those using a computing infrastructure 
-like Atwood have proper training and have received from their institution all the required approvals for working with protected 
+like Atwood have proper training and have received from their institution all the required approvals for working with protected
 health information and other sensitive data.  
 
 We require the following documentation:
  
 1) For each project, that the PI of the project send us a copy of the IRB approved protocol for the study using the Atwood Protected Data Cloud or a letter showing the study is exempt from needing an IRB Protocol.   The IRB Protocol or Exemption should be from the home institution of the PI for the project.   For new protocols or renewals of protocols, please refer explicitly to the Atwood environment.
 2) For each researcher with a Atwood Protected Data Cloud account, a certificate proving that the researcher has completed CITI training appropriate for working with Protected Health Information or other sensitive data.  A copy of a certificate indicating that you have completed the required CITI training will be requested each year.  
+
+.. NOTE::   We recognize that some institutions do not support CITI training.   If CITI training is not available at your institution, we can review and accept other forms of certification indicating proof of training handling PHI on a case by case basis.
  
 About CITI Training:
 ~~~~~~~~~~~~~~~~~~~~ 
