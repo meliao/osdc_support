@@ -29,9 +29,7 @@ These include the `Bionimbus Protected Data Cloud
 `Atwood Protected Data Cloud 
 <http://www.contechicago.org/conte-cores/core-b>`_. We generally refer to these as "PDCs".  
 
-.. NOTE::   OSDC resources that are not specifically labeled as protected 
-clouds are not designed to be used for the analysis or storage of any 
-Protected Health Information (PHI) or other sensitive data.
+.. NOTE::   OSDC resources that are not specifically labeled as protected clouds are not designed to be used for the analysis or storage of any Protected Health Information (PHI) or other sensitive data.
 
 Each uses either a distributed `Gluster File System <http://www.gluster.org/>`_ or Ceph block and object storage and ephemeral storage in VMs 
 where users can store their data and access it from all of their VMs.
@@ -64,8 +62,7 @@ Special protected resources like the `Bionimbus-PDC
 <https://bionimbus-pdc.opensciencedatacloud.org/>`_ have their own 
 separate application process. 
 
-.. NOTE:: The OSDC console uses federated login. If your organization is 
-on the list of 
+.. NOTE:: The OSDC console uses federated login. If your organization is on the list of 
 	`InCommons members <https://incommon.org/federation/info/all-orgs.html>`_, 
 	`UK Federation members <http://www.ukfederation.org.uk/content/Documents/MemberList>`_, 
 	or `CANARIE members <http://www.canarie.ca/en/about/partners/members>`_, 
@@ -87,7 +84,7 @@ This will be done via surveys and direct emails.
 Recipients of OSDC resource allocations are expected to
 
 *	Make appropriate use of OSDC resources and use :ref:`good social behavior  <metering>`.
-*       Do not share private ssh keys or login information - One user per resource allocation.
+*       Do not share private ssh keys or login information - one user per resource allocation.
 *	:ref:`Cite  <cite>` the OSDC in any papers describing research
 *	Regularly respond to quarterly OSDC allocation surveys
 *       Submit tickets to the OSDC support ticketing system when encountering technical issues not covered by the OSDC support documentation.
