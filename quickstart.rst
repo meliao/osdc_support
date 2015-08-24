@@ -53,7 +53,7 @@ Below is a screencapture of a terminal session showing the command line tools ne
 OSDC EO-1 Quick Start Tutorial
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Now we'll take you step by step through a demo using NASA's Earth Observing-1 dataset. 
+Now we'll take you step by step through a demo using NASA's Earth Observing-1 dataset that works on OSDC Sullivan or the Atwood PDC.
 In this tutorial, we will show you how to use OSDC to visualize and perform a simple 
 example analysis of NASA satellite imagery data.   You will perform many tasks common to
 using the OSDC during this demo like launching an instance, ssh'ing, in addition to those specific
