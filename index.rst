@@ -14,6 +14,7 @@ Contents:
    :maxdepth: 2
 
    intro
+   supportdocs
    publicdata
    quickstart
    console
