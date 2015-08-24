@@ -4,7 +4,7 @@ Support Documentation
 How to Use the Support Docs
 --------------------------------
 
-These support documents serve as a template for the community to better understand available resources and how to maximize their effectiveness.   For all users we recommend a review of the guide through :ref:`Command Line Tools and Floating IPs <commandline>` and then reviewing any sections committed to the resource on which you have an allocation.   
+These support documents serve as a template for the community to better understand available resources and how to maximize their effectiveness.   For all users we recommend a review of the guide all the way through :ref:`Command Line Tools and Floating IPs <commandline>` and then reviewing any sections committed to the resource on which you have an allocation.   
 
 Some Frequently Asked Questions can be found in our :ref:`FAQ <faq>`.       
 
