@@ -82,6 +82,7 @@ General Griffin Use
 The table below has the addresses required to successfully ssh to the Griffin login node and any active VMs. 
 For general instructions, please refer to the OSDC :doc:`Quickstart. <quickstart>`  
 
+
   ====================  =====================================================  ======================
   Cloud                 Login Node                             				  VM 
   ====================  =====================================================  ======================
