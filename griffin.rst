@@ -23,30 +23,31 @@ Griffin Resource Guide
 		
 		OSDC Griffin uses the Ceph Object Gateway to provide users to access to S3-compatible object storage.
 
+What is OSDC Griffin?
+-----------------------
+
+OSDC Griffin is our newest compute resource named after the Chicago Architect Marion Griffin.  It utilizes ephemeral storage in VMs 
+and connects to a separate S3 storage system for persistent user storage.    OSDC Griffin has 608 cores, 2391 GiB of RAM, and 
+369664 GiB of ephemeral storage.  Users and projects are managed at the tenant level. 
+
 Understanding Tenants 
 -----------------------
 
 In Openstack tenants allow the OSDC systems team to manage groups of users and projects be providing common resources, tools, and quotas.   
 OSDC Griffin uses the tenant system to give the users maximum flexibility in managing their resource allocations.   
 
+..  warning::
+	
+		In shared tenants, users could conceivably delete other users' data and VMs.   BE VERY CAREFUL
+		WHEN PERMENTLY REMOVING DATA AND MANAGING TENANT VMS. 
+
+
 Tenant Leaders
 ^^^^^^^^^^^^^^
 
-
-Understanding OSDC Griffin Storage Options
-------------------------------------------
-
-OSDC Griffin uses a combination of Ephemeral storage in VMs and S3 object storage to
-provide reliable and fast data storage devices.   In brief, best practices on Griffin involve:
-
-NEED UPDATE
-
-* Manage persistant data in S3 buckets.
-* Grabbing data into VM ephmeral storage.
-* Execute analysis, review results.   
-* Push results back to Swift
-
-END UPDATE
+When a project receives a resource allocation one user expected to be the primary is assigned as the "tenant leader".   This individual 
+needs to be responsible for making sure other users in their tenant adhere to best practices and protocols they may wish to develop to 
+govern their project's workflow. 
 
 OSDC Griffin Flavors
 ----------------------
@@ -74,7 +75,6 @@ Since Griffin is a community public resource, we ask that you only reserve the r
   hr.xlarge      8         10               64           256
   hr.xxlarge	 16	   10	            128          512
   =============  ========  ===============  ============ ==================
-
 
 
 General Griffin Use
@@ -152,6 +152,22 @@ On OSX this file is located or can be created in ``/Users/username/.ssh/config``
      ProxyCommand ssh -q -A griffinssh -W %h:%p
 
 You can then easily ssh into the headnode using ``ssh griffin`` and ``ssh griffinvm``. 
+
+
+Understanding OSDC Griffin Storage Options
+------------------------------------------
+
+OSDC Griffin uses a combination of Ephemeral storage in VMs and S3 object storage to
+provide reliable and fast data storage devices.   In brief, best practices on Griffin involve:
+
+NEED UPDATE
+
+* Manage persistant data in S3 buckets.
+* Grabbing data into VM ephmeral storage.
+* Execute analysis, review results.   
+* Push results back to Swift
+
+END UPDATE
 
 Using S3
 --------------
