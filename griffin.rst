@@ -23,16 +23,27 @@ Griffin Resource Guide
 		
 		OSDC Griffin uses the Ceph Object Gateway to provide users to access to S3-compatible object storage.
 
+Understanding Tenants 
+-----------------------
+
+In Openstack tenants allow the OSDC systems team to manage groups of users and projects be providing common resources, tools, and quotas.   
+OSDC Griffin uses the tenant system to give the users maximum flexibility in managing their resource allocations.   
+
+Tenant Leaders
+^^^^^^^^^^^^^^
+
+
 Understanding OSDC Griffin Storage Options
 ------------------------------------------
 
 OSDC Griffin uses a combination of Ephemeral storage in VMs and S3 object storage to
-provide reliable and fast data storage devices.   Best practices on the Griffin involve:
+provide reliable and fast data storage devices.   In brief, best practices on Griffin involve:
 
 NEED UPDATE
 
-* Grabbing data (ie:  BAM file) from Swift into Cinder to insure fast I/O
-* Execute pipelines and store intermediate files in Cinder
+* Manage persistant data in S3 buckets.
+* Grabbing data into VM ephmeral storage.
+* Execute analysis, review results.   
 * Push results back to Swift
 
 END UPDATE
@@ -40,15 +51,28 @@ END UPDATE
 OSDC Griffin Flavors
 ----------------------
 
+On OSDC Griffin, we offer 3 flavor families of VMs to facilitate the different types of 
+use we've observed.    Standard flavors = .m3; Hi-Ephemeral = .he, and Hi-RAM = .hr. 
+
+Since Griffin is a community public resource, we ask that you only reserve the resources you need. 
+ 
   =============  ========  ===============  ============ ==================
   Flavor         VCPUs     Root P. (GiB)    RAM (GiB)    Eph Storage (GiB)      
   =============  ========  ===============  ============ ==================
-  m1.small       1         10               2            1
-  m1.medium      2         10               4            2
-  m1.large       4         10               8            2
-  m1.xlarge      8         10               16           2
-  m1.xxlarge	 16	   10	            48           2 
-  m1.xxxlarge    32        10	            96           1
+  m3.small       1         10               3            32
+  m3.medium      2         10               6            64
+  m3.large       4         10               12           128
+  m3.xlarge      8         10               24           256
+  m3.xxlarge	 16	   10	            48           512
+  m3.xxxlarge    32        10	            96           1024
+  he.medium      2         10               6            640
+  he.large       4         10               12           896
+  he.xlarge      8         10               24           1408
+  he.xxlarge	 16	   10	            48           2432
+  hr.medium      2         10               16           64
+  hr.large       4         10               32           128
+  hr.xlarge      8         10               64           256
+  hr.xxlarge	 16	   10	            128          512
   =============  ========  ===============  ============ ==================
 
 
