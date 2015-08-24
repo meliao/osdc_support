@@ -29,13 +29,15 @@ Understanding OSDC Griffin Storage Options
 OSDC Griffin uses a combination of Ephemeral storage in VMs and S3 object storage to
 provide reliable and fast data storage devices.   Best practices on the Griffin involve:
 
+NEED UPDATE
 * Grabbing data (ie:  BAM file) from Swift into Cinder to insure fast I/O
 * Execute pipelines and store intermediate files in Cinder
 * Push results back to Swift
+END UPDATE
 
 General Griffin Use
 -------------------
-For general instructions on PDC use, please refer to the OSDC 
+For general instructions on Griffin use, please refer to the OSDC 
 :doc:`Quickstart. <quickstart>`  
 
 To work on the command line, please refer to the OSDC support 
@@ -46,9 +48,8 @@ on :doc:`Command Line Tools. <commandline>`
 Installing Software
 ------------------------------
 
-In order to keep the PDC a secure and compliant work environment, additional steps need to be taken anytime
-you want to connect to an outside resource.  See the :ref:`whitelist <whitelist>` for a full list of currently 
-available external sites. 
+In order to keep OSDC Griffin a secure and compliant work environment, additional steps need to be taken anytime
+you want to connect to an outside resource.  
 
 Working with the Griffin Proxy Server
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -69,14 +70,14 @@ or install or update packages.
 	commands to pull over settings from the proxy server, your session will hang and become unresponsive.
 	
 	If you are trying to access an external site and get a 403 error, the site is not currently on the 
-	:ref:`whitelist <whitelist>`.   You'll need to request access for that site by sending an email to 
+	whitelist.   You'll need to request access for that site by sending an email to 
 	support @ opensciencedatacloud dot org.
 
 
 SSH Keypairs 
 -----------------------
-It is necessary to have a keypair setup for both the login node and for instances.   This can be done using the webconsole by importing an ssh key
-or by command line.   To do so from the command line, please refer to 
+It is necessary to have a keypair setup for both the login node and for instances.   This can be done using the webconsole 
+by importing an ssh key as shown in :doc:`/ssh` or by command line.   To do so from the command line, please refer to 
 these `Openstack support docs <http://docs.openstack.org/user-guide/content/create_import_keys.html>`_.
 
 It is likely you will just need to tell Nova about your keypairs which can be done using:
@@ -100,12 +101,15 @@ On OSX this file is located or can be created in ``/Users/username/.ssh/config``
      HostName griffin.opensciencedatacloud.org
      IdentityFile ~/.ssh/<NAME OF YOUR PRIVATE KEY>
      User <OSDC USERNAME>
-
+     
+    THIS NEEDS WORK
     Host griffinvm
      HostName <VM IP>
      User ubuntu
      IdentityFile ~/.ssh/<NAME OF YOUR PRIVATE KEY>
      ProxyCommand ssh -q -A griffinssh -W %h:%p
+
+You can then easily ssh into the headnode using ``ssh griffin`` and ``ssh griffinvm``. 
 
 
 Workflow Guide
