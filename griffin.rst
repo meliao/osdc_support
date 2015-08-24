@@ -79,8 +79,15 @@ Since Griffin is a community public resource, we ask that you only reserve the r
 
 General Griffin Use
 -------------------
-For general instructions on Griffin use, please refer to the OSDC 
-:doc:`Quickstart. <quickstart>`  
+The table below has the addresses required to successfully ssh to the Griffin login node and any active VMs. 
+For general instructions, please refer to the OSDC :doc:`Quickstart. <quickstart>`  
+
+  ====================  =====================================================  ======================
+  Cloud                 Login Node                             				  VM 
+  ====================  =====================================================  ======================
+  OSDC Griffin          ``<username>@griffin.opensciencedatacloud.org``        ``ubuntu@<VM.IP>`` 
+  ====================  =====================================================  ======================
+
 
 To work on the command line, please refer to the OSDC support 
 on :doc:`Command Line Tools. <commandline>`
