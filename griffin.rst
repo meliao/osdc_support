@@ -28,7 +28,7 @@ What is OSDC Griffin?
 
 OSDC Griffin is our newest compute resource named after the Chicago Architect Marion Griffin.  It utilizes ephemeral storage in VMs 
 and connects to a separate S3 storage system for persistent user storage.    OSDC Griffin has 608 cores, 2391 GiB of RAM, and 
-369664 GiB of ephemeral storage.  Users and projects are managed at the tenant level. 
+369664 GiB of storage used in VMs for root partitioning and ephemeral stores.  Users and projects are managed at the tenant level. 
 
 Understanding Tenants 
 -----------------------
@@ -77,10 +77,11 @@ Since Griffin is a community public resource, we ask that you only reserve the r
   =============  ========  ===============  ============ ==================
 
 
-General Griffin Use
+Accessing Griffin
 -------------------
 The table below has the addresses required to successfully ssh to the Griffin login node and any active VMs. 
-For general instructions, please refer to the OSDC :doc:`Quickstart. <quickstart>`  
+For general instructions on how to manage VMs using the webconsole or managing ssh keys, please 
+refer to the OSDC :doc:`Quickstart. <quickstart>`  
 
 
   ====================  =====================================================  ======================
@@ -93,10 +94,48 @@ For general instructions, please refer to the OSDC :doc:`Quickstart. <quickstart
 To work on the command line, please refer to the OSDC support 
 on :doc:`Command Line Tools. <commandline>`
 
+SSH Keypairs 
+^^^^^^^^^^^^
+
+It is necessary to have a keypair setup for both the login node and for instances.   This can be done using the webconsole 
+by importing an ssh key as shown in :doc:`/ssh` or by command line.   To do so from the command line, please refer to 
+these `Openstack support docs <http://docs.openstack.org/user-guide/content/create_import_keys.html>`_.
+
+It is likely you will just need to tell Nova about your keypairs which can be done using:
+
+* ``nova keypair-add --pub_key ~/.ssh/id_rsa.pub KEY_NAME``
+
+..  warning:: 
+	
+	If you plan to manage your ssh connections using Putty, please make sure that you are using v0.63 or beyond.   There are noted connection issues with older versions.
+
+EXAMPLE: Moving Files To VMs
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Here's an example script of for how you could 'multihop' directly to the VM.   In order to take advantage 
+of the multihop technique, below are some sample lines you could add to a 'config' file in your .ssh dir.   
+On OSX this file is located or can be created in ``/Users/username/.ssh/config``.
+
+.. code-block:: bash
+
+    Host griffin
+     HostName griffin.opensciencedatacloud.org
+     IdentityFile ~/.ssh/<NAME OF YOUR PRIVATE KEY>
+     User <OSDC USERNAME>
+     
+    THIS NEEDS WORK
+    Host griffinvm
+     HostName <VM IP>
+     User ubuntu
+     IdentityFile ~/.ssh/<NAME OF YOUR PRIVATE KEY>
+     ProxyCommand ssh -q -A griffinssh -W %h:%p
+
+You can then easily ssh into the headnode using ``ssh griffin`` and ``ssh griffinvm``. 
+
 .. _griffinproxy:
 
-Installing Software
-------------------------------
+Installing Software and Using the Proxy Server
+----------------------------------------------
 
 In order to keep OSDC Griffin a secure and compliant work environment, additional steps need to be taken anytime
 you want to connect to an outside resource.  
@@ -124,44 +163,6 @@ or install or update packages.
 	support @ opensciencedatacloud dot org.
 
 
-SSH Keypairs 
------------------------
-It is necessary to have a keypair setup for both the login node and for instances.   This can be done using the webconsole 
-by importing an ssh key as shown in :doc:`/ssh` or by command line.   To do so from the command line, please refer to 
-these `Openstack support docs <http://docs.openstack.org/user-guide/content/create_import_keys.html>`_.
-
-It is likely you will just need to tell Nova about your keypairs which can be done using:
-
-* ``nova keypair-add --pub_key ~/.ssh/id_rsa.pub KEY_NAME``
-
-..  warning:: 
-	
-	If you plan to manage your ssh connections using Putty, please make sure that you are using v0.63 or beyond.   There are noted connection issues with older versions.
-
-Moving Files To VMs
------------------------
-
-Here's an example script of for how you could 'multihop' directly to the VM.   In order to take advantage 
-of the multihop technique, below are some sample lines you could add to a 'config' file in your .ssh dir.   
-On OSX this file is located or can be created in ``/Users/username/.ssh/config``.
-
-.. code-block:: bash
-
-    Host griffin
-     HostName griffin.opensciencedatacloud.org
-     IdentityFile ~/.ssh/<NAME OF YOUR PRIVATE KEY>
-     User <OSDC USERNAME>
-     
-    THIS NEEDS WORK
-    Host griffinvm
-     HostName <VM IP>
-     User ubuntu
-     IdentityFile ~/.ssh/<NAME OF YOUR PRIVATE KEY>
-     ProxyCommand ssh -q -A griffinssh -W %h:%p
-
-You can then easily ssh into the headnode using ``ssh griffin`` and ``ssh griffinvm``. 
-
-
 Understanding OSDC Griffin Storage Options
 ------------------------------------------
 
@@ -172,13 +173,13 @@ NEED UPDATE
 
 * Manage persistant data in S3 buckets.
 * Grabbing data into VM ephmeral storage.
-* Execute analysis, review results.   
-* Push results back to Swift
+* Execute analysis, review result, delete any unnecessary data.
+* Push results you wish to keep to S3.
 
 END UPDATE
 
 Using S3
---------------
+^^^^^^^^
 
 
 Workflow Guide
@@ -186,70 +187,21 @@ Workflow Guide
 
 What follows is a step by step guide on how to work with ephemeral storage and S3 buckets to:
 
+NEED UPDATE - below from PDC
+
 * Create Cinder volumes and attach to a VM from the login node
 * Mount Cinder volumes to a VM while in the VM
 * Moving Cinder volumes
 * Unmounting Cinder volumes
 * Copy files and execute pipelines
 
-Copying OpenStack Environment Variables to VM
+END UPDATE 
+
+EXAMPLES OF HOW TO DO ALL STEPS NOTED ABOVE
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Currently, before running any swift command in your VM, you need to first copy ./novarc, 
-which contains the OpenStack environment variables from head node to your VM, and source it.
-
-In your head node:
-
-* ``scp ~/.novarc ubuntu@<VM_IP>:/home/ubuntu``
-* ``ssh ubuntu@<VM_IP>``
-* ``source ~/.novarc``
-
-If swift client is not installed, please get it via:
-
-* ``sudo -E apt-get install python-swiftclient``
-
-Swift Subcommands
-^^^^^^^^^^^^^^^^^
-
-A full list of Swift commands can be found in the `OpenStack user guide. <http://docs.openstack.org/user-guide/content/swift_commands.html>`_
-Below are some sample commands you may find helpful for working with Swift.
-
-* ``swift stat <CONTAINER_NAME> <OBJECT_NAME>`` 
-	* Displays information for the account, container, or object
-* ``swift list <CONTAINER_NAME> <OBJECT_NAME>``
-	* Lists the objects for a container
-	* If no <CONTAINER_NAME>, lists all containers for the account
-*  ``swift delete <CONTAINER_NAME> <OBJECT_NAME>``
-	* Deletes a container or objects within a container
-* ``swift post <CONTAINER_NAME> <OBJECT_NAME>``
-	* Updates meta information for the account, container, or object
-	* If the container is not found, it will be created automatically
-* ``swift upload <CONTAINER_NAME> <FILE_OR_DIRECTORY_NAME>``
-	* Uploads files or directories to the given container
-	* If the container is not found, it will be created automatically
-	* If the file is larger than 5GB, you must use option ``--segment-size=SEGMENT_SIZE (-S SEGMENT_SIZE)``
-		* NOTE:  Swift will upload files in segments no larger than <SEGMENT_SIZE> into a default container <CONTAINER_NAME>_segments, and then create a "manifest" file in the container <CONTAINER_NAME> that you can later use to download all the segments as if it were the original file.
-* ``swift download <CONTAINER_NAME> <OBJECT_NAME>``
-	* Download objects from containers
-
-Some other useful options that can be used together with some (not all) of the subcommands
-
-* help (-h): show help message
-* verbose (-v): display/print more info
-* lh: Report sizes in human readable format similar to ls -lh
-* skip-identical: Skip uploading/downloading files that are identical on both sides
-
-Examples of use:
-
-* ``swift --help``
-	* Shows help message for swift
-* ``swift post --help``
-	* Shows help message for swift post subcommand
-* ``swift stat --verbose``
-	* Displays more detailed information for the account
-* ``swift list <CONTAINER_NAME>  --lh``
-	* Lists all object in the container with sizes in readable format
-* ``swift download <CONTAINER_NAME> --skip-identical``
-	* Downloads all objects in the container to the current directory, and skip all files that is already in the directory
-	
 
 
+Possible list of S3 commands?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+options?   S3cmd vs boto?
