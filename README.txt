@@ -1,7 +1,7 @@
 osdc-docs/README.txt
 ====================
 
-Last Modified: 2013/04/15
+Last Modified: 2015/08
 
 This directory is the build environment and contains the files for the Open Science Data Cloud documentation. The documentation is created with Sphinx, a Python documentation generator which uses reStructuredText as its markup language. 
 To generate HTML docs, run "make html".
