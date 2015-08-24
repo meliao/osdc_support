@@ -15,14 +15,15 @@ OSDC Quickstart Guide
 
 5. From a terminal, or a program like PuTTY in Windows, access your virtual machine by first ssh'ing into the appropriate login node with the username provided to you and then ssh'ing to your VM. If you're having trouble, please see :doc:`ssh`. The login nodes and the user to login into your VM are:
 
-  ====================  ===================================================== ==================
+  ====================  =====================================================  ======================
   Cloud                 Login Node                             				  VM 
-  ====================  ===================================================== ==================
-  OSDC Sullivan         ``<username>@sullivan.opensciencedatacloud.org``      ``ubuntu@<VM.IP>`` 
-  OSDC Griffin         ``<username>@griffin.opensciencedatacloud.org``        ``ubuntu@<VM.IP>`` 
-  Bionimbus PDC         ``<username>@bionimbus-pdc.opensciencedatacloud.org`` ``ubuntu@<VM.IP>`` 
-  Atwood PDC           ``<username>@atwood.opensciencedatacloud.org``         ``<username>@<VM.IP>`` 
-  ====================  ===================================================== ==================
+  ====================  =====================================================  ======================
+  OSDC Sullivan         ``<username>@sullivan.opensciencedatacloud.org``       ``ubuntu@<VM.IP>`` 
+  OSDC Griffin          ``<username>@griffin.opensciencedatacloud.org``        ``ubuntu@<VM.IP>`` 
+  Bionimbus PDC         ``<username>@bionimbus-pdc.opensciencedatacloud.org``  ``ubuntu@<VM.IP>``
+  Atwood PDC            ``<username>@atwood.opensciencedatacloud.org``         ``<username>@<VM.IP>`` 
+  ====================  =====================================================  ======================
+
 
 ..  warning::
 	

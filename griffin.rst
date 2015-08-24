@@ -133,7 +133,7 @@ It is likely you will just need to tell Nova about your keypairs which can be do
 Moving Files To VMs
 -----------------------
 
-Here's an example script of for how you could 'multihop' direclty to the VM.   In order to take advantage 
+Here's an example script of for how you could 'multihop' directly to the VM.   In order to take advantage 
 of the multihop technique, below are some sample lines you could add to a 'config' file in your .ssh dir.   
 On OSX this file is located or can be created in ``/Users/username/.ssh/config``.
 
@@ -176,7 +176,7 @@ Using S3
 Workflow Guide
 --------------
 
-What follows is a step by step guide on how to work with Cinder and Swift to:
+What follows is a step by step guide on how to work with ephemeral storage and S3 buckets to:
 
 * Create Cinder volumes and attach to a VM from the login node
 * Mount Cinder volumes to a VM while in the VM
