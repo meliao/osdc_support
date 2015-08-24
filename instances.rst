@@ -14,12 +14,13 @@ Instances are another term for “virtual machine”.
 
 .. _flavors:
 
-OSDC VM Flavors
+VM Flavors
 -----------------
 
-There are a number of "flavors" you can use when spinning up a VM.  Below is a list
-of the specifications for each available OSDC instance.   VCPU indicates the number of cores
-activated when that flavor is used.   
+There are a number of "flavors" you can use when spinning up a VM.  Below is a sample list
+of the specifications for each available OSDC instance.   Note that the available flavors may vary 
+from resource to resource, as more some resources provide options for VMs with higher RAM or Ephemeral Storage.   
+VCPU indicates the number of cores activated when that flavor is used.   
 
 Some jobs may require larger instances, some may require a small instance, 
 others may require multiple smaller instances.  Your resource allocation :ref:`quota  <metering>` 
@@ -50,7 +51,7 @@ has a bootable operating system installed on it.  Virtual machine images come in
 different formats.  On the OSDC we use the term "Image" to denote the plain vanilla 
 VMs we provide.
 
-The OSDC Sullivan cloud currently has the following images:
+The OSDC Sullivan cloud currently provides vanilla images like:
 
 *	CentOS-5.10-v1.0
 *	CentOS-6.0-v1.0
