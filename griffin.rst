@@ -30,24 +30,26 @@ OSDC Griffin uses a combination of Ephemeral storage in VMs and S3 object storag
 provide reliable and fast data storage devices.   Best practices on the Griffin involve:
 
 NEED UPDATE
+
 * Grabbing data (ie:  BAM file) from Swift into Cinder to insure fast I/O
 * Execute pipelines and store intermediate files in Cinder
 * Push results back to Swift
+
 END UPDATE
 
 OSDC Griffin Flavors
 ----------------------
 
-  =============  ========  ===============  ============
-  Flavor         VCPUs     VM Disk (GB)     RAM (GB)           
-  =============  ========  ===============  ============
-  m1.small       1         20               2          
-  m1.medium      2         20               4         
-  m1.large       4         20               8          
-  m1.xlarge      8         20               16  
-  m1.xxlarge	 16	   20	            48
-  m1.xxxlarge    32        20	            96
-  =============  ========  ===============  ============
+  =============  ========  ===============  ============ ==================
+  Flavor         VCPUs     Root P. (GiB)    RAM (GiB)    Eph Storage (GiB)      
+  =============  ========  ===============  ============ ==================
+  m1.small       1         10               2            1
+  m1.medium      2         10               4            2
+  m1.large       4         10               8            2
+  m1.xlarge      8         10               16           2
+  m1.xxlarge	 16	   10	            48           2 
+  m1.xxxlarge    32        10	            96           1
+  =============  ========  ===============  ============ ==================
 
 
 
