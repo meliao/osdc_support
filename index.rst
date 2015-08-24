@@ -21,12 +21,13 @@ Contents:
    instances
    commandline
    hadoop
+   griffin
    pdc
    sdk
    faq
    citation
 
 
-* :ref:`search`
+with* :ref:`search`
 * :ref:`index`
 

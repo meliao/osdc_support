@@ -19,8 +19,9 @@ OSDC Quickstart Guide
   Cloud                 Login Node                             				  VM 
   ====================  ===================================================== ==================
   OSDC Sullivan         ``<username>@sullivan.opensciencedatacloud.org``      ``ubuntu@<VM.IP>`` 
+  OSDC Griffin         ``<username>@griffin.opensciencedatacloud.org``        ``ubuntu@<VM.IP>`` 
   Bionimbus PDC         ``<username>@bionimbus-pdc.opensciencedatacloud.org`` ``ubuntu@<VM.IP>`` 
-  OSDC Atwood           ``<username>@atwood.opensciencedatacloud.org``        ``<username>@<VM.IP>`` 
+  Atwood PDC           ``<username>@atwood.opensciencedatacloud.org``         ``<username>@<VM.IP>`` 
   ====================  ===================================================== ==================
 
 ..  warning::

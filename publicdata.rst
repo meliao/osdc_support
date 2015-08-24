@@ -4,17 +4,21 @@ Public Data Commons
 Overview of Public Data Commons
 --------------------------------
 
-One of the features of the OSDC is access to already mounted datasets in a wide
-range of scientific disciplines.  While an OSDC resource allocation is not 
-necessary to access these datasets, it's a nice advantage.  
+One of the features of the OSDC is easy access to datasets in a wide range of scientific disciplines.  While 
+an OSDC resource allocation is not necessary to access these datasets, an allocation allows a researcher to 
+conduct analysis without the hassle of transfering and managing this data. 
 
-The contents of the `OSDC Public Data Commons <https://www.opensciencedatacloud.org/publicdata>`_ can be downloaded over the internet 
-or high performance networks such as Internet2, as well as computed over directly 
-on the OSDC.  Currently, the OSDC hosts nearly 1PB of publicly available datasets. 
+The contents of the `OSDC Public Data Commons <https://www.opensciencedatacloud.org/publicdata>`_ can be 
+downloaded over the internet or high performance networks such as Internet2, as well as computed over directly 
+on the OSDC.  Currently, the OSDC hosts nearly 1PB of publicly available datasets in the OSDC Public Data 
+Commons over glusterFS storage.
 
-If you would like your dataset hosted in the OSDC Public Data Commons please apply 
-at `https://www.opensciencedatacloud.org/keyservice/request/ <https://www.opensciencedatacloud.org/keyservice/request/>`_.   The 
-OSDC Resource Allocation committee reviews applications on a quarterly basis. 
+In 2015-2016, the OSDC Public Data Commons is undergoing a transition to Ceph S3 bucket storage as part of 
+an `OCC initiative to provide a data commons for NOAA <http://opencloudconsortium.org/OCC_NOAA_CRADA/>`_.        
+
+If you would like your dataset hosted in the OSDC Public Data Commons please apply at 
+`https://www.opensciencedatacloud.org/keyservice/request/ <https://www.opensciencedatacloud.org/keyservice/request/>`_.   
+The OSDC Resource Allocation committee reviews applications on a quarterly basis. 
 
 .. _publicdata:
 
@@ -32,7 +36,8 @@ to your home folder.
 *	On Sullivan your home folder can be found at:  ``glusterfs/users/<username>``
 *	On Atwood and PDC, you login to the VM with your username, so the dir you
 	login to is your home dir.   
-*   For Hadoop resources, please review the :ref:`Hadoop Resource Guide  <hadoop>`
+*       For Hadoop resources, please review the :ref:`Hadoop Resource Guide  <hadoop>`
+*       For Griffin, please review the :ref:`Griffin Resource Guide  <griffin>`
 
 ARK Key Service
 ------------------------
