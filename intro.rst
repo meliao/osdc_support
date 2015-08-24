@@ -98,9 +98,7 @@ be shared with our allocation team before a researcher gains access.   Ensuring 
 allocation receipients are trained in handling sensitive data is an important step 
 in keeping these resources secure and compliant. 
 
-.. NOTE::   OSDC resources that are not specifically labeled as protected clouds 
-are not designed to be used for the analysis or storage of any Protected Health 
-Information (PHI) or other sensitive data.
+.. warning::   OSDC resources that are not specifically labeled as protected clouds are not designed to be used for the analysis or storage of any Protected Health Information (PHI) or other sensitive data.
 
 .. _citi:
 
