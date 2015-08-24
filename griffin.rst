@@ -3,55 +3,55 @@ Griffin Resource Guide
 
 .. _griffin:
 
-.. sidebar:: Storage types - Swift (Object) vs. Cinder (Block)
+.. sidebar:: Storage types - Ephemeral vs. Persistent
 	
-		**Swift:**
-		Object storage provides access to whole objects, or blobs of data and generally 
-		does so with an API specific to that system. Unlike file storage, object storage 
-		generally does not allow the ability to write to one part of a file. Objects must 
-		be updated as a whole unit. Object storage excels at storing content that can 
-		grow without bound. One of the main advantages of object storage 
-		systems is their ability to reliably store a large amount of data at relatively 
-		low cost.
-		
-		**Cinder:**
-		Block storage gives you access to the “bare metal”. There is no concept 
-		of “files” at this level. There are just evenly sized blocks of data. Generally, 
-		using block storage offers the best performance, but it is quite low-level. 
-		Database servers often times can take advantage of block storage systems. 
-		An example of a common block storage system is a SAN.
-		
-		*Condensed From* - `Rackspace Blog - Storage Systems Overview <http://www.rackspace.com/blog/storage-systems-overview/>`_
+		**Ephemeral**
+		"Ephemeral storage provides temporary block-level storage for your instance.   This storage is located on disks 
+		that are physically attached to the host computer. Instance store is ideal for temporary storage of information 
+		that changes frequently, such as buffers, caches, scratch data, and other temporary content, or for data that 
+		is replicated across a fleet of instances, such as a load-balanced pool of web servers." - From `AWS EC2 
+		Instance Store <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html>`_. 
 
-Bionimbus PDC Best Practices
------------------------------
+		Ephemeral storage sizes on the OSDC scale with the size of the instance.   We offer a number of HI-Ephemeral flavors to 
+		aid your research.   In the case of the OSDC, the storage noted here is "persistent" for the life of the VM.   Once the VM is 
+		terminated, the data stored here will go away.    QUESTION TO CONFIRM - WILL IT STAY IF SNAPSHOTTED, TERMINATED, AND SPUN BACK UP? 
+		
+		**Persistent**
+		"Persistent storage means that the storage resource outlives other resources and is always available regardless 
+		of the state of a running instance " - From `OpenStack documentation 
+		<http://docs.openstack.org/openstack-ops/content/storage_decision.html>`_.   
+		
+		OSDC Griffin uses the Ceph Object Gateway to provide users to access to S3-compatible object storage.
 
-The Bionimbus PDC uses a combination of Cinder block storage and Swift object storage to
-provide reliable and fast data storage devices.   Best practices on the PDC involve:
+Understanding OSDC Griffin Storage Options
+------------------------------------------
+
+OSDC Griffin uses a combination of Ephemeral storage in VMs and S3 object storage to
+provide reliable and fast data storage devices.   Best practices on the Griffin involve:
 
 * Grabbing data (ie:  BAM file) from Swift into Cinder to insure fast I/O
 * Execute pipelines and store intermediate files in Cinder
 * Push results back to Swift
 
-General PDC Use
-----------------
+General Griffin Use
+-------------------
 For general instructions on PDC use, please refer to the OSDC 
 :doc:`Quickstart. <quickstart>`  
 
 To work on the command line, please refer to the OSDC support 
 on :doc:`Command Line Tools. <commandline>`
 
-.. _pdcproxy:
+.. _griffinproxy:
 
-Connecting to External Sources
+Installing Software
 ------------------------------
 
 In order to keep the PDC a secure and compliant work environment, additional steps need to be taken anytime
 you want to connect to an outside resource.  See the :ref:`whitelist <whitelist>` for a full list of currently 
 available external sites. 
 
-Working with the PDC Proxy Server
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Working with the Griffin Proxy Server
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 In order to update or install packages or to access external resources with tools like wget or curl you'll need
 to work with a proxy server.   You'll need to take these steps every time you want to access external resources
@@ -59,7 +59,7 @@ or install or update packages.
 
 * Login to your VM
 * Run ``export http_proxy=http://cloud-proxy:3128; export https_proxy=http://cloud-proxy:3128;``
-* Swift endpoints are not whitelisted, so the best way to fix is to set ``export no_proxy="rados-bionimbus-pdc.opensciencedatacloud.org"``
+* Swift endpoints are not whitelisted, so the best way to fix is to set ``export no_proxy="griffin-objstore.opensciencedatacloud.org"``
 * Access external sources - if installing, make sure and use ``sudo -E`` as part of your install/update commands
 * Once completed, run:  ``unset http_proxy; unset https_proxy``
 
@@ -86,6 +86,27 @@ It is likely you will just need to tell Nova about your keypairs which can be do
 ..  warning:: 
 	
 	If you plan to manage your ssh connections using Putty, please make sure that you are using v0.63 or beyond.   There are noted connection issues with older versions.
+
+Moving Files To VMs
+-----------------------
+
+Here's an example script of for how you could 'multihop' direclty to the VM.   In order to take advantage 
+of the multihop technique, below are some sample lines you could add to a 'config' file in your .ssh dir.   
+On OSX this file is located or can be created in ``/Users/username/.ssh/config``.
+
+.. code-block:: bash
+
+    Host griffin
+     HostName griffin.opensciencedatacloud.org
+     IdentityFile ~/.ssh/<NAME OF YOUR PRIVATE KEY>
+     User <OSDC USERNAME>
+
+    Host griffinvm
+     HostName <VM IP>
+     User ubuntu
+     IdentityFile ~/.ssh/<NAME OF YOUR PRIVATE KEY>
+     ProxyCommand ssh -q -A griffinssh -W %h:%p
+
 
 Workflow Guide
 --------------
@@ -119,7 +140,7 @@ A list of currently available VM Flavors is available below.
   m1.medium      2         20               4         
   m1.large       4         20               8          
   m1.xlarge      8         20               16  
-  m1.xxlarge	 16	       20	            48
+  m1.xxlarge	 16	   20	            48
   m1.xxxlarge    32        20	            96
   =============  ========  ===============  ============
 
@@ -253,89 +274,5 @@ Examples of use:
 * ``swift download <CONTAINER_NAME> --skip-identical``
 	* Downloads all objects in the container to the current directory, and skip all files that is already in the directory
 	
-.. _whitelist:
-	
-Whitelisted Resources
----------------------
-
-Below is a growing list of resources currently whitelisted on the PDC.   If a site with tools you need is 
-not listed below, please open up a ticket with support @ opensciencedatacloud dot org.
-
-Debian/Ubuntu Mirrors
-^^^^^^^^^^^^^^^^^^^^^^
-
-* archive.ubuntu.com
-* security.ubuntu.com
-* mirror.anl.gov
-* security.debian.org
-* http.us.debian.org
-* keyserver.ubuntu.com
-* mirror.csclub.uwaterloo.ca
-* us.archive.ubuntu.com
-* ppa.launchpad.net
-
-Cghub
-^^^^^^^^^^^^^^^^^^^^^^
-
-* cghub.ucsc.edu
-
-Git
-^^^^^^^^^^^^^^^^^^^^^^
-* source.bionimbus.org
-* git.bionimbus.org
-* .github.com
-
-OpenID
-^^^^^^^^^^^^^^^^^^^^^^
-* www.google.com
-
-ClamAV
-^^^^^^^^^^^^^^^^^^^^^^
-
-* db.local.clamav.net
-
-Pypi
-^^^^^^^^^^^^^^^^^^^^^^
-
-* .pypi.python.org
-
-Bioconductor
-^^^^^^^^^^^^^^^^^^^^^^
-
-* .bioconductor.org
-* bioconductor.org
-
-R mirrors
-^^^^^^^^^^^^^^^^^^^^^^
-
-* cran.r-project.org
-* cran.cnr.Berkeley.edu
-* cran.stat.ucla.edu
-* streaming.stat.iastate.edu
-* ftp.ussg.iu.edu
-* rweb.quant.ku.edu
-* watson.nci.nih.gov
-* cran.mtu.edu
-* cran.wustl.edu
-* cran.case.edu
-* ftp.osuosl.org
-* lib.stat.cmu.edu
-* mirrors.nics.utk.edu
-* cran.fhcrc.org
-* cran.cs.wwu.edu
-
-Perl/CPAN mirrors
-^^^^^^^^^^^^^^^^^^^^^^
-
-* cpan.mirrors.tds.net
-* .cpan.org
-* .bitbucket.org
-* .perl.org
-* .metacpan.org
-
-SourceForge
-^^^^^^^^^^^^^^^^^^^^^^
-
-* .sourceforge.net
 
 
