@@ -14,7 +14,7 @@ Griffin Resource Guide
 
 		Ephemeral storage sizes on the OSDC scale with the size of the instance.   We offer a number of HI-Ephemeral flavors to 
 		aid your research.   In the case of the OSDC, the storage noted here is "persistent" for the life of the VM.   Once the VM is 
-		terminated, the data stored here will go away.    QUESTION TO CONFIRM - WILL IT STAY IF SNAPSHOTTED, TERMINATED, AND SPUN BACK UP? 
+		terminated, the data stored here will go away.   
 		
 		**Persistent**
 		"Persistent storage means that the storage resource outlives other resources and is always available regardless 
@@ -205,3 +205,6 @@ Possible list of S3 commands?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 options?   S3cmd vs boto?
+
+Accessing the Public Data Commons
+---------------------------------
