@@ -55,7 +55,7 @@ OSDC Griffin Flavors
 On OSDC Griffin, we offer 3 flavor families of VMs to facilitate the different types of 
 use we've observed.    Standard flavors = m3.; Hi-Ephemeral for read/write disk I/O intensive applications with large files= he., and Hi-RAM for memory intensive applications= hr. 
 
-Since Griffin is a community public resource, we ask that you only reserve the resources you need and terminate them . 
+Since Griffin is a community public resource, we ask that you only reserve the resources you need and terminate them when finished. 
  
   =============     =============  ========  ===============  ============ ==================
   Family            Flavor         VCPUs     Root P. (GiB)    RAM (GiB)    Eph Storage (GiB)      
