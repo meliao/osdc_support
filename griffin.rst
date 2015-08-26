@@ -3,26 +3,6 @@ Griffin Resource Guide
 
 .. _griffin:
 
-.. sidebar:: Storage types - Ephemeral vs. Persistent
-	
-		**Ephemeral**
-		"Ephemeral storage provides temporary block-level storage for your instance.   This storage is located on disks 
-		that are physically attached to the host computer. Instance store is ideal for temporary storage of information 
-		that changes frequently, such as buffers, caches, scratch data, and other temporary content, or for data that 
-		is replicated across a fleet of instances, such as a load-balanced pool of web servers." - From `AWS EC2 
-		Instance Store <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html>`_. 
-
-		Use ephemeral storage as your main scratch workspace to temporarily store files needed for heavy I/O.  Ephemeral storage on the OSDC scales with the size of the instance.   We offer a number of Hi-Ephemeral flavors to 
-		aid your research.   NB: In the case of the OSDC, the storage noted here only "persistents" for the life of the VM.   Once the VM is 
-		terminated, the data stored here is lost.  Any snapshots made of your VM do NOT keep these data. 
-		
-		**Persistent**
-		"Persistent storage means that the storage resource outlives other resources and is always available regardless 
-		of the state of a running instance " - From `OpenStack documentation 
-		<http://docs.openstack.org/openstack-ops/content/storage_decision.html>`_.   
-		
-		Any data you want to persist beyond the life of your VM or access from multiple VMs must be pushed to the S3-compatible object storage through the OSDC's Ceph Object Gateway.
-
 What is OSDC Griffin?
 -----------------------
 
@@ -53,7 +33,7 @@ OSDC Griffin Flavors
 ----------------------
 
 On OSDC Griffin, we offer 3 flavor families of VMs to facilitate the different types of 
-use we've observed.    Standard flavors = m3.; Hi-Ephemeral for read/write disk I/O intensive applications with large files= he., and Hi-RAM for memory intensive applications= hr. 
+use we've observed.    Standard flavors = m3., Hi-Ephemeral for read/write disk I/O intensive applications with large files = he., and Hi-RAM for memory intensive applications = hr. 
 
 Since Griffin is a community public resource, we ask that you only reserve the resources you need and terminate them when finished. 
  
@@ -103,7 +83,7 @@ by importing an ssh key as shown in :doc:`/ssh` or by command line.   You'll wan
 EXAMPLE: Moving Files To VMs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Here's an example script of how you could 'multihop' directly to a VM.   In order to take advantage 
+Here's an example of how you could use 'multihop' to directly get to a VM.   In order to take advantage 
 of the multihop technique, below are some sample lines you could add to a 'config' file in your .ssh dir.   
 On OSX this file is located or can be created in ``~/.ssh/config``.
 
@@ -114,14 +94,13 @@ On OSX this file is located or can be created in ``~/.ssh/config``.
      IdentityFile ~/.ssh/<NAME OF YOUR PRIVATE KEY>
      User <OSDC USERNAME>
      
-    THIS NEEDS WORK
     Host griffinvm
      HostName <VM IP>
      User ubuntu
      IdentityFile ~/.ssh/<NAME OF YOUR PRIVATE KEY>
      ProxyCommand ssh -q -A griffin -W %h:%p
 
-You can then easily ssh into the headnode using ``ssh griffin`` and ``ssh griffinvm``. 
+You can then easily ssh into the headnode using ``ssh griffin`` or straight to your vm using ``ssh griffinvm``. You can also easily move files to the VMs ephemeral in a single command from your local machine using scp or rsync.  For example, from your local machine copy your favorite file to the ephemeral storage using ``scp myfavoritefile.txt griffinvm:/mnt/`` 
 
 .. _griffinproxy:
 
@@ -156,48 +135,47 @@ Any time you need to access external sources, you must prepend the command with 
 	support @ opensciencedatacloud dot org.
 
 
-Understanding OSDC Griffin Storage Options
-------------------------------------------
+Understanding OSDC Griffin Storage Options and Workflow
+------------------------------------------------------
 
 OSDC Griffin uses a combination of ephemeral storage in VMs and S3 object storage to
-provide reliable and fast data storage devices.   In brief, best practices on Griffin involve:
+provide reliable and fast data storage devices.   In brief, best practices on Griffin involve the following:
 
-NEED UPDATE
-
+* Spin up a VM instance corresponding to your needs.
 * Manage persistent data in S3 buckets.
-* Grabbing data into VM ephemeral storage.
-* Execute analysis, review result, delete any unnecessary data.
-* Push results you wish to keep to S3.
+* Pull data you need immediate access to into your VM's ephemeral storage, located in ``/mnt/``.
+* Execute analysis, review result, delete any unnecessary local data.
+* Push results and code you wish to keep to the S3 object storage.
+* Terminate your VM and, subsequently, the ephemeral storage. 
 
-END UPDATE
+.. sidebar:: Storage types - Ephemeral vs. Persistent
+	
+		**Ephemeral**
+		"Ephemeral storage provides temporary block-level storage for your instance.   This storage is located on disks 
+		that are physically attached to the host computer. Instance store is ideal for temporary storage of information 
+		that changes frequently, such as buffers, caches, scratch data, and other temporary content, or for data that 
+		is replicated across a fleet of instances, such as a load-balanced pool of web servers." - From `AWS EC2 
+		Instance Store <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html>`_. 
+
+		Use ephemeral storage as your main scratch workspace to temporarily store files needed for heavy I/O.  Ephemeral storage on the OSDC scales with the size of the instance.   We offer a number of Hi-Ephemeral flavors to 
+		aid your research.   NB: In the case of the OSDC, the storage noted here only "persistents" for the life of the VM.   Once the VM is 
+		terminated, the data stored here is lost.  Any snapshots made of your VM do NOT keep these data. 
+		
+		**Persistent**
+		"Persistent storage means that the storage resource outlives other resources and is always available regardless 
+		of the state of a running instance " - From `OpenStack documentation 
+		<http://docs.openstack.org/openstack-ops/content/storage_decision.html>`_.   
+		
+		Any data you want to persist beyond the life of your VM or access from multiple VMs must be pushed to the S3-compatible object storage through the OSDC's Ceph Object Gateway.
 
 Using S3
 ^^^^^^^^
 
+The OSDC Ceph Object Gateway supports a RESTful API that is basically compatible with Amazon's S3 API, with some limitations.  To push and pull data to the object storage, please refer to the `Ceph S3 API documentation <http://ceph.com/docs/master/radosgw/s3/>`_.  The documentation also provides example scripts in Python using the boto library as well as other common languages.
 
-Workflow Guide
---------------
-
-What follows is a step by step guide on how to work with ephemeral storage and S3 buckets to:
-
-NEED UPDATE - below from PDC
-
-* Create Cinder volumes and attach to a VM from the login node
-* Mount Cinder volumes to a VM while in the VM
-* Moving Cinder volumes
-* Unmounting Cinder volumes
-* Copy files and execute pipelines
-
-END UPDATE 
-
-EXAMPLES OF HOW TO DO ALL STEPS NOTED ABOVE
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-
-Possible list of S3 commands?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-options?   S3cmd vs boto?
+To access S3, you only need your S3 credentials (access key and secret key) and the gateway.  S3 credentials are dropped into the home directory of the tenant leader on the login node.  The gateway for the object store is "griffin-objstore.opensciencedatacloud.org".
 
 Accessing the Public Data Commons
 ---------------------------------
+
+The current version of the OSDC Public Data Commons is not automounted to Griffin virtual machines.  To access any data hosted there, refer to the external download instructions on the `OSDC Public Data Commons webpages <https://www.opensciencedatacloud.org/publicdata/>`_.
