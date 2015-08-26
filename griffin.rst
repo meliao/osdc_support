@@ -12,69 +12,69 @@ Griffin Resource Guide
 		is replicated across a fleet of instances, such as a load-balanced pool of web servers." - From `AWS EC2 
 		Instance Store <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html>`_. 
 
-		Ephemeral storage sizes on the OSDC scale with the size of the instance.   We offer a number of HI-Ephemeral flavors to 
-		aid your research.   In the case of the OSDC, the storage noted here is "persistent" for the life of the VM.   Once the VM is 
-		terminated, the data stored here will go away.   
+		Use ephemeral storage as your main scratch workspace to temporarily store files needed for heavy I/O.  Ephemeral storage on the OSDC scales with the size of the instance.   We offer a number of Hi-Ephemeral flavors to 
+		aid your research.   NB: In the case of the OSDC, the storage noted here only "persistents" for the life of the VM.   Once the VM is 
+		terminated, the data stored here is lost.  Any snapshots made of your VM do NOT keep these data. 
 		
 		**Persistent**
 		"Persistent storage means that the storage resource outlives other resources and is always available regardless 
 		of the state of a running instance " - From `OpenStack documentation 
 		<http://docs.openstack.org/openstack-ops/content/storage_decision.html>`_.   
 		
-		OSDC Griffin uses the Ceph Object Gateway to provide users to access to S3-compatible object storage.
+		Any data you want to persist beyond the life of your VM or access from multiple VMs must be pushed to the S3-compatible object storage through the OSDC's Ceph Object Gateway.
 
 What is OSDC Griffin?
 -----------------------
 
-OSDC Griffin is our newest compute resource named after the Chicago Architect Marion Griffin.  It utilizes ephemeral storage in VMs 
-and connects to a separate S3 storage system for persistent user storage.    OSDC Griffin has 608 cores, 2391 GiB of RAM, and 
-369664 GiB of storage used in VMs for root partitioning and ephemeral stores.  Users and projects are managed at the tenant level. 
+OSDC Griffin is our newest compute resource named after the Chicago Architect Marion Mahony Griffin.  It is an OpenStack cluster utilizing ephemeral storage in VMs 
+with access to a separate S3 storage system for persistent data storage.    OSDC Griffin has 610 cores, 2391 GiB of RAM, and 
+369664 GiB of VM/ephemeral storage.  Allocations to all users and projects are given at the "tenant" level. 
 
 Understanding Tenants 
 -----------------------
 
-In Openstack tenants allow the OSDC systems team to manage groups of users and projects be providing common resources, tools, and quotas.   
-OSDC Griffin uses the tenant system to give the users maximum flexibility in managing their resource allocations.   
+Individual users share access to a pool of common compute resources within the overall quota of their group.  This group of users is called a "tenant."   
+OSDC Griffin uses the tenant system to give groups of collaborating users maximum flexibility in managing their resource allocations.   
 
 ..  warning::
 	
-		In shared tenants, users could conceivably delete other users' data and VMs.   BE VERY CAREFUL
-		WHEN PERMENTLY REMOVING DATA AND MANAGING TENANT VMS. 
+		Users could conceivably delete other users' data and VMs within a tenant.   BE VERY CAREFUL
+		WHEN PERMANENTLY REMOVING DATA AND MANAGING VMS. 
 
 
 Tenant Leaders
 ^^^^^^^^^^^^^^
 
-When a project receives a resource allocation one user expected to be the primary is assigned as the "tenant leader".   This individual 
-needs to be responsible for making sure other users in their tenant adhere to best practices and protocols they may wish to develop to 
+When a project receives a resource allocation, one user expected to be the primary is assigned as the "tenant leader".   This individual 
+is responsible for making sure other users in their tenant adhere to best practices and protocols they may wish to develop to 
 govern their project's workflow. 
 
 OSDC Griffin Flavors
 ----------------------
 
 On OSDC Griffin, we offer 3 flavor families of VMs to facilitate the different types of 
-use we've observed.    Standard flavors = .m3; Hi-Ephemeral = .he, and Hi-RAM = .hr. 
+use we've observed.    Standard flavors = m3.; Hi-Ephemeral for read/write disk I/O intensive applications with large files= he., and Hi-RAM for memory intensive applications= hr. 
 
-Since Griffin is a community public resource, we ask that you only reserve the resources you need. 
+Since Griffin is a community public resource, we ask that you only reserve the resources you need and terminate them . 
  
-  =============  ========  ===============  ============ ==================
-  Flavor         VCPUs     Root P. (GiB)    RAM (GiB)    Eph Storage (GiB)      
-  =============  ========  ===============  ============ ==================
-  m3.small       1         10               3            32
-  m3.medium      2         10               6            64
-  m3.large       4         10               12           128
-  m3.xlarge      8         10               24           256
-  m3.xxlarge	 16	   10	            48           512
-  m3.xxxlarge    32        10	            96           1024
-  he.medium      2         10               6            640
-  he.large       4         10               12           896
-  he.xlarge      8         10               24           1408
-  he.xxlarge	 16	   10	            48           2432
-  hr.medium      2         10               16           64
-  hr.large       4         10               32           128
-  hr.xlarge      8         10               64           256
-  hr.xxlarge	 16	   10	            128          512
-  =============  ========  ===============  ============ ==================
+  =============     =============  ========  ===============  ============ ==================
+  Family            Flavor         VCPUs     Root P. (GiB)    RAM (GiB)    Eph Storage (GiB)      
+  =============     =============  ========  ===============  ============ ==================
+  Standard          m3.small       1         10               3            32
+  Standard          m3.medium      2         10               6            64
+  Standard          m3.large       4         10               12           128
+  Standard          m3.xlarge      8         10               24           256
+  Standard          m3.xxlarge	   16	     10	              48           512
+  Standard          m3.xxxlarge    32        10	              96           1024
+  I/O w/large files he.medium      2         10               6            640
+  I/O w/large files he.large       4         10               12           896
+  I/O w/large files he.xlarge      8         10               24           1408
+  I/O w/large files he.xxlarge	   16	     10	              48           2432
+  Memory intensive  hr.medium      2         10               16           64
+  Memory intensive  hr.large       4         10               32           128
+  Memory intensive  hr.xlarge      8         10               64           256
+  Memory intensive  hr.xxlarge	   16	     10	              128          512
+  ================  =============  ========  ===============  ============ ==================
 
 
 Accessing Griffin
@@ -112,9 +112,9 @@ It is likely you will just need to tell Nova about your keypairs which can be do
 EXAMPLE: Moving Files To VMs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Here's an example script of for how you could 'multihop' directly to the VM.   In order to take advantage 
+Here's an example script of how you could 'multihop' directly to a VM.   In order to take advantage 
 of the multihop technique, below are some sample lines you could add to a 'config' file in your .ssh dir.   
-On OSX this file is located or can be created in ``/Users/username/.ssh/config``.
+On OSX this file is located or can be created in ``~/.ssh/config``.
 
 .. code-block:: bash
 
@@ -134,29 +134,29 @@ You can then easily ssh into the headnode using ``ssh griffin`` and ``ssh griffi
 
 .. _griffinproxy:
 
-Installing Software and Using the Proxy Server
+Installing Software to Your VMs
 ----------------------------------------------
 
-In order to keep OSDC Griffin a secure and compliant work environment, additional steps need to be taken anytime
-you want to connect to an outside resource.  
+In order to keep OSDC Griffin a secure and compliant work environment, users must access outside resources through a proxy server.  
 
-Working with the Griffin Proxy Server
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Accessing External Websites/Repositories
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-In order to update or install packages or to access external resources with tools like wget or curl you'll need
-to work with a proxy server.   You'll need to take these steps every time you want to access external resources
-or install or update packages. 
+In order to update or install packages via apt-get or to access external resources with tools like wget or curl you'll need
+to go through a proxy server.   Add these lines to your VM's .bashrc file and source to update your current session:
 
-* Login to your VM
-* Run ``export http_proxy=http://cloud-proxy:3128; export https_proxy=http://cloud-proxy:3128;``
-* Swift endpoints are not whitelisted, so the best way to fix is to set ``export no_proxy="griffin-objstore.opensciencedatacloud.org"``
-* Access external sources - if installing, make sure and use ``sudo -E`` as part of your install/update commands
-* Once completed, run:  ``unset http_proxy; unset https_proxy``
+.. code-block:: bash
+    export no_proxy="griffin-objstore.opensciencedatacloud.org"
+    function with_proxy() {
+        PROXY='http://cloud-proxy:3128'
+        http_proxy="${PROXY}" https_proxy="${PROXY}" $@
+    }
+
+Any time you need to access external sources, you must prepend the command with ``with_proxy`` and use ``sudo -E`` as part of your install/update commands.  For example,  instead of ``sudo apt-get update`` use ``with_proxy sudo -E apt-get update`` and instead of ``git clone https://github.com/LabAdvComp/osdc_support.git`` use ``with_proxy git clone https://github.com/LabAdvComp/osdc_support.git``
 
 ..  warning:: 
 	
-	If you do not take these steps, and attempt to try commands that hit the internet w/o running the above 
-	commands to pull over settings from the proxy server, your session will hang and become unresponsive.
+	If you do not take these steps and attempt to try commands that hit the internet w/o following the above, your session will hang and become unresponsive.
 	
 	If you are trying to access an external site and get a 403 error, the site is not currently on the 
 	whitelist.   You'll need to request access for that site by sending an email to 
@@ -166,13 +166,13 @@ or install or update packages.
 Understanding OSDC Griffin Storage Options
 ------------------------------------------
 
-OSDC Griffin uses a combination of Ephemeral storage in VMs and S3 object storage to
+OSDC Griffin uses a combination of ephemeral storage in VMs and S3 object storage to
 provide reliable and fast data storage devices.   In brief, best practices on Griffin involve:
 
 NEED UPDATE
 
-* Manage persistant data in S3 buckets.
-* Grabbing data into VM ephmeral storage.
+* Manage persistent data in S3 buckets.
+* Grabbing data into VM ephemeral storage.
 * Execute analysis, review result, delete any unnecessary data.
 * Push results you wish to keep to S3.
 
