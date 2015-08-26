@@ -98,16 +98,7 @@ SSH Keypairs
 ^^^^^^^^^^^^
 
 It is necessary to have a keypair setup for both the login node and for instances.   This can be done using the webconsole 
-by importing an ssh key as shown in :doc:`/ssh` or by command line.   To do so from the command line, please refer to 
-these `Openstack support docs <http://docs.openstack.org/user-guide/content/create_import_keys.html>`_.
-
-It is likely you will just need to tell Nova about your keypairs which can be done using:
-
-* ``nova keypair-add --pub_key ~/.ssh/id_rsa.pub KEY_NAME``
-
-..  warning:: 
-	
-	If you plan to manage your ssh connections using Putty, please make sure that you are using v0.63 or beyond.   There are noted connection issues with older versions.
+by importing an ssh key as shown in :doc:`/ssh` or by command line.   You'll want to add the keypairs to your keychain and use the ``-A`` flag when sshing.   Please find full support instructions at :doc:`/ssh`.
 
 EXAMPLE: Moving Files To VMs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
