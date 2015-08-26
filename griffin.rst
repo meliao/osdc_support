@@ -32,28 +32,32 @@ govern their project's workflow.
 OSDC Griffin Flavors
 ----------------------
 
-On OSDC Griffin, we offer 3 flavor families of VMs to facilitate the different types of 
-use we've observed.    Standard flavors = m3., Hi-Ephemeral for read/write disk I/O intensive applications with large files = he., and Hi-RAM for memory intensive applications = hr. 
+On OSDC Griffin, we offer 4 flavor families of VMs to facilitate the different types of 
+use we've observed.    Standard flavors w/o Ephemeral storage = m1., Standard flavors w/ Ephemeral storage = m3., Hi-Ephemeral for read/write disk I/O intensive applications with large files = he., and Hi-RAM for memory intensive applications = hr. 
 
 Since Griffin is a community public resource, we ask that you only reserve the resources you need and terminate them when finished. 
  
   ===================    =============  ========  ===============  ============ ==================
-  Family                 Flavor         VCPUs     Root P. (GiB)    RAM (GiB)    Eph Storage (GiB)      
+  Family                 Flavor         VCPUs     Root P. (GiB)    RAM (MiB)    Eph Storage (GiB)      
   ===================    =============  ========  ===============  ============ ==================
-  Standard               m3.small       1         10               3            32
-  Standard               m3.medium      2         10               6            64
-  Standard               m3.large       4         10               12           128
-  Standard               m3.xlarge      8         10               24           256
-  Standard               m3.xxlarge	16	  10	           48           512
-  Standard               m3.xxxlarge    32        10	           96           1024
-  I/O w/large files      he.medium      2         10               6            640
-  I/O w/large files      he.large       4         10               12           896
-  I/O w/large files      he.xlarge      8         10               24           1408
-  I/O w/large files      he.xxlarge	16	  10	           48           2432
-  Memory intensive       hr.medium      2         10               16           64
-  Memory intensive       hr.large       4         10               32           128
-  Memory intensive       hr.xlarge      8         10               64           256
-  Memory intensive       hr.xxlarge	16	  10	           128          512
+  No Ephemeral		 m1.small	1	  10		   2048		0
+  No Ephemeral		 m1.medium	2	  10		   4096		0
+  No Ephemeral		 m1.large	4	  10		   8192		0  
+  No Ephemeral		 m1.xlarge	8	  10		   16384	0
+  Standard               m3.small       1         10               3072         32
+  Standard               m3.medium      2         10               6144         64
+  Standard               m3.large       4         10               12288        128
+  Standard               m3.xlarge      8         10               24576        256
+  Standard               m3.xxlarge	16	  10	           49152        512
+  Standard               m3.xxxlarge    32        10	           98304        1024
+  I/O w/large files      he.medium      2         10               6144         640
+  I/O w/large files      he.large       4         10               12288        896
+  I/O w/large files      he.xlarge      8         10               24576        1408
+  I/O w/large files      he.xxlarge	16	  10	           49152        2432
+  Memory intensive       hr.medium      2         10               16384        64
+  Memory intensive       hr.large       4         10               32768        128
+  Memory intensive       hr.xlarge      8         10               65536        256
+  Memory intensive       hr.xxlarge	16	  10	           131072       512
   ===================    =============  ========  ===============  ============ ==================
 
 
