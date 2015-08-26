@@ -84,28 +84,6 @@ SSH Keypairs
 It is necessary to have a keypair setup for both the login node and for instances.   This can be done using the webconsole 
 by importing an ssh key as shown in :doc:`/ssh` or by command line.   You'll want to add the keypairs to your keychain and use the ``-A`` flag when sshing.   Please find full support instructions at :doc:`/ssh`.
 
-EXAMPLE: Moving Files To VMs
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Here's an example of how you could use 'multihop' to directly get to a VM.   In order to take advantage 
-of the multihop technique, below are some sample lines you could add to a 'config' file in your .ssh dir.   
-On OSX this file is located or can be created in ``~/.ssh/config``.
-
-.. code-block:: bash
-
-    Host griffin
-     HostName griffin.opensciencedatacloud.org
-     IdentityFile ~/.ssh/<NAME OF YOUR PRIVATE KEY>
-     User <OSDC USERNAME>
-     
-    Host griffinvm
-     HostName <VM IP>
-     User ubuntu
-     IdentityFile ~/.ssh/<NAME OF YOUR PRIVATE KEY>
-     ProxyCommand ssh -q -A griffin -W %h:%p
-
-You can then easily ssh into the headnode using ``ssh griffin`` or straight to your vm using ``ssh griffinvm``. You can also easily move files to the VMs ephemeral in a single command from your local machine using scp or rsync.  For example, from your local machine copy your favorite file to the ephemeral storage using ``scp myfavoritefile.txt griffinvm:/mnt/`` 
-
 .. _griffinproxy:
 
 Installing Software to Your VMs
@@ -172,12 +150,38 @@ provide reliable and fast data storage devices.   In brief, best practices on Gr
 		
 		Any data you want to persist beyond the life of your VM or access from multiple VMs must be pushed to the S3-compatible object storage through the OSDC's Ceph Object Gateway.
 
+Setting Up /mnt on Ephemeral Storage VMs
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+When starting a new VM with Ephemeral storage, users will need to change ownership of the storage to start.   In order to do so, login to the VM and run ``sudo chown ubuntu:ubuntu /mnt``.    Once complete you can begin to write or copy files to the ephemeral storage mounted to the VM.   This directory can with the command ``cd /mnt/``.  
+
+EXAMPLE: Moving Files To VMs
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Here's an example of how you could use 'multihop' to directly get to a VM.   In order to take advantage 
+of the multihop technique, below are some sample lines you could add to a 'config' file in your .ssh dir.   
+On OSX this file is located or can be created in ``~/.ssh/config``.
+
+.. code-block:: bash
+
+    Host griffin
+     HostName griffin.opensciencedatacloud.org
+     IdentityFile ~/.ssh/<NAME OF YOUR PRIVATE KEY>
+     User <OSDC USERNAME>
+     
+    Host griffinvm
+     HostName <VM IP>
+     User ubuntu
+     IdentityFile ~/.ssh/<NAME OF YOUR PRIVATE KEY>
+     ProxyCommand ssh -q -A griffin -W %h:%p
+
+You can then easily ssh into the headnode using ``ssh griffin`` or straight to your vm using ``ssh griffinvm``. You can also easily move files to the VMs ephemeral in a single command from your local machine using scp or rsync.  For example, from your local machine copy your favorite file to the ephemeral storage using ``scp myfavoritefile.txt griffinvm:/mnt/`` 
+
 Using S3
 ^^^^^^^^
 
 The OSDC Ceph Object Gateway supports a RESTful API that is basically compatible with Amazon's S3 API, with some limitations.  To push and pull data to the object storage, please refer to the `Ceph S3 API documentation <http://ceph.com/docs/master/radosgw/s3/>`_.  The documentation also provides example scripts in Python using the boto library as well as other common languages.
 
-To access S3, you only need your S3 credentials (access key and secret key) and the gateway.  S3 credentials are dropped into the home directory of the tenant leader on the login node.  The gateway for the object store is "griffin-objstore.opensciencedatacloud.org".
+To access S3, you only need your S3 credentials (access key and secret key) and the gateway.  S3 credentials are dropped into the home directory of the tenant leader on the login node in a file named ``s3creds.txt``.  The gateway for the object store is "griffin-objstore.opensciencedatacloud.org".
 
 Accessing the Public Data Commons
 ---------------------------------
