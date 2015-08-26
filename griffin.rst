@@ -119,7 +119,7 @@ On OSX this file is located or can be created in ``~/.ssh/config``.
      HostName <VM IP>
      User ubuntu
      IdentityFile ~/.ssh/<NAME OF YOUR PRIVATE KEY>
-     ProxyCommand ssh -q -A griffinssh -W %h:%p
+     ProxyCommand ssh -q -A griffin -W %h:%p
 
 You can then easily ssh into the headnode using ``ssh griffin`` and ``ssh griffinvm``. 
 
