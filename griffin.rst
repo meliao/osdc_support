@@ -57,24 +57,24 @@ use we've observed.    Standard flavors = m3.; Hi-Ephemeral for read/write disk 
 
 Since Griffin is a community public resource, we ask that you only reserve the resources you need and terminate them when finished. 
  
-  =============     =============  ========  ===============  ============ ==================
-  Family            Flavor         VCPUs     Root P. (GiB)    RAM (GiB)    Eph Storage (GiB)      
-  =============     =============  ========  ===============  ============ ==================
-  Standard          m3.small       1         10               3            32
-  Standard          m3.medium      2         10               6            64
-  Standard          m3.large       4         10               12           128
-  Standard          m3.xlarge      8         10               24           256
-  Standard          m3.xxlarge	   16	     10	              48           512
-  Standard          m3.xxxlarge    32        10	              96           1024
-  I/O w/large files he.medium      2         10               6            640
-  I/O w/large files he.large       4         10               12           896
-  I/O w/large files he.xlarge      8         10               24           1408
-  I/O w/large files he.xxlarge	   16	     10	              48           2432
-  Memory intensive  hr.medium      2         10               16           64
-  Memory intensive  hr.large       4         10               32           128
-  Memory intensive  hr.xlarge      8         10               64           256
-  Memory intensive  hr.xxlarge	   16	     10	              128          512
-  ================  =============  ========  ===============  ============ ==================
+  ===================    =============  ========  ===============  ============ ==================
+  Family                 Flavor         VCPUs     Root P. (GiB)    RAM (GiB)    Eph Storage (GiB)      
+  ===================    =============  ========  ===============  ============ ==================
+  Standard               m3.small       1         10               3            32
+  Standard               m3.medium      2         10               6            64
+  Standard               m3.large       4         10               12           128
+  Standard               m3.xlarge      8         10               24           256
+  Standard               m3.xxlarge	16	  10	           48           512
+  Standard               m3.xxxlarge    32        10	           96           1024
+  I/O w/large files      he.medium      2         10               6            640
+  I/O w/large files      he.large       4         10               12           896
+  I/O w/large files      he.xlarge      8         10               24           1408
+  I/O w/large files      he.xxlarge	16	  10	           48           2432
+  Memory intensive       hr.medium      2         10               16           64
+  Memory intensive       hr.large       4         10               32           128
+  Memory intensive       hr.xlarge      8         10               64           256
+  Memory intensive       hr.xxlarge	16	  10	           128          512
+  ===================    =============  ========  ===============  ============ ==================
 
 
 Accessing Griffin
@@ -146,11 +146,13 @@ In order to update or install packages via apt-get or to access external resourc
 to go through a proxy server.   Add these lines to your VM's .bashrc file and source to update your current session:
 
 .. code-block:: bash
+
     export no_proxy="griffin-objstore.opensciencedatacloud.org"
     function with_proxy() {
-        PROXY='http://cloud-proxy:3128'
-        http_proxy="${PROXY}" https_proxy="${PROXY}" $@
+         PROXY='http://cloud-proxy:3128'
+         http_proxy="${PROXY}" https_proxy="${PROXY}" $@
     }
+
 
 Any time you need to access external sources, you must prepend the command with ``with_proxy`` and use ``sudo -E`` as part of your install/update commands.  For example,  instead of ``sudo apt-get update`` use ``with_proxy sudo -E apt-get update`` and instead of ``git clone https://github.com/LabAdvComp/osdc_support.git`` use ``with_proxy git clone https://github.com/LabAdvComp/osdc_support.git``
 
