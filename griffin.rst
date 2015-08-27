@@ -7,7 +7,7 @@ What is OSDC Griffin?
 -----------------------
 
 OSDC Griffin is our newest compute resource named after the Chicago Architect Marion Mahony Griffin.  It is an OpenStack cluster utilizing ephemeral storage in VMs 
-with access to a separate S3 storage system for persistent data storage.    OSDC Griffin has 610 cores, 2391 GiB of RAM, and 
+with access to a separate S3-compatible storage system for persistent data storage.    OSDC Griffin has 610 cores, 2391 GiB of RAM, and 
 369664 GiB of VM/ephemeral storage.  Allocations to all users and projects are given at the "tenant" level. 
 
 Understanding Tenants 
@@ -124,14 +124,14 @@ Any time you need to access external sources, you must prepend the command with 
 Understanding OSDC Griffin Storage Options and Workflow
 ------------------------------------------------------
 
-OSDC Griffin uses a combination of ephemeral storage in VMs and S3 object storage to
+OSDC Griffin uses a combination of ephemeral storage in VMs and S3-compatible object storage to
 provide reliable and fast data storage devices.   In brief, best practices on Griffin involve the following:
 
 * Spin up a VM instance corresponding to your needs.
-* Manage persistent data in S3 buckets.
+* Manage persistent data in the object store with S3.
 * Pull data you need immediate access to into your VM's ephemeral storage, located in ``/mnt/``.
 * Execute analysis, review result, delete any unnecessary local data.
-* Push results and code you wish to keep to the S3 object storage.
+* Push results and code you wish to keep to the S3-compatible object storage.
 * Terminate your VM and, subsequently, the ephemeral storage. 
 
 .. sidebar:: Storage types - Ephemeral vs. Persistent
@@ -185,28 +185,28 @@ Using S3
 
 The OSDC Ceph Object Gateway supports a RESTful API that is basically compatible with Amazon's S3 API, with some limitations.  To push and pull data to the object storage, please refer to the `Ceph S3 API documentation <http://ceph.com/docs/master/radosgw/s3/>`_.  The documentation also provides example scripts in Python using the boto library as well as other common languages.
 
-To access S3, you only need your S3 credentials (access key and secret key) and the gateway.  S3 credentials are dropped into the home directory of the tenant leader on the login node in a file named ``s3creds.txt``.  The gateway for the object store is "griffin-objstore.opensciencedatacloud.org".
+To access the object storage via Ceph's S3, you only need your S3 credentials (access key and secret key) and the name of the gateway.  S3 credentials are dropped into the home directory of the tenant leader on the login node in a file named ``s3creds.txt``.  The gateway for the object store is "griffin-objstore.opensciencedatacloud.org".
 
 ..  note:: 
 	
-	The S3 protocol requires that files larger than 5 GiB be 'chunked' in order to transfer into buckets.   Python Boto supports these efforts using the `copy_part_from_key() method <http://docs.pythonboto.org/en/latest/ref/s3.html#boto.s3.multipart.MultiPartUpload.copy_part_from_key>`_. 
+	The S3 protocol requires that files larger than 5 GiB be 'chunked' in order to transfer into buckets.   Python boto supports these efforts using the `copy_part_from_key() method <http://docs.pythonboto.org/en/latest/ref/s3.html#boto.s3.multipart.MultiPartUpload.copy_part_from_key>`_. 
 
 
-EXAMPLE:   Using Python Boto package to interact with S3
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+EXAMPLE:   Using Python's boto package to interact with S3
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-One way users can interact with S3 is by using the Python Boto package.   You can install Boto by first installing pip (``with_proxy sudo -E apt-get install python-pip``) then Boto (``with_proxy sudo -E pip install boto``).    
+One way users can interact with the object storage via S3 is by using the Python boto package.   
 
-In order to run the demo below copy the script below into a new python file in the ephemeral mnt of your vm, update the access_key and secret_key variables to the values in the tenant leader's s3creds.txt file, create the files 'myfavoritefile.txt' and 'yourfavoritefile.txt', and run the python file.    
+Below is an example Python script for working with S3.  Generally, you will want to use the ephemeral mnt of your vm as your primary working directory.  In the example script below you will need to update the access_key and secret_key variables to the values in the tenant leader's s3creds.txt file.    
 
 
 .. code-block:: bash
 
 	import boto
 	import boto.s3.connection
-	access_key = "myaccess_key"	
-	secret_key = "mysecret_key"
-	gateway = "griffin-objstore.opensciencedatacloud.org"
+	access_key = 'put your access key here!'	
+	secret_key = 'put your secret key here!'
+	gateway = 'griffin-objstore.opensciencedatacloud.org'
 
 	conn = boto.connect_s3(
         	aws_access_key_id = access_key,
