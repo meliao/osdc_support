@@ -187,6 +187,67 @@ The OSDC Ceph Object Gateway supports a RESTful API that is basically compatible
 
 To access S3, you only need your S3 credentials (access key and secret key) and the gateway.  S3 credentials are dropped into the home directory of the tenant leader on the login node in a file named ``s3creds.txt``.  The gateway for the object store is "griffin-objstore.opensciencedatacloud.org".
 
+EXAMPLE:   Using Python Boto package to interact with S3
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+One way users can interact with S3 is by using the Python Boto package.   You can install boto by first installing pip (``with_proxy sudo -E apt-get install python-pip``) then Boto (``with_proxy sudo -E pip install boto``).    
+
+In order to run the demo below copy the script below into a new python file in the ephemeral mnt of your vm, create the files 'myfavoritefile.txt' and 'yourfavoritefile.txt', and run the python file.    
+
+
+.. code-block:: bash
+
+	import boto
+	import boto.s3.connection
+	access_key = "myaccess_key"	
+	secret_key = "mysecret_key"
+	gateway = "griffin-objstore.opensciencedatacloud.org"
+
+	conn = boto.connect_s3(
+        	aws_access_key_id = access_key,
+        	aws_secret_access_key = secret_key,
+        	host = gateway,
+        	#is_secure=False,               # uncomment if you are not using ssl
+        	calling_format = boto.s3.connection.OrdinaryCallingFormat(),
+        	)
+
+	### list buckets::
+	for bucket in conn.get_all_buckets():
+        	print "{name}\t{created}".format(
+                	name = bucket.name,
+                	created = bucket.creation_date,
+        	)
+
+	### create bucket::
+	bucket = conn.create_bucket('samplebucket')
+
+	### creating an object directly::
+	key = bucket.new_key('testobject.txt')
+	key.set_contents_from_string('working with s3 is fun')
+
+	### load existing files to the object storage::
+	files_to_put = ['myfavoritefile.txt','yourfavoritefile.txt']
+
+	for k in files_to_put:
+    		key = bucket.new_key(k)
+    		key.set_contents_from_filename(k)
+	
+	### list objects in bucket::
+	for key in bucket.list():
+        	print "{name}\t{size}\t{modified}".format(
+                	name = key.name,
+                	size = key.size,
+                	modified = key.last_modified,
+                	)
+
+	### downloading an object to local::
+	key = bucket.get_key('testobject.txt')
+	key.get_contents_to_filename('./testobject.txt')
+
+	### deleting a bucket -- bucket must be empty::
+	#conn.delete_bucket(bucket.name)
+
+
 Accessing the Public Data Commons
 ---------------------------------
 
