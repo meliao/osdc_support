@@ -197,7 +197,7 @@ EXAMPLE:   Using Python Boto package to interact with S3
 
 One way users can interact with S3 is by using the Python Boto package.   You can install Boto by first installing pip (``with_proxy sudo -E apt-get install python-pip``) then Boto (``with_proxy sudo -E pip install boto``).    
 
-In order to run the demo below copy the script below into a new python file in the ephemeral mnt of your vm, create the files 'myfavoritefile.txt' and 'yourfavoritefile.txt', and run the python file.    
+In order to run the demo below copy the script below into a new python file in the ephemeral mnt of your vm, update the access_key and secret_key variables to the values in the tenant leader's s3creds.txt file, create the files 'myfavoritefile.txt' and 'yourfavoritefile.txt', and run the python file.    
 
 
 .. code-block:: bash
