@@ -187,6 +187,11 @@ The OSDC Ceph Object Gateway supports a RESTful API that is basically compatible
 
 To access S3, you only need your S3 credentials (access key and secret key) and the gateway.  S3 credentials are dropped into the home directory of the tenant leader on the login node in a file named ``s3creds.txt``.  The gateway for the object store is "griffin-objstore.opensciencedatacloud.org".
 
+..  note:: 
+	
+	The S3 protocol requires that files larger than 5 GiB be 'chunked' in order to transfer into buckets.   Python Boto supports these efforts using the `copy_part_from_key() method <http://docs.pythonboto.org/en/latest/ref/s3.html#boto.s3.multipart.MultiPartUpload.copy_part_from_key>`_. 
+
+
 EXAMPLE:   Using Python Boto package to interact with S3
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
