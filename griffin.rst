@@ -115,6 +115,10 @@ Any time you need to access external sources, you must prepend the command with 
 	If you are trying to access an external site and get a 403 error, the site is not currently on the 
 	whitelist.   You'll need to request access for that site by sending an email to 
 	support @ opensciencedatacloud dot org.
+	
+..  note:: 
+	
+	Once you have set your proxy, it's good practice when you are first spinning up a vanilla VM to run ``with_proxy sudo -E apt-get update`` to make sure you are starting with the latest packages. 	
 
 
 Understanding OSDC Griffin Storage Options and Workflow
