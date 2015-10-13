@@ -224,7 +224,7 @@ Below is an example Python script for working with S3.  Generally, you will want
         	)
 
 	### create bucket::
-	bucket = conn.create_bucket('samplebucket')
+	bucket = conn.create_bucket('put your bucket name here!')
 
 	### creating an object directly::
 	key = bucket.new_key('testobject.txt')
@@ -251,6 +251,16 @@ Below is an example Python script for working with S3.  Generally, you will want
 
 	### deleting a bucket -- bucket must be empty::
 	#conn.delete_bucket(bucket.name)
+
+S3 Bucket Naming
+^^^^^^^^^^^^^^^^
+Bucket names must be unique across the entire system.   Please follow these constraints when creating a new bucket:
+
+* Bucket names must be unique.
+* Bucket names must begin and end with a lowercase letter.
+* Bucket names should consist of only letters, numbers, dashes, and underscores
+
+For more information consult the `Ceph documentation <http://docs.ceph.com/docs/master/radosgw/s3/bucketops/>`_ on buckets.  
 
 
 Accessing the Public Data Commons
