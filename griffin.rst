@@ -206,6 +206,7 @@ Below is an example Python script for working with S3.  Generally, you will want
 	import boto.s3.connection
 	access_key = 'put your access key here!'	
 	secret_key = 'put your secret key here!'
+	bucket_name = 'put your bucket name here!'
 	gateway = 'griffin-objstore.opensciencedatacloud.org'
 
 	conn = boto.connect_s3(
@@ -224,7 +225,7 @@ Below is an example Python script for working with S3.  Generally, you will want
         	)
 
 	### create bucket::
-	bucket = conn.create_bucket('put your bucket name here!')
+	bucket = conn.create_bucket(bucket_name)
 
 	### creating an object directly::
 	key = bucket.new_key('testobject.txt')
