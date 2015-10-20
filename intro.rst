@@ -125,14 +125,16 @@ We require the following documentation:
  
 About CITI Training:
 ~~~~~~~~~~~~~~~~~~~~ 
-Please complete the following five courses from CITI training.  
+Please complete the following four modules from the Human Subjects Research - Biomedical Modules available through CITI training.  
 
-* Basics of Health Privacy
-* Health Privacy Issues for Researchers
-* Responsible Conduct of Research (RCR) Basic
 * Human Subjects Research – Biomedical (Biomed) Modules
-* Basics of Information Security, Part 1
-* Basics of Information Security, Part 2
+  * Basics of Health Privacy
+  * Health Privacy Issues for Researchers
+  * Basics of Information Security, Part 1
+  * Basics of Information Security, Part 2
+* Suggested Modules
+  * Research and HIPAA Privacy Protections
+  * Protecting Your Computer
 
 Here are some details (NOTE:  users at different institutions, and at different depts within an institution may not see these exact messages):
 
@@ -141,7 +143,7 @@ Here are some details (NOTE:  users at different institutions, and at different 
 * Once this is completed you will be required to complete 4 enrollment questions. This will determine the modules you will need to complete.  
 * Please make the following choices:
     * Would you like to take the Conflict of Interest Course? - "Yes"
-    * I would like to complete the optional Good Clincal Practices (GCP)
+    * I would like to complete the optional Good Clinical Practices (GCP)
     * Select your Division at your Institution.
     * Researchers involved in protocols need to complete CITI Basic/Refresher - "Need to Enroll for Research Staff"
     * Responsible and Ethical Conduct of Research course - "Yes"
