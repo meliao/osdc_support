@@ -141,7 +141,7 @@ Here are some details (NOTE:  users at different institutions, and at different 
 * Once this is completed you will be required to complete 4 enrollment questions. This will determine the modules you will need to complete.  
 * Please make the following choices:
     * Would you like to take the Conflict of Interest Course? - "Yes"
-    * "I would like to complete the optional Good Clincal Practices (GCP)
+    * I would like to complete the optional Good Clincal Practices (GCP)
     * Select your Division at your Institution.
     * Researchers involved in protocols need to complete CITI Basic/Refresher - "Need to Enroll for Research Staff"
     * Responsible and Ethical Conduct of Research course - "Yes"
