@@ -128,13 +128,13 @@ About CITI Training:
 Please complete the following four modules from the Human Subjects Research - Biomedical Modules available through CITI training.  
 
 * Human Subjects Research – Biomedical (Biomed) Modules
-  * Basics of Health Privacy
-  * Health Privacy Issues for Researchers
-  * Basics of Information Security, Part 1
-  * Basics of Information Security, Part 2
+   * Basics of Health Privacy
+   * Health Privacy Issues for Researchers
+   * Basics of Information Security, Part 1
+   * Basics of Information Security, Part 2
 * Suggested Modules
-  * Research and HIPAA Privacy Protections
-  * Protecting Your Computer
+   * Research and HIPAA Privacy Protections
+   * Protecting Your Computer
 
 Here are some details (NOTE:  users at different institutions, and at different depts within an institution may not see these exact messages):
 
