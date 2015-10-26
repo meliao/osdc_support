@@ -47,6 +47,7 @@ Click "Create Keypair" then Download keypair on the download page.  When you dow
 the private key will automatically download to your desktop -- this is the only copy of the private key, 
 so if you lose it, you won't be able to access your VMs with that key any more.
 
+.. warning::   Your private key is as important as a password.   It should not be shared with other members in your group, emailed to collaborators, etc.     Please take all necessary precautions to protect your private ssh key.
 
 EXAMPLE: Creating Keypairs
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
