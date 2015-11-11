@@ -147,7 +147,7 @@ Here are some details (NOTE:  users at different institutions, and at different 
     * Select your Division at your Institution.
     * Researchers involved in protocols need to complete CITI Basic/Refresher - "Need to Enroll for Research Staff"
     * Responsible and Ethical Conduct of Research course - "Yes"
-* Once complete, send your certificate to accounts@opencloudconsortium.org   
+* Once complete, send your certificate to accounts@occ-data.org   
 
 VIDEO: OSDC Demo
 ^^^^^^^^^^^^^^^^
