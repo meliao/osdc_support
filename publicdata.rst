@@ -14,7 +14,7 @@ on the OSDC.  Currently, the OSDC hosts nearly 1PB of publicly available dataset
 Commons over glusterFS storage.
 
 In 2015-2016, the OSDC Public Data Commons is undergoing a transition to Ceph S3 bucket storage as part of 
-an `OCC initiative to provide a data commons for NOAA <http://opencloudconsortium.org/OCC_NOAA_CRADA/>`_.        
+an `OCC initiative to provide a data commons for NOAA <http://occ-data.org/OCC_NOAA_CRADA/>`_.        
 
 If you would like your dataset hosted in the OSDC Public Data Commons please apply at 
 `https://www.opensciencedatacloud.org/keyservice/request/ <https://www.opensciencedatacloud.org/keyservice/request/>`_.   
