@@ -11,7 +11,7 @@ citing the use of the OSDC or Bionimbus-PDC. Please acknowledge the proper resou
 OSDC
 -------------
 
-"This work made use of the Open Science Data Cloud (OSDC) which is an Open Cloud Consortium (OCC)-sponsored project.
+"This work made use of the Open Science Data Cloud (OSDC) which is an Open Commons Consortium (OCC)-sponsored project.
 This work was supported in part by grants from Gordon and Betty Moore 
 Foundation and the National Science Foundation and major contributions from 
 OCC members like the University of Chicago."
