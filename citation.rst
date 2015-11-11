@@ -3,7 +3,7 @@ Citation
 
 ..  _cite:
 
-Recipients of OSDC resource allocations should cite the OSDC or Bionimbus PDC in
+Grantees of OSDC resource allocations should cite the OSDC or Bionimbus PDC in
 their work.  This page lists credit lines appropriate for 
 citing the use of the OSDC or Bionimbus-PDC. Please acknowledge the proper resource by using the appropriate credit line.
 
