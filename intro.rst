@@ -46,7 +46,7 @@ and demand for OSDC services are growing. To help keep up with the demand
 for computing resources, we review active resource allocations on a quarterly 
 basis and make sure that allocations are adequately distributed among 
 projects based on scientific merit and/or established partnership status 
-with the OSDC. This is done through a process of surveys to active recipients 
+with the OSDC. This is done through a process of surveys to active grantees 
 of OSDC resource allocations.
 
 Resource allocation periods are generally for 3 months at a time and begin 
