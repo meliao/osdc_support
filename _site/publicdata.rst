@@ -13,7 +13,7 @@ or high performance networks such as Internet2, as well as computed over directl
 on the OSDC.  Currently, the OSDC hosts nearly 1PB of publicly available datasets. 
 
 If you have suggestions about data that should be included, please let 
-us know at info@opencloudconsortium.org. 
+us know at info@occ-data.org. 
 
 .. _publicdata:
 
