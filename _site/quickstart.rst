@@ -147,7 +147,7 @@ can also look at the classified GeoTiff we have provided using the above procedu
 	
 		This demonstration comes from analysis demonstrated by one of our OSDC 
 		projects called `Project Matsu <http://matsu.opensciencedatacloud.org/>`_.  Project Matsu is a collaboration between 
-		NASA and the Open Cloud Consortium to develop open source technology for cloud-based processing of 
+		NASA and the Open Commons Consortium to develop open source technology for cloud-based processing of 
 		satellite imagery to support the earth sciences and disaster relief. 
 
 Viewing the Results
