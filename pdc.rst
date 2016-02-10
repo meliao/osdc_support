@@ -3,6 +3,25 @@ Bionimbus PDC Resource Guide
 
 .. _pdc:
 
+.. sidebar:: Storage types - Ephemeral vs. Persistent
+	
+		**Ephemeral**
+		"Ephemeral storage provides temporary block-level storage for your instance.   This storage is located on disks 
+		that are physically attached to the host computer. Instance store is ideal for temporary storage of information 
+		that changes frequently, such as buffers, caches, scratch data, and other temporary content, or for data that 
+		is replicated across a fleet of instances, such as a load-balanced pool of web servers." - From `AWS EC2 
+		Instance Store <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html>`_. 
+
+		Use ephemeral storage as your main scratch workspace to temporarily store files needed for heavy I/O.  Ephemeral storage on the OSDC scales with the size of the instance.   We offer a number of Hi-Ephemeral flavors to 
+		aid your research.   NB: In the case of the OSDC, the storage noted here only "persistents" for the life of the VM.   Once the VM is 
+		terminated, the data stored here is lost.  Any snapshots made of your VM do NOT keep these data. 
+		
+		**Persistent**
+		"Persistent storage means that the storage resource outlives other resources and is always available regardless 
+		of the state of a running instance " - From `OpenStack documentation 
+		<http://docs.openstack.org/openstack-ops/content/storage_decision.html>`_.   
+		
+		Any data you want to persist beyond the life of your VM or access from multiple VMs must be pushed to the S3-compatible object storage through the PDC's Ceph Object Gateway.
 
 Bionimbus PDC Best Practices
 -----------------------------
@@ -135,25 +154,7 @@ provide reliable and fast data storage devices.   In brief, best practices on th
 * Push results and code you wish to keep to the S3-compatible object storage.
 * Terminate your VM and, subsequently, the ephemeral storage. 
 
-.. sidebar:: Storage types - Ephemeral vs. Persistent
-	
-		**Ephemeral**
-		"Ephemeral storage provides temporary block-level storage for your instance.   This storage is located on disks 
-		that are physically attached to the host computer. Instance store is ideal for temporary storage of information 
-		that changes frequently, such as buffers, caches, scratch data, and other temporary content, or for data that 
-		is replicated across a fleet of instances, such as a load-balanced pool of web servers." - From `AWS EC2 
-		Instance Store <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html>`_. 
 
-		Use ephemeral storage as your main scratch workspace to temporarily store files needed for heavy I/O.  Ephemeral storage on the OSDC scales with the size of the instance.   We offer a number of Hi-Ephemeral flavors to 
-		aid your research.   NB: In the case of the OSDC, the storage noted here only "persistents" for the life of the VM.   Once the VM is 
-		terminated, the data stored here is lost.  Any snapshots made of your VM do NOT keep these data. 
-		
-		**Persistent**
-		"Persistent storage means that the storage resource outlives other resources and is always available regardless 
-		of the state of a running instance " - From `OpenStack documentation 
-		<http://docs.openstack.org/openstack-ops/content/storage_decision.html>`_.   
-		
-		Any data you want to persist beyond the life of your VM or access from multiple VMs must be pushed to the S3-compatible object storage through the PDC's Ceph Object Gateway.
 
 Setting Up /mnt on Ephemeral Storage VMs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
