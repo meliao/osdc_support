@@ -134,7 +134,7 @@ provide reliable and fast data storage devices.   In brief, best practices on Gr
 * Push results and code you wish to keep to the S3-compatible object storage.
 * Terminate your VM and, subsequently, the ephemeral storage. 
 
-.. sidebar:: Storage types - Ephemeral vs. Persistent
+.. note:: Storage types - Ephemeral vs. Persistent
 	
 		**Ephemeral**
 		"Ephemeral storage provides temporary block-level storage for your instance.   This storage is located on disks 
@@ -153,6 +153,7 @@ provide reliable and fast data storage devices.   In brief, best practices on Gr
 		<http://docs.openstack.org/openstack-ops/content/storage_decision.html>`_.   
 		
 		Any data you want to persist beyond the life of your VM or access from multiple VMs must be pushed to the S3-compatible object storage through the OSDC's Ceph Object Gateway.
+
 
 Setting Up /mnt on Ephemeral Storage VMs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
