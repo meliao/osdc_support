@@ -124,7 +124,17 @@ It is likely you will just need to tell Nova about your keypairs which can be do
 Understanding Bionimbus PDC Storage Options and Workflow
 ---------------------------------------------------------
 
-.. sidebar:: Storage types - Ephemeral vs. Persistent
+The Bionimbus PDC uses a combination of ephemeral storage in VMs and S3-compatible object storage to
+provide reliable and fast data storage devices.   In brief, best practices on the Bionimbus PDC involve the following:
+
+* Spin up a VM instance corresponding to your needs.
+* Manage persistent data in the object store with S3.
+* Pull data you need immediate access to into your VM's ephemeral storage, located in ``/mnt/``.
+* Execute analysis, review result, delete any unnecessary local data.
+* Push results and code you wish to keep to the S3-compatible object storage.
+* Terminate your VM and, subsequently, the ephemeral storage. 
+
+.. note:: Storage types - Ephemeral vs. Persistent
 	
 		**Ephemeral**
 		"Ephemeral storage provides temporary block-level storage for your instance.   This storage is located on disks 
@@ -143,17 +153,6 @@ Understanding Bionimbus PDC Storage Options and Workflow
 		<http://docs.openstack.org/openstack-ops/content/storage_decision.html>`_.   
 		
 		Any data you want to persist beyond the life of your VM or access from multiple VMs must be pushed to the S3-compatible object storage through the PDC's Ceph Object Gateway.
-
-The Bionimbus PDC uses a combination of ephemeral storage in VMs and S3-compatible object storage to
-provide reliable and fast data storage devices.   In brief, best practices on the Bionimbus PDC involve the following:
-
-* Spin up a VM instance corresponding to your needs.
-* Manage persistent data in the object store with S3.
-* Pull data you need immediate access to into your VM's ephemeral storage, located in ``/mnt/``.
-* Execute analysis, review result, delete any unnecessary local data.
-* Push results and code you wish to keep to the S3-compatible object storage.
-* Terminate your VM and, subsequently, the ephemeral storage. 
-
 
 
 Setting Up /mnt on Ephemeral Storage VMs
