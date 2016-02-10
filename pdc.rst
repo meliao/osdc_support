@@ -3,43 +3,61 @@ Bionimbus PDC Resource Guide
 
 .. _pdc:
 
-.. sidebar:: Storage types - Swift (Object) vs. Cinder (Block)
-	
-		**Swift:**
-		Object storage provides access to whole objects, or blobs of data and generally 
-		does so with an API specific to that system. Unlike file storage, object storage 
-		generally does not allow the ability to write to one part of a file. Objects must 
-		be updated as a whole unit. Object storage excels at storing content that can 
-		grow without bound. One of the main advantages of object storage 
-		systems is their ability to reliably store a large amount of data at relatively 
-		low cost.
-		
-		**Cinder:**
-		Block storage gives you access to the “bare metal”. There is no concept 
-		of “files” at this level. There are just evenly sized blocks of data. Generally, 
-		using block storage offers the best performance, but it is quite low-level. 
-		Database servers often times can take advantage of block storage systems. 
-		An example of a common block storage system is a SAN.
-		
-		*Condensed From* - `Rackspace Blog - Storage Systems Overview <http://www.rackspace.com/blog/storage-systems-overview/>`_
 
 Bionimbus PDC Best Practices
 -----------------------------
 
-The Bionimbus PDC uses a combination of Cinder block storage and Swift object storage to
-provide reliable and fast data storage devices.   Best practices on the PDC involve:
+The Bionimbus PDC is a HIPAA compliant cloud for analyzing and sharing PHI.   The Bionimbus PDC is an  OpenStack cluster utilizing ephemeral storage in VMs 
+with access to a separate S3-compatible storage system for persistent data storage.  Allocations to all users and projects are given at the "tenant" level. 
 
-* Grabbing data (ie:  BAM file) from Swift into Cinder to insure fast I/O
-* Execute pipelines and store intermediate files in Cinder
-* Push results back to Swift
+Best practices on the PDC involve:
 
-General PDC Use
-----------------
-For general instructions on PDC use, please refer to the OSDC 
-:doc:`Quickstart. <quickstart>`  
+* Spin up a VM instance corresponding to your needs.
+* Manage persistent data in the object store with S3.
+* Pull data you need immediate access to into your VM's ephemeral storage, located in ``/mnt/``.
+* Execute analysis, review result, delete any unnecessary local data.
+* Push results and code you wish to keep to the S3-compatible object storage.
+* Terminate your VM and, subsequently, the ephemeral storage. 
+
+Understanding Tenants 
+-----------------------
+
+Individual users share access to a pool of common compute resources within the overall quota of their group.  This group of users is called a 
+"tenant."   The Bionimbus PDC  uses the tenant system to give groups of collaborating users maximum flexibility in managing their resource allocations.   
+
+..  warning::
+	
+		Users could conceivably delete other users' data and VMs within a tenant.   BE VERY CAREFUL
+		WHEN PERMANENTLY REMOVING DATA AND MANAGING VMS. 
+
+
+Tenant Leaders
+^^^^^^^^^^^^^^
+
+When a project receives a resource allocation, one user expected to be the primary is assigned as the "tenant leader".   This individual 
+is responsible for making sure other users in their tenant adhere to best practices and protocols they may wish to develop to 
+govern their project's workflow. 
+
+
+
+Accessing the Bionimbus PDC
+----------------------------
+The table below has the addresses required to successfully ssh to the PDC login node and any active VMs. 
+For general instructions on how to manage VMs using the webconsole or managing ssh keys, please 
+refer to the OSDC :doc:`Quickstart. <quickstart>`  
+
+
+  ====================  ========================================================  ======================
+  Cloud                 Login Node                             				  VM 
+  ====================  ========================================================  ======================
+  Bionimbus PDC         ``<eRA.Commons>@bionimbus-pdc.opensciencedatacloud.org``  ``ubuntu@<VM.IP>`` 
+  ====================  ========================================================  ======================
+
+The object store address is:  ``bionimbus-objstore.opensciencedatacloud.org``.   See :ref:`the s3 example <pdcs3example>` 
+to learn how to access the object storage.
 
 To work on the command line, please refer to the OSDC support 
-on :doc:`Command Line Tools. <commandline>`
+on :doc:`Command Line Tools. <commandline>` 
 
 .. _pdcproxy:
 
@@ -62,6 +80,22 @@ or install or update packages.
 * Swift endpoints are not whitelisted, so the best way to fix is to set ``export no_proxy="rados-bionimbus-pdc.opensciencedatacloud.org"``
 * Access external sources - if installing, make sure and use ``sudo -E`` as part of your install/update commands
 * Once completed, run:  ``unset http_proxy; unset https_proxy``
+
+Updating .bashrc as a Workaround
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+A helpful workaround is to add these lines to your VM's .bashrc file and source to update your current session:
+
+.. code-block:: bash
+
+    export no_proxy="bionimbus-objstore.opensciencedatacloud.org"
+    function with_proxy() {
+         PROXY='http://cloud-proxy:3128'
+         http_proxy="${PROXY}" https_proxy="${PROXY}" $@
+    }
+
+
+Any time you need to access external sources, you must prepend the command with ``with_proxy`` and use ``sudo -E`` as part of your install/update commands.  For example,  instead of ``sudo apt-get update`` use ``with_proxy sudo -E apt-get update`` and instead of ``git clone https://github.com/LabAdvComp/osdc_support.git`` use ``with_proxy git clone https://github.com/LabAdvComp/osdc_support.git``
 
 ..  warning:: 
 	
@@ -87,172 +121,151 @@ It is likely you will just need to tell Nova about your keypairs which can be do
 	
 	If you plan to manage your ssh connections using Putty, please make sure that you are using v0.63 or beyond.   There are noted connection issues with older versions.
 
-Workflow Guide
---------------
 
-What follows is a step by step guide on how to work with Cinder and Swift to:
+Understanding Bionimbus PDC Storage Options and Workflow
+---------------------------------------------------------
 
-* Create Cinder volumes and attach to a VM from the login node
-* Mount Cinder volumes to a VM while in the VM
-* Moving Cinder volumes
-* Unmounting Cinder volumes
-* Copy files and execute pipelines
+The Bionimbus PDC uses a combination of ephemeral storage in VMs and S3-compatible object storage to
+provide reliable and fast data storage devices.   In brief, best practices on the Bionimbus PDC involve the following:
 
-CLI - Creating Cinder Volumes
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+* Spin up a VM instance corresponding to your needs.
+* Manage persistent data in the object store with S3.
+* Pull data you need immediate access to into your VM's ephemeral storage, located in ``/mnt/``.
+* Execute analysis, review result, delete any unnecessary local data.
+* Push results and code you wish to keep to the S3-compatible object storage.
+* Terminate your VM and, subsequently, the ephemeral storage. 
 
-First we'll create and attach Cinder volumes to VMs via the CLI.   This 
-is done from the login node.  First ssh to the login node.
-
-* ``ssh -A <username>@bionimbus-pdc.opensciencedatacloud.org``
-
-Next, create a new VM. 
-
-* ``nova boot --image <IMAGE_ID> --flavor <FLAVOR_NAME_OR_NUMBER> --key_name <KEYPAIR_NAME> <VM_NAME>``
-
-A list of currently available VM Flavors is available below.
-
-  =============  ========  ===============  ============
-  Flavor         VCPUs     VM Disk (GB)     RAM (GB)           
-  =============  ========  ===============  ============
-  m1.small       1         20               2          
-  m1.medium      2         20               4         
-  m1.large       4         20               8          
-  m1.xlarge      8         20               16  
-  m1.xxlarge	 16	       20	            48
-  m1.xxxlarge    32        20	            96
-  =============  ========  ===============  ============
-
-We suggest creating a 1TB Cinder volume called SCRATCH for intermediate 
-scratch output.  
-
-* ``nova volume-create --display-name SCRATCH 1024``
-
-Next, list existing VMs and Cinder volumes and get the relevant UUID.  
-
-* ``nova list``
-* ``nova volume-list``
-
-Finally, attached Cinder volumes to VMs.   This will need to be done for each Cinder volume.
-
-* ``nova volume-attach <VM UUID> <CINDER VOL UUID> auto``  
-
-
-CLI - Mounting Cinder Volumes to VM
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Next we'll mount the volumes we created to ``mnt/cinder``.   Please note these can be mounted 
-to other locations, or you can use symbolic links to your home dir for easy access.  After 
-mounting, Cinder volumes can be used like regular folders, but with much faster I/O.
-
-First login to your VM. 
-
-* ``ssh ubuntu@<VM_IP>``
-
-Next we'll want to make a directory, install xfs, construct xfs, and finally mount the Cinder 
-volume.   The example below gives the commands to do so for the "SCRATCH" volume we created
-earlier. To run apt-get successfully you will need to use the proxy per :ref:`Connecting to External Sources <pdcproxy>` 
-
-* ``sudo mkdir -p /mnt/cinder/SCRATCH``
-* ``sudo -E apt-get -y install xfsprogs``
-* ``sudo mkfs.xfs /dev/vdb``
-* ``sudo mount /dev/vdb /mnt/cinder/SCRATCH/``
-
-.. Topic:: Moving your Cinder Volume
+.. sidebar:: Storage types - Ephemeral vs. Persistent
 	
-		One of the advantages to working with Cinder volumes is that once you have the
-		files you need in them, you can move them to other VMs.  To do so, follow the steps to 
-		unmount listed below.   
+		**Ephemeral**
+		"Ephemeral storage provides temporary block-level storage for your instance.   This storage is located on disks 
+		that are physically attached to the host computer. Instance store is ideal for temporary storage of information 
+		that changes frequently, such as buffers, caches, scratch data, and other temporary content, or for data that 
+		is replicated across a fleet of instances, such as a load-balanced pool of web servers." - From `AWS EC2 
+		Instance Store <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html>`_. 
+
+		Use ephemeral storage as your main scratch workspace to temporarily store files needed for heavy I/O.  Ephemeral storage on the OSDC scales with the size of the instance.   We offer a number of Hi-Ephemeral flavors to 
+		aid your research.   NB: In the case of the OSDC, the storage noted here only "persistents" for the life of the VM.   Once the VM is 
+		terminated, the data stored here is lost.  Any snapshots made of your VM do NOT keep these data. 
 		
-		To remount them, follow the directions above, but make sure you don't reinstall xfs or run
-		the mkfs command.   Doing so once your volume has been created would delete the contents.
+		**Persistent**
+		"Persistent storage means that the storage resource outlives other resources and is always available regardless 
+		of the state of a running instance " - From `OpenStack documentation 
+		<http://docs.openstack.org/openstack-ops/content/storage_decision.html>`_.   
+		
+		Any data you want to persist beyond the life of your VM or access from multiple VMs must be pushed to the S3-compatible object storage through the PDC's Ceph Object Gateway.
 
-CLI - Unmounting and Unattaching Cinder Volumes
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Setting Up /mnt on Ephemeral Storage VMs
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+When starting a new VM with Ephemeral storage, users will need to change ownership of the storage to start.   In order to do so, login to the VM and run ``sudo chown ubuntu:ubuntu /mnt``.    Once complete you can begin to write or copy files to the ephemeral storage mounted to the VM.   This directory can with the command ``cd /mnt/``.  
 
-Once you have the information you'd like in a Cinder volume, you should detach it and unmount it.  
-To unmount the "SCRATCH" volume example from above:
+EXAMPLE: Moving Files To VMs
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* ``sudo umount mnt/cinder/SCRATCH``
+Here's an example of how you could use 'multihop' to directly get to a VM.   In order to take advantage 
+of the multihop technique, below are some sample lines you could add to a 'config' file in your .ssh dir.   
+On OSX this file is located or can be created in ``~/.ssh/config``.
 
-Then exit the VM, so you're back on the login node. 
+.. code-block:: bash
 
-* ``exit``
+    Host bionimbus
+     HostName bionimbus-pdc.opensciencedatacloud.org
+     IdentityFile ~/.ssh/<NAME OF YOUR PRIVATE KEY>
+     User <eRA USERNAME>
+     
+    Host bionimbusvm
+     HostName <VM IP>
+     User ubuntu
+     IdentityFile ~/.ssh/<NAME OF YOUR PRIVATE KEY>
+     ProxyCommand ssh -q -A bionimbus -W %h:%p
 
-Then you'll want to detach the volume, so it can be reattached and remounted elsewhere.
+You can then easily ssh into the headnode using ``ssh bionimbus`` or straight to your vm using ``ssh bionimbusvm``. You can also easily move files to the VMs ephemeral in a single command from your local machine using scp or rsync.  For example, from your local machine copy your favorite file to the ephemeral storage using ``scp myfavoritefile.txt bionimbusvm:/mnt/`` 
 
-* ``nova volume-detach <VM UUID> <CINDER VOL UUID>``
+Using S3
+^^^^^^^^
 
-CLI - Copying Files, Executing Pipelines
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The PDC Ceph Object Gateway supports a RESTful API that is basically compatible with Amazon's S3 API, with some limitations.  To push and pull data to the object storage, please refer to the `Ceph S3 API documentation <http://ceph.com/docs/master/radosgw/s3/>`_.  The documentation also provides example scripts in Python using the boto library as well as other common languages.
 
-We recommend you copy files, dump temp files, and write your output from Swift to /mnt/cinder/scratch/, 
-and finally move your output back to your home dir on Swift. Make sure your pipeline codes reflect 
-this scratch location.   Please make sure and run your pipelines in Cinder volumes so that all 
-temp files will be stored there.
+To access the object storage via Ceph's S3, you only need your S3 credentials (access key and secret key) and the name of the gateway.  S3 credentials are dropped into the home directory on the login node in a file named ``s3creds.txt``.  When users are removed from the tenant, this key is regenerated for security.  The gateway for the object store is "bionimbus-objstore.opensciencedatacloud.org".
 
-Using Swift
---------------
-
-Copying OpenStack Environment Variables to VM
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Currently, before running any swift command in your VM, you need to first copy ./novarc, 
-which contains the OpenStack environment variables from head node to your VM, and source it.
-
-In your head node:
-
-* ``scp ~/.novarc ubuntu@<VM_IP>:/home/ubuntu``
-* ``ssh ubuntu@<VM_IP>``
-* ``source ~/.novarc``
-
-If swift client is not installed, please get it via:
-
-* ``sudo -E apt-get install python-swiftclient``
-
-Swift Subcommands
-^^^^^^^^^^^^^^^^^
-
-A full list of Swift commands can be found in the `OpenStack user guide. <http://docs.openstack.org/user-guide/content/swift_commands.html>`_
-Below are some sample commands you may find helpful for working with Swift.
-
-* ``swift stat <CONTAINER_NAME> <OBJECT_NAME>`` 
-	* Displays information for the account, container, or object
-* ``swift list <CONTAINER_NAME> <OBJECT_NAME>``
-	* Lists the objects for a container
-	* If no <CONTAINER_NAME>, lists all containers for the account
-*  ``swift delete <CONTAINER_NAME> <OBJECT_NAME>``
-	* Deletes a container or objects within a container
-* ``swift post <CONTAINER_NAME> <OBJECT_NAME>``
-	* Updates meta information for the account, container, or object
-	* If the container is not found, it will be created automatically
-* ``swift upload <CONTAINER_NAME> <FILE_OR_DIRECTORY_NAME>``
-	* Uploads files or directories to the given container
-	* If the container is not found, it will be created automatically
-	* If the file is larger than 5GB, you must use option ``--segment-size=SEGMENT_SIZE (-S SEGMENT_SIZE)``
-		* NOTE:  Swift will upload files in segments no larger than <SEGMENT_SIZE> into a default container <CONTAINER_NAME>_segments, and then create a "manifest" file in the container <CONTAINER_NAME> that you can later use to download all the segments as if it were the original file.
-* ``swift download <CONTAINER_NAME> <OBJECT_NAME>``
-	* Download objects from containers
-
-Some other useful options that can be used together with some (not all) of the subcommands
-
-* help (-h): show help message
-* verbose (-v): display/print more info
-* lh: Report sizes in human readable format similar to ls -lh
-* skip-identical: Skip uploading/downloading files that are identical on both sides
-
-Examples of use:
-
-* ``swift --help``
-	* Shows help message for swift
-* ``swift post --help``
-	* Shows help message for swift post subcommand
-* ``swift stat --verbose``
-	* Displays more detailed information for the account
-* ``swift list <CONTAINER_NAME>  --lh``
-	* Lists all object in the container with sizes in readable format
-* ``swift download <CONTAINER_NAME> --skip-identical``
-	* Downloads all objects in the container to the current directory, and skip all files that is already in the directory
+..  note:: 
 	
+	The S3 protocol requires that files larger than 5 GiB be 'chunked' in order to transfer into buckets.   Python boto supports these efforts using the `copy_part_from_key() method <http://docs.pythonboto.org/en/latest/ref/s3.html#boto.s3.multipart.MultiPartUpload.copy_part_from_key>`_. 
+
+.. _pdcs3example:
+
+EXAMPLE:   Using Python's boto package to interact with S3
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+One way users can interact with the object storage via S3 is by using the Python boto package.   
+
+Below is an example Python script for working with S3.  Generally, you will want to use the ephemeral mnt of your vm as your primary working directory.  In the example script below you will need to update the access_key and secret_key variables to the values in the s3creds.txt file.    
+
+
+.. code-block:: bash
+
+	import boto
+	import boto.s3.connection
+	access_key = 'put your access key here!'	
+	secret_key = 'put your secret key here!'
+	bucket_name = 'put your bucket name here!'
+	gateway = 'bionimbus-objstore.opensciencedatacloud.org'
+
+	conn = boto.connect_s3(
+        	aws_access_key_id = access_key,
+        	aws_secret_access_key = secret_key,
+        	host = gateway,
+        	#is_secure=False,               # uncomment if you are not using ssl
+        	calling_format = boto.s3.connection.OrdinaryCallingFormat(),
+        	)
+
+	### list buckets::
+	for bucket in conn.get_all_buckets():
+        	print "{name}\t{created}".format(
+                	name = bucket.name,
+                	created = bucket.creation_date,
+        	)
+
+	### create bucket::
+	bucket = conn.create_bucket(bucket_name)
+
+	### creating an object directly::
+	key = bucket.new_key('testobject.txt')
+	key.set_contents_from_string('working with s3 is fun')
+
+	### load existing files to the object storage::
+	files_to_put = ['myfavoritefile.txt','yourfavoritefile.txt']
+
+	for k in files_to_put:
+    		key = bucket.new_key(k)
+    		key.set_contents_from_filename(k)
+	
+	### list objects in bucket::
+	for key in bucket.list():
+        	print "{name}\t{size}\t{modified}".format(
+                	name = key.name,
+                	size = key.size,
+                	modified = key.last_modified,
+                	)
+
+	### downloading an object to local::
+	key = bucket.get_key('testobject.txt')
+	key.get_contents_to_filename('./testobject.txt')
+
+	### deleting a bucket -- bucket must be empty::
+	#conn.delete_bucket(bucket.name)
+
+S3 Bucket Naming
+^^^^^^^^^^^^^^^^
+Bucket names must be unique across the entire system.   Please follow these constraints when creating a new bucket:
+
+* Bucket names must be unique.
+* Bucket names must begin and end with a lowercase letter.
+* Bucket names should consist of only letters, numbers, dashes, and underscores
+
+For more information consult the `Ceph documentation <http://docs.ceph.com/docs/master/radosgw/s3/bucketops/>`_ on buckets.  
+
+
 .. _whitelist:
 	
 Whitelisted Resources
