@@ -134,7 +134,7 @@ provide reliable and fast data storage devices.   In brief, best practices on th
 * Push results and code you wish to keep to the S3-compatible object storage.
 * Terminate your VM and, subsequently, the ephemeral storage. 
 
-.. note:: Storage types - Ephemeral vs. Persistent
+.. note:: **Storage types - Ephemeral vs. Persistent**
 	
 		**Ephemeral**
 		"Ephemeral storage provides temporary block-level storage for your instance.   This storage is located on disks 
