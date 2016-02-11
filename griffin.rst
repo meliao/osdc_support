@@ -265,6 +265,21 @@ Bucket names must be unique across the entire system.   Please follow these cons
 For more information consult the `Ceph documentation <http://docs.ceph.com/docs/master/radosgw/s3/bucketops/>`_ on buckets.  
 
 
+Making a Bucket Public
+^^^^^^^^^^^^^^^^^^^^^^^
+
+Some Griffin users may wish to publicly expose their buckets to share their research with collaborators or with the OSDC community as part of the public data commons.    To do so, simply set the bucket acls to "public-read".   An example using boto is below. 
+
+.. code-block:: bash
+		
+	### get existing bucket::
+	bucket = conn.get_bucket('noaa-nexrad-l2')
+
+	### Set public read to all objects in a bucket::
+	for key in bucket.list():
+        key.set_acl('public-read')
+                
+
 Accessing the Public Data Commons
 ---------------------------------
 
