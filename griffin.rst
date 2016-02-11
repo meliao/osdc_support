@@ -273,7 +273,7 @@ Some Griffin users may wish to publicly expose their buckets to share their rese
 .. code-block:: bash
 		
 	### get existing bucket::
-	bucket = conn.get_bucket('noaa-nexrad-l2')
+	bucket = conn.get_bucket('my_Bucket')
 
 	### Set public read to all objects in a bucket::
 	for key in bucket.list():
