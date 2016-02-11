@@ -268,7 +268,7 @@ For more information consult the `Ceph documentation <http://docs.ceph.com/docs/
 Making a Bucket Public
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-Some Griffin users may wish to publicly expose their buckets to share their research with collaborators or with the OSDC community as part of the public data commons.    To do so, simply set the bucket acls to "public-read".   An example using boto is below. 
+Some Griffin users may wish to publicly expose their buckets to share data with collaborators or with the OSDC community as part of the public data commons.    To do so, simply set the bucket acls to "public-read".   An example using boto is below. 
 
 .. code-block:: bash
 		
