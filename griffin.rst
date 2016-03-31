@@ -6,7 +6,7 @@ Griffin Resource Guide
 What is OSDC Griffin?
 -----------------------
 
-OSDC Griffin is our newest compute resource named after the Chicago Architect Marion Mahony Griffin.  It is an OpenStack cluster utilizing ephemeral storage in VMs 
+OSDC Griffin is named after the Chicago Architect Marion Mahony Griffin.  It is an OpenStack cluster utilizing ephemeral storage in VMs 
 with access to a separate S3-compatible storage system for persistent data storage.    OSDC Griffin has 610 cores, 2391 GiB of RAM, and 
 369664 GiB of VM/ephemeral storage.  Allocations to all users and projects are given at the "tenant" level. 
 
@@ -120,6 +120,10 @@ Any time you need to access external sources, you must prepend the command with 
 	
 	Once you have set your proxy, it's good practice when you are first spinning up a vanilla VM to run ``with_proxy sudo -E apt-get update`` to make sure you are starting with the latest packages. 	
 
+Using a Docker Image
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+To make the use of `Docker <https://www.docker.com/>`_ easier for Griffin users, a plain vanilla image is selectable from the Tukey console. The image has Docker installed from the official docker repo, but more importantly it's configured to use the proxy to get images (so you don't have to do anything), and it stores everything in /mnt, so users won't fill up their root, but instead fill up ephemeral storage available in the VM.   In the console, look for the public image called "docker_20160323".  
 
 Understanding OSDC Griffin Storage Options and Workflow
 ------------------------------------------------------

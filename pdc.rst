@@ -105,6 +105,10 @@ Any time you need to access external sources, you must prepend the command with 
 	:ref:`whitelist <whitelist>`.   You'll need to request access for that site by sending an email to 
 	support @ opensciencedatacloud dot org.
 
+Using a Docker Image
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+To make the use of `Docker <https://www.docker.com/>`_ easier for users of the Bionimbus PDC and IGSB resource, a plain vanilla image is selectable from the Tukey console. The image has Docker installed from the official docker repo, but more importantly it's configured to use the proxy to get images (so you don't have to do anything), and it stores everything in /mnt, so users won't fill up their root, but instead fill up ephemeral storage available in the VM.   In the console, look for the public image called "docker_20160323".  
 
 SSH Keypairs 
 -----------------------
