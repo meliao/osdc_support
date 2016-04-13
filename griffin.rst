@@ -190,7 +190,7 @@ Using S3
 
 The OSDC Ceph Object Gateway supports a RESTful API that is basically compatible with Amazon's S3 API, with some limitations.  To push and pull data to the object storage, please refer to the `Ceph S3 API documentation <http://ceph.com/docs/master/radosgw/s3/>`_.  The documentation also provides example scripts in Python using the boto library as well as other common languages.
 
-To access the object storage via Ceph's S3, you only need your S3 credentials (access key and secret key) and the name of the gateway.  S3 credentials are dropped into the home directory on the login node in a file named ``s3creds.txt``.  When users are removed from the tenant, this key is regenerated for security.  The gateway for the object store is "griffin-objstore.opensciencedatacloud.org".
+To access the object storage via Ceph's S3, you only need your S3 credentials (access key and secret key) and the name of the gateway.  S3 credentials are dropped into the home directory on the login node in a file named ``s3cred.txt``.  When users are removed from the tenant, this key is regenerated for security.  The gateway for the object store is "griffin-objstore.opensciencedatacloud.org".
 
 ..  note:: 
 	
@@ -202,7 +202,7 @@ EXAMPLE:   Using Python's boto package to interact with S3
 
 One way users can interact with the object storage via S3 is by using the Python boto package.   
 
-Below is an example Python script for working with S3.  Generally, you will want to use the ephemeral mnt of your vm as your primary working directory.  In the example script below you will need to update the access_key and secret_key variables to the values in the s3creds.txt file.    
+Below is an example Python script for working with S3.  Generally, you will want to use the ephemeral mnt of your vm as your primary working directory.  In the example script below you will need to update the access_key and secret_key variables to the values in the s3cred.txt file.    
 
 
 .. code-block:: bash
