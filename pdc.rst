@@ -18,14 +18,14 @@ Best practices on the PDC involve:
 * Push results and code you wish to keep to the S3-compatible object storage.
 * Terminate your VM and, subsequently, the ephemeral storage. 
 
-.. Topic:: 15 Risky Actions Bionimbus PDC Allocation Grantees Must Avoid
+.. Topic:: 15 risky actions that could make Bionimbus PDC allocation grantees out of compliance with data use agreements.  
 	
 		* Share their credentials (ssh private key, password, s3 creds) with other people.
 		* Taking protected data in a bucket and sharing with another user who may not have the same permissions.  
 		* Save copies of their private key, password or s3 creds in insecure locations (don’t write them down on paper or save in an excel spreadsheet, don’t send them to any insecure device).
 		* Send or share data with unsecured public or external devices (i.e., emailing data to your personal email, sending data to your unsecured home computer, sharing data in a bucket with users without approved access, etc).
 		* Use an unencrypted laptop or mobile device.
-		* Don't lock machine before leaving it.
+		* Neglect to lock machine before leaving it.
 		* Upload bootable images from untrusted sources (they could contain back doors or attempt to steal data).
 		* Install software from untrusted sources.
 		* Set up a public-facing system of any sort (forum, FTP, web site, etc) or use unlicensed or stolen commercial software.
