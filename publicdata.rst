@@ -39,6 +39,11 @@ to your home folder.
 *       For Hadoop resources, please review the :ref:`Hadoop Resource Guide  <hadoop>`
 *       For Griffin, please review the :ref:`Griffin Resource Guide  <griffin>`
 
+Search Service
+------------------------
+
+COMING SOON
+
 ARK Key Service
 ------------------------
 
