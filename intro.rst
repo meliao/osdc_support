@@ -102,28 +102,28 @@ in keeping these resources secure and compliant.
 
 .. _citi:
 
-Atwood - Handling Sensitive Data Training:
+PDC - Handling Sensitive Data Training:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Atwood resource allocation recipients are required to provide copies of the standard 
+PDC resource allocation recipients are required to provide copies of the standard 
 training and organizational approvals that all projects that use protected health 
 information and other sensitive data must have.  
 
-The Atwood Protected Data Cloud provides a computing environment designed to 
+The Protected Data Cloud provides a computing environment designed to 
 support research with protected health information and other sensitive data, but 
 the computing environment is only one component of what is required to properly 
 secure protected health information or other sensitive data.   Another important 
-requirement is that those using a computing infrastructure like Atwood have 
+requirement is that those using a computing infrastructure like the PDC have 
 proper training and have received from their institution all the required approvals 
-for working with protected health information and other sensitive data.  
+for working in secure environments.
 
 We require the following documentation:
  
-1) For each project, that the PI of the project send us a copy of the IRB approved protocol for the study using the Atwood Protected Data Cloud or a letter showing the study is exempt from needing an IRB Protocol.   The IRB Protocol or Exemption should be from the home institution of the PI for the project.   For new protocols or renewals of protocols, please refer explicitly to the Atwood environment.
-2) For each researcher with a Atwood Protected Data Cloud account, a certificate proving that the researcher has completed CITI training appropriate for working with Protected Health Information or other sensitive data.  A copy of a certificate indicating that you have completed the required CITI training will be requested each year.  
+1) For each project, that the PI of the project send us a copy of the IRB approved protocol for the study using the Protected Data Cloud or a letter showing the study is exempt from needing an IRB Protocol.   The IRB Protocol or Exemption should be from the home institution of the PI for the project.   For new protocols or renewals of protocols, please refer explicitly to the PDC environment.
+2) For each researcher with a Protected Data Cloud account, a certificate proving that the researcher has completed CITI training appropriate for working in secure environments.  For interational researchers, we can accept NIH security training as an alternative.  A copy of a certificate indicating that you have completed the required training will be requested each year.  
 
-.. NOTE::   We recognize that some institutions do not support CITI training.   If CITI training is not available at your institution, we can review and accept other forms of certification indicating proof of training handling PHI on a case by case basis.
+.. NOTE::   We recognize that some institutions do not support CITI training.   If CITI training is not available at your institution, we can review and accept other forms of certification indicating proof of training handling PHI on a case by case basis.   
  
-About CITI Training:
+CITI Training:
 ~~~~~~~~~~~~~~~~~~~~ 
 Please complete the following four modules from the Human Subjects Research - Biomedical Modules available through CITI training.  
 
@@ -148,6 +148,11 @@ Here are some details (NOTE:  users at different institutions, and at different 
     * Researchers involved in protocols need to complete CITI Basic/Refresher - "Need to Enroll for Research Staff"
     * Responsible and Ethical Conduct of Research course - "Yes"
 * Once complete, send your certificate to accounts@occ-data.org   
+
+NIH Training:
+~~~~~~~~~~~~~~~~~~~~ 
+
+For international collaborators unable to complete CITI training that need access to the PDC, we can accept proof of completion of the `"Entire NIH Information and Security Awareness Course" <http://irtsectraining.nih.gov/publicUser.aspx>`_ offered by the NIH.   
 
 VIDEO: OSDC Demo
 ^^^^^^^^^^^^^^^^
