@@ -47,12 +47,11 @@ COMING SOON
 Working with the ID Service
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-
-.. code-block:: python
-   :linenos:
-   :name: ark-hash-funcs
+After a user has received their ARKs, they may want to confirm integrity and download the data from their query.   Below are some example functions from the Nexrad Jupyter example that download the data
+::
 	  
-	  # hash provided in signpost should match locally calculated hash
+	  import requests
+          # hash provided in signpost should match locally calculated hash
 	      def confirm_hash(hash_algo, file_,actual_hash):
 	          with open(file_) as f:
                       computed_hash = hash_algo(f.read()).hexdigest()
@@ -81,15 +80,22 @@ Working with the ID Service
               for url in repo_urls:
 	          # if preferred repo exists, will opt for that URL
 		  if pref_repo in url:
-                      break
-	      # otherwise, will use last url provided
+		      break
+                  # otherwise, will use last url provided
         
-              # wow! we can run this bash command from Jupyter!
-              !sudo wget -P $intended_dir $url
-        
+
               # need file path for hash validation
               file_name = url.split('/')[-1]
               file_path = os.path.join(intended_dir, file_name)
+
+              # wow! if you're in Jupyter we can do this from a single bash command.
+              # !sudo wget -P $intended_dir $url
+
+              # if you're not in Jupyter, you can use the requests library to create the files
+	      r = requests.get(url)
+	      f = open(file_path, 'wb')
+	      f.write(r.content)
+	      f.close()
         
               if hash_confirmation:
                   # get dict of hash type: hash
