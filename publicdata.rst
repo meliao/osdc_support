@@ -121,7 +121,7 @@ After a user has received their ARKs, they may want to confirm integrity and dow
 EXAMPLE:  Using the Query Tool 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The query tool allows a user to search a dataset for the parameters they wish, returning a list of ARKs that match the data they are looking for.  In the example below we will use the query tool to generate a list of ARKS relevant to the :ref:`NEXRAD analysis example<nexrad-example>`.
+The query tool allows a user to search a dataset for the parameters they wish, returning a list of ARKs that match the data they are looking for.  In the example below we will use the query tool to generate a list of ARKs relevant to the :ref:`NEXRAD analysis example<nexrad-example>`.
 
 [COMING SOON]
 
@@ -134,7 +134,7 @@ A sample analysis of NEXRAD data is available showing how to:
 
 * setup your work environment
 * pull some data from the ID service 
-* download files from the repositories the ID service points to
+* download files from the repositories the ID service references
 * make multiple plots of raw reflectivity data
 * filter the reflectivity data for 'bioscatter'
 * animate plots 
@@ -146,7 +146,7 @@ For advanced users familiar with docker commands, we recommend using the nexrad-
 .. note:: 
    If you are using either public snapshot, all software has already been installed.  
 
-For the larger community, the same notebooks are public in creator Ziv Dreyfuss' personal github repository [LINK}.   To simply view as a webpage, go to [LINK].   
+For the larger community, the same notebooks are public in creator Ziv Dreyfuss' personal `github repository <https://github.com/zivvers/nexrad-jupyter-osdc>`_.   To simply view as a webpage, go to the `gh_pages version <http://zivvers.github.io/nexrad-jupyter-osdc>`_.   
 
 .. note::
    Not all browsers handle the animation in the Jupyter notebook demo well.   We had success using Chrome.  
