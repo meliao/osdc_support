@@ -128,9 +128,10 @@ To make the use of `Docker <https://www.docker.com/>`_ easier for Griffin users,
 EXAMPLE:  Installing Software and Running a Jupyter Notebook
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-### Section I:  Installing software
+Section I:  Installing software
+```````````````````````````````
 
-1. Add Griffin proxies as variables in .bashrc as in the code block in :ref:`_griffinproxy`
+1. Add Griffin proxies as variables in .bashrc as in the code block in on :ref:`using the proxy. <griffinproxy>`
 
 	```
 	printf "export no_proxy='griffin-objstore.opensciencedatacloud.org'\nfunction with_proxy() {\n\tPROXY='http://cloud-proxy:3128'\n\thttp_proxy='\${PROXY}' https_proxy='\${PROXY}' \$@\n}" >> ~/.bashrc
@@ -158,14 +159,15 @@ EXAMPLE:  Installing Software and Running a Jupyter Notebook
 	```
 
 5. Install tools for visualizations
-jupyt
+
 	```
 	with_proxy sudo -E apt-get update
 	with_proxy sudo -E apt-get install -y libav-tools 
 	with_proxy sudo -E apt-get install -y python-qt4
 	```
 
-### Section II: How to run Jupyter Notebook
+Section II: How to run Jupyter Notebook
+```````````````````````````````````````
 
 1. *From your Local Machine (e.g. your laptop)*:add following lines to ~/.ssh (replacing \<OSDC username\> with your OSDC username)
 
@@ -186,6 +188,7 @@ jupyt
     ```
 	ssh -L <local port>:localhost:<griffin port> -N <Griffin VM IP Address>
     ```
+
 	replacing \<griffin port\> with \<port\> given in `jupyter notebook --no-browser` output as
 	
 	> The Jupyter Notebook is running at: http://localhost:<port>/	
