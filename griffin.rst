@@ -125,6 +125,76 @@ Using a Docker Image
 
 To make the use of `Docker <https://www.docker.com/>`_ easier for Griffin users, a plain vanilla image is selectable from the Tukey console. The image has Docker installed from the official docker repo, but more importantly it's configured to use the proxy to get images (so you don't have to do anything), and it stores everything in /mnt, so users won't fill up their root, instead filling up the ephemeral storage available in the VM.   In the console, look for the public image called "docker_<date>".  
 
+EXAMPLE:  Installing Software and Running a Jupyter Notebook
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+### Section I:  Installing software
+
+1. Add Griffin proxies as variables in .bashrc as in the code block in :ref:`_griffinproxy`
+
+	```
+	printf "export no_proxy='griffin-objstore.opensciencedatacloud.org'\nfunction with_proxy() {\n\tPROXY='http://cloud-proxy:3128'\n\thttp_proxy='\${PROXY}' https_proxy='\${PROXY}' \$@\n}" >> ~/.bashrc
+	```
+2. Source .bashrc
+
+	```
+	. .bashrc
+	```
+
+3. Install Miniconda
+
+	```
+	with_proxy wget https://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh
+	bash Miniconda2-latest-Linux-x86_64.sh -b 
+	```
+
+4. Install requisite Python modules
+
+	```
+	with_proxy conda update conda
+	with_proxy conda install -c https://conda.binstar.org/jjhelmus pyart
+	with_proxy conda install jupyter
+	with_proxy conda install basemap
+	```
+
+5. Install tools for visualizations
+jupyt
+	```
+	with_proxy sudo -E apt-get update
+	with_proxy sudo -E apt-get install -y libav-tools 
+	with_proxy sudo -E apt-get install -y python-qt4
+	```
+
+### Section II: How to run Jupyter Notebook
+
+1. *From your Local Machine (e.g. your laptop)*:add following lines to ~/.ssh (replacing \<OSDC username\> with your OSDC username)
+
+    ```
+	Host 172.17.*
+	User ubuntu
+	ProxyCommand ssh <OSDC username>@griffin.opensciencedatacloud.org nc %h %p 2> /dev/null
+    ```
+
+2. *From Griffin VM*
+
+    ```
+    	jupyter notebook --no-browser
+    ```
+
+3. *From your Local Machine*
+
+    ```
+	ssh -L <local port>:localhost:<griffin port> -N <Griffin VM IP Address>
+    ```
+	replacing \<griffin port\> with \<port\> given in `jupyter notebook --no-browser` output as
+	
+	> The Jupyter Notebook is running at: http://localhost:<port>/	
+
+4. *From your Local Machine*
+
+    open browser, enter `http://localhost:<local port>`
+
+
 Understanding OSDC Griffin Storage Options and Workflow
 ------------------------------------------------------
 
