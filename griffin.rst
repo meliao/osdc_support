@@ -171,23 +171,23 @@ Section II: How to run Jupyter Notebook
 
 1. *From your Local Machine (e.g. your laptop)*:add following lines to ~/.ssh (replacing \<OSDC username\> with your OSDC username)
 
-    ```
+        ```
 	Host 172.17.*
 	User ubuntu
 	ProxyCommand ssh <OSDC username>@griffin.opensciencedatacloud.org nc %h %p 2> /dev/null
-    ```
+        ```
 
 2. *From Griffin VM*
 
-    ```
+        ```
     	jupyter notebook --no-browser
-    ```
+        ```
 
 3. *From your Local Machine*
 
-    ```
+        ```
 	ssh -L <local port>:localhost:<griffin port> -N <Griffin VM IP Address>
-    ```
+        ```
 
 	replacing \<griffin port\> with \<port\> given in `jupyter notebook --no-browser` output as
 	
