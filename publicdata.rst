@@ -49,7 +49,6 @@ Working with the ID Service
 
 After a user has received their ARKs, they may want to confirm integrity and download the data from their query.   Below are some example functions from the Nexrad Jupyter example {INSERT LINK} that review a txt file <id_service_arks> from a signpost query, check file integrity, check for a preferred repo, then download the data to the <intended_dir> defined in the download_from_arks function.  
 ::
-   :linenos:
 	  
 	  import requests
           # hash provided in signpost should match locally calculated hash
