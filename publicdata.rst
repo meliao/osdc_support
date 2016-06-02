@@ -26,18 +26,7 @@ Public Dataset Locations
 ------------------------
 
 The contents of the OSDC Public Data Commons are automounted on the VMs 
-of some earlier versions of the OSDC software stack like OSDC Sullivan. 
-
-Once you're logged into your VM, you can view all the publicly available datasets
-using ``ls /glusterfs/osdc_public_data``.   Find the subdirectories 
-relevant to your analysis, point your VM software to them, and write your output 
-to your home folder.    
-
-*	On Sullivan your home folder can be found at:  ``glusterfs/users/<username>``
-*	On PDC, you login to the VM with your username, so the dir you
-	login to is your home dir.   
-*       For Hadoop resources, please review the :ref:`Hadoop Resource Guide  <hadoop>`
-*       For Griffin, please review the :ref:`Griffin Resource Guide  <griffin>`
+of some earlier versions of the OSDC software stack like OSDC Sullivan.  On Sullivan once you're logged into your VM, you can view all the publicly available datasets using ``ls /glusterfs/osdc_public_data``.   Find the subdirectories relevant to your analysis, point your VM software to them, and write your output to your home folder.  On other resources, please consult the external download instructions for each specific dataset.
 
 .. _signpost:
 
