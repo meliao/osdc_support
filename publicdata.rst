@@ -44,6 +44,64 @@ Signpost ID Service
 
 COMING SOON
 
+Working with the ID Service
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. code-block:: python
+   :linenos:
+   :name: ark-hash-funcs
+	  
+	  # hash provided in signpost should match locally calculated hash
+	      def confirm_hash(hash_algo, file_,actual_hash):
+	          with open(file_) as f:
+                      computed_hash = hash_algo(f.read()).hexdigest()
+ 
+	          if computed_hash == actual_hash:
+	              return True
+		  else:
+                      return False
+    
+	  # download, validate(optional) NEXRAD L2 data 
+	  def download_from_arks(id_service_arks, intended_dir, hash_confirmation = True, pref_repo='https://griffin-objstore.opensciencedatacloud.org/'):
+	      hash_algo_dict = {'md5':hashlib.md5, 'sha1':hashlib.sha1, 'sha256':hashlib.sha256}
+    
+	      for ark_id in id_service_arks:
+                  signpost_url = 'https://signpost.opensciencedatacloud.org/alias/' + ark_id
+		  resp = requests.get(signpost_url,
+                           proxies={'http':'http://cloud-proxy:3128','https':'http://cloud-proxy:3128'} 
+                           )
+        
+	      # make JSON response into dictionary
+              signpost_dict = resp.json()
+        
+              # get repository URLs
+              repo_urls = data_url = signpost_dict['urls']
+       
+              for url in repo_urls:
+	          # if preferred repo exists, will opt for that URL
+		  if pref_repo in url:
+                      break
+	      # otherwise, will use last url provided
+        
+              # wow! we can run this bash command from Jupyter!
+              !sudo wget -P $intended_dir $url
+        
+              # need file path for hash validation
+              file_name = url.split('/')[-1]
+              file_path = os.path.join(intended_dir, file_name)
+        
+              if hash_confirmation:
+                  # get dict of hash type: hash
+		  hashes = signpost_dict['hashes']
+		  # iterate though list of (hash type, hash) tuples
+		  for hash_tup in hashes.items():
+                      # get proper hash algorithm function
+                      hash_algo = hash_algo_dict[hash_tup[0]]
+                      # fail if not the downloaded file has diff. hash
+                      assert confirm_hash(hash_algo, file_path, hash_tup[1]), '%s hash calculated does not match hash in metadata' % file_path    
+
+
 ARK Key Service
 ------------------------
 
