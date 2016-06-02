@@ -135,7 +135,7 @@ For advanced users familiar with docker commands, we recommend using the nexrad-
 .. note:: 
    If you are using either public snapshot, all software has already been installed.  
 
-For the larger community, the same notebooks are public in creator Ziv Dreyfuss' personal `github repository <https://github.com/zivvers/nexrad-jupyter-osdc>`_.   To simply view as a webpage, go to the `gh_pages version <http://zivvers.github.io/nexrad-jupyter-osdc>`_.   
+For the larger community, the same notebooks are public in creator Ziv Dreyfuss' personal `github repository <https://github.com/zivvers/nexrad-jupyter-osdc>`_.   To simply view as a webpage, go to the `gh_pages version <http://zivvers.github.io/nexrad-jupyter-osdc/nexrad/nexrad_display_id_service_HTML_.html>`_.   
 
 .. note::
    Not all browsers handle the animation in the Jupyter notebook demo well.   We had success using Chrome.  
