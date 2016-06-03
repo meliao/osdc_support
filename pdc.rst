@@ -6,7 +6,7 @@ Bionimbus PDC Resource Guide
 Bionimbus PDC Best Practices
 -----------------------------
 
-The Bionimbus PDC is a HIPAA compliant cloud for analyzing and sharing PHI.   The Bionimbus PDC is an  OpenStack cluster utilizing ephemeral storage in VMs 
+The Bionimbus PDC is a HIPAA compliant cloud for analyzing and sharing protected data.   The Bionimbus PDC is an  OpenStack cluster utilizing ephemeral storage in VMs 
 with access to a separate S3-compatible storage system for persistent data storage.  Allocations to all users and projects are given at the "tenant" level. 
 
 Best practices on the PDC involve:
