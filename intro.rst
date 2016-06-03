@@ -119,7 +119,7 @@ for working in secure environments.
 We require the following documentation:
  
 1) For each project, that the PI of the project send us a copy of the IRB approved protocol for the study using the Protected Data Cloud or a letter showing the study is exempt from needing an IRB Protocol.   The IRB Protocol or Exemption should be from the home institution of the PI for the project.   For new protocols or renewals of protocols, please refer explicitly to the PDC environment.
-2) For each researcher with a Protected Data Cloud account, a certificate proving that the researcher has completed CITI training appropriate for working in secure environments.  For interational researchers, we can accept NIH security training as an alternative.  A copy of a certificate indicating that you have completed the required training will be requested each year.  
+2) For each researcher with a Protected Data Cloud account, a certificate proving that the researcher has completed CITI training appropriate for working in secure environments.  For international researchers, we can accept NIH security training as an alternative.  A copy of a certificate indicating that you have completed the required training will be requested each year.  
 
 .. NOTE::   We recognize that some institutions do not support CITI training.   If CITI training is not available at your institution, we can review and accept other forms of certification indicating proof of training handling PHI on a case by case basis.   For interational researchers, we can accept NIH security training as an alternative.
  
