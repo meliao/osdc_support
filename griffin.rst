@@ -135,61 +135,61 @@ Section I:  Installing software
 
 1. Add Griffin proxies as variables in .bashrc as in the code block in on :ref:`using the proxy. <griffinproxy>`
 
-	```
-	printf "export no_proxy='griffin-objstore.opensciencedatacloud.org'\nfunction with_proxy() {\n\tPROXY='http://cloud-proxy:3128'\n\thttp_proxy='\${PROXY}' https_proxy='\${PROXY}' \$@\n}" >> ~/.bashrc
-	```
+	``
+	printf "export no_proxy='griffin-objstore.opensciencedatacloud.org'\nfunction with_proxy() {\n\tPROXY='http://cloud-proxy:3128'\n\thttp_proxy=\"\${PROXY}\" https_proxy=\"\${PROXY}\" \$@\n}" >> ~/.bashrc
+	``
 2. Source .bashrc
 
-	```
+	``
 	. .bashrc
-	```
+	``
 
 3. Install Miniconda
 
-	```
+	``
 	with_proxy wget https://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh
 	bash Miniconda2-latest-Linux-x86_64.sh -b 
-	```
+	``
 
 4. Install requisite Python modules
 
-	```
+	``
 	with_proxy conda update conda
 	with_proxy conda install -c https://conda.binstar.org/jjhelmus pyart
 	with_proxy conda install jupyter
 	with_proxy conda install basemap
-	```
+	``
 
 5. Install tools for visualizations
 
-	```
+	``
 	with_proxy sudo -E apt-get update
 	with_proxy sudo -E apt-get install -y libav-tools 
 	with_proxy sudo -E apt-get install -y python-qt4
-	```
+	``
 
 Section II: How to run Jupyter Notebook
 ```````````````````````````````````````
 
 1. *From your Local Machine (e.g. your laptop)*:add following lines to ~/.ssh (replacing \<OSDC username\> with your OSDC username)
 
-        ```
+        ``
 	Host 172.17.*
 	User ubuntu
 	ProxyCommand ssh <OSDC username>@griffin.opensciencedatacloud.org nc %h %p 2> /dev/null
-        ```
+        ``
 
 2. *From Griffin VM*
 
-        ```
+        ``
     	jupyter notebook --no-browser
-        ```
+        ``
 
 3. *From your Local Machine*
 
-        ```
+        ``
 	ssh -L <local port>:localhost:<griffin port> -N <Griffin VM IP Address>
-        ```
+        ``
 
 	replacing \<griffin port\> with \<port\> given in `jupyter notebook --no-browser` output as
 	
