@@ -154,7 +154,7 @@ Section I:  Installing software
 
 .. Note::
    
-   <b>ProTip:</b>  Running ``with_proxy conda clean -tipsy`` after installation of conda packages removes the (now unnecessary) intermediates, freeing up valuable disk space.  
+   **ProTip:**  Running ``with_proxy conda clean -tipsy`` after installation of conda packages removes the (now unnecessary) intermediates, freeing up valuable disk space.  
 
 Section II: How to run Jupyter Notebook
 ```````````````````````````````````````
