@@ -143,20 +143,18 @@ Section I:  Installing software
 3. Install Miniconda
 
 	``with_proxy wget https://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh1``
+
 	``bash Miniconda2-latest-Linux-x86_64.sh -b``
 
 4. Install requisite Python modules
 
 	``with_proxy conda update conda``
-	``with_proxy conda install -c https://conda.binstar.org/jjhelmus pyart``
+
 	``with_proxy conda install jupyter``
-	``with_proxy conda install basemap``
 
-5. Install tools for visualizations
-
-	``with_proxy sudo -E apt-get update``
-	``with_proxy sudo -E apt-get install -y libav-tools`` 
-	``with_proxy sudo -E apt-get install -y python-qt4``
+.. Note::
+   
+   <b>ProTip:</b>  Running ``with_proxy conda clean -tipsy`` after installation of conda packages removes the (now unnecessary) intermediates, freeing up valuable disk space.  
 
 Section II: How to run Jupyter Notebook
 ```````````````````````````````````````
