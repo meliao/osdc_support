@@ -113,7 +113,9 @@ The query tool allows a user to search a dataset for the parameters they wish, r
 
 * Go to the `NEXRAD L2 data page <https://opensciencedatacloud.org/publicdata/noaa-nexrad-l2/>`_.
 * Scroll to the Search Service at the bottom of the page.
-* Enter '6/26/2015' in the left box (without the ')  NOTE:  the "date" field also accepts a 7 day range of dates.
+* Enter '06/26/2015' in both the 'From' and 'To' fields (without the ')  
+   * Required format is MM/DD/YYYY
+   * NOTE: Since most weather events don't last more than a week, the "date" field will query and return a 7 day range of dates.  If you only want data from a single day, put the same date in both the 'From' and 'To' fields.
 * Enter 'KARX' in the right box (without the '). 
 * The ARKS for this date and station will output to a txt file equivalent to the 'mayfly_arks.txt' used in the example below. 
 
