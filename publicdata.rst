@@ -48,6 +48,9 @@ After a user has received their Digital IDs, they may want to confirm integrity 
 ::
 	  
 	  import requests
+	  import hashlib
+	  import os
+
           # hash provided in signpost should match locally calculated hash
 	      def confirm_hash(hash_algo, file_,actual_hash):
 	          with open(file_) as f:
@@ -65,7 +68,8 @@ After a user has received their Digital IDs, they may want to confirm integrity 
 	      for ark_id in id_service_arks:
                   signpost_url = 'https://signpost.opensciencedatacloud.org/alias/' + ark_id
 		  resp = requests.get(signpost_url,
-                           proxies={'http':'http://cloud-proxy:3128','https':'http://cloud-proxy:3128'} 
+                           #if you are not on the OSDC Griffin resource, comment out the proxy line
+	                   proxies={'http':'http://cloud-proxy:3128','https':'http://cloud-proxy:3128'} 
                            )
         
 	      # make JSON response into dictionary
@@ -73,7 +77,7 @@ After a user has received their Digital IDs, they may want to confirm integrity 
         
               # get repository URLs
               repo_urls = data_url = signpost_dict['urls']
-       
+	      
               for url in repo_urls:
 	          # if preferred repo exists, will opt for that URL
 		  if pref_repo in url:
@@ -102,7 +106,10 @@ After a user has received their Digital IDs, they may want to confirm integrity 
                       # get proper hash algorithm function
                       hash_algo = hash_algo_dict[hash_tup[0]]
                       # fail if not the downloaded file has diff. hash
-                      assert confirm_hash(hash_algo, file_path, hash_tup[1]), '%s hash calculated does not match hash in metadata' % file_path    
+                      assert confirm_hash(hash_algo, file_path, hash_tup[1]), '%s hash calculated does not match hash in metadata' % file_path  
+
+          #to download, run function, make sure and have dir 'mayfly_data' created
+	  download_from_arks(id_service_arks, 'mayfly_data')
 
 .. _query_tool:
 
