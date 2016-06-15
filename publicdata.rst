@@ -1,4 +1,4 @@
-Public Data Commons
+lPublic Data Commons
 ===========================================
 
 Overview of Public Data Commons
@@ -72,41 +72,41 @@ After a user has received their Digital IDs, they may want to confirm integrity 
 	                   proxies={'http':'http://cloud-proxy:3128','https':'http://cloud-proxy:3128'} 
                            )
         
-	      # make JSON response into dictionary
-              signpost_dict = resp.json()
-        
-              # get repository URLs
-              repo_urls = data_url = signpost_dict['urls']
-	      
-              for url in repo_urls:
+                  # make JSON response into dictionary
+                  signpost_dict = resp.json()
+          
+                  # get repository URLs
+                  repo_urls = data_url = signpost_dict['urls']
+	  
+                  for url in repo_urls:
 	          # if preferred repo exists, will opt for that URL
-		  if pref_repo in url:
-		      break
+	              if pref_repo in url:
+	                  break
                   # otherwise, will use last url provided
+   
+
+                  # need file path for hash validation
+                  file_name = url.split('/')[-1]
+                  file_path = os.path.join(intended_dir, file_name)
+
+                  # wow! if you're in Jupyter we can do this from a single bash command.
+                  # !sudo wget -P $intended_dir $url
+
+                  # if you're not in Jupyter, you can use the requests library to create the files
+	          r = requests.get(url)
+	          f = open(file_path, 'wb')
+	          f.write(r.content)
+	          f.close()
         
-
-              # need file path for hash validation
-              file_name = url.split('/')[-1]
-              file_path = os.path.join(intended_dir, file_name)
-
-              # wow! if you're in Jupyter we can do this from a single bash command.
-              # !sudo wget -P $intended_dir $url
-
-              # if you're not in Jupyter, you can use the requests library to create the files
-	      r = requests.get(url)
-	      f = open(file_path, 'wb')
-	      f.write(r.content)
-	      f.close()
-        
-              if hash_confirmation:
-                  # get dict of hash type: hash
-		  hashes = signpost_dict['hashes']
-		  # iterate though list of (hash type, hash) tuples
-		  for hash_tup in hashes.items():
-                      # get proper hash algorithm function
-                      hash_algo = hash_algo_dict[hash_tup[0]]
-                      # fail if not the downloaded file has diff. hash
-                      assert confirm_hash(hash_algo, file_path, hash_tup[1]), '%s hash calculated does not match hash in metadata' % file_path  
+                  if hash_confirmation:
+                       # get dict of hash type: hash
+		       hashes = signpost_dict['hashes']
+		       # iterate though list of (hash type, hash) tuples
+		       for hash_tup in hashes.items():
+                          # get proper hash algorithm function
+                          hash_algo = hash_algo_dict[hash_tup[0]]
+                          # fail if not the downloaded file has diff. hash
+                          assert confirm_hash(hash_algo, file_path, hash_tup[1]), '%s hash calculated does not match hash in metadata' % file_path  
 
           #to download, run function, make sure and have dir 'mayfly_data' created
 	  download_from_arks(id_service_arks, 'mayfly_data')
