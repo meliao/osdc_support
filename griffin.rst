@@ -159,7 +159,7 @@ Section I:  Installing software
 Section II: How to run Jupyter Notebook
 ```````````````````````````````````````
 
-1. *From your Local Machine (e.g. your laptop)*:add following lines to ~/.ssh (replacing \<OSDC username\> with your OSDC username)
+1. *From your Local Machine (e.g. your laptop)*:add following lines to ~/.ssh/config (replacing \<OSDC username\> with your OSDC username)
 
         ``Host 172.17.*``
 	``User ubuntu``
