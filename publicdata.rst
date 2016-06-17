@@ -44,7 +44,7 @@ By utilizing the Signpost digital identifier service, we can relocate data files
 Working with the ID Service
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-After a user has received their Digital IDs, they may want to confirm integrity and download the data from their query.   Below are some example functions from the Nexrad :ref:`Jupyter example<nexrad-example>` that review a txt file <testarks.txt> from a signpost query, check file integrity, check for a preferred repo, then download the data to the <intended_dir> defined in the download_from_arks function.  
+After a user has received their Digital IDs, they may want to confirm integrity and download the data from their query.   Below are some example python functions from the Nexrad :ref:`Jupyter example<nexrad-example>` that review a txt file <testarks.txt> from a signpost query, check file integrity, check for a preferred repo, then download the data to the <intended_dir> defined in the download_from_arks function.  
 ::
 	  
 	 import requests
