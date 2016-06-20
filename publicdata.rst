@@ -119,7 +119,7 @@ After a user has received their Digital IDs, they may want to confirm integrity 
 EXAMPLE:  Using the Query Tool 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The query tool allows a user to search a dataset for the parameters they wish, returning a list of Digital Ids that match the data they are looking for.  In the example below we will use the query tool to generate a list of Digital IDs relevant to the :ref:`NEXRAD analysis example<nexrad-example>`.
+The query tool allows a user to search a dataset for the parameters they wish, returning a list of Digital Ids that match the data they are looking for.  In the example below we will use the query tool to generate a list of Digital IDs relevant to the :ref:`NEXRAD analysis example<nexrad-example>`.   As part of the NOAA CRADA, the OCC committed to store all of the 2015 NEXRAD L2 archival data in the Griffin object storage.  The ID service relies on NEXRAD L2 data in OSDC Griffin and made publicly available by other NOAA BDP collaborators like Amazon Web Services. 
 
 * Go to the `NEXRAD L2 data page <https://opensciencedatacloud.org/publicdata/noaa-nexrad-l2/>`_.
 * Scroll to the Search Service at the bottom of the page.
