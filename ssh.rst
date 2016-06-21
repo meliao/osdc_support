@@ -182,6 +182,10 @@ Once your agent is configured you need to enable forwarding.  You can use any on
     * When ssh'ing to the login node, use the ``-A`` flag.  This turns on forwarding on a case by case basis.  IF you have multiple login nodes that you are transversing, you will need to use the ``-A`` flag for all hops.  Example: ``ssh -A JohnSmith@sullivan.opensciencedatacloud.org``
     * Alias ``ssh -A`` as ``ssh`` via your shells preferred method.  On bash you can ``ALIAS ssh='ssh -A'``.
 
+Preventing X-Forwarding Timeout
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+For long pipelines that take a while to run and rely on window forwarding, you can change the timeout duration by adding ``ForwardX11Timeout 7d`` (for 7 day timeout) in your .ssh/config and using the -Y flag when ssh'ing.  
+
 
 .. _ssh-windows:
 
