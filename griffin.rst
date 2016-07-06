@@ -287,21 +287,21 @@ Below is an example Python script for working with S3.  Generally, you will want
         	)
 
 	### create bucket::
-	bucket = conn.create_bucket(bucket_name)
+	mybucket = conn.create_bucket(bucket_name)
 
 	### creating an object directly::
-	key = bucket.new_key('testobject.txt')
+	key = mybucket.new_key('testobject.txt')
 	key.set_contents_from_string('working with s3 is fun')
 
 	### load existing files to the object storage::
 	files_to_put = ['myfavoritefile.txt','yourfavoritefile.txt']
 
 	for k in files_to_put:
-    		key = bucket.new_key(k)
+    		key = mybucket.new_key(k)
     		key.set_contents_from_filename(k)
 	
 	### list objects in bucket::
-	for key in bucket.list():
+	for key in mybucket.list():
         	print "{name}\t{size}\t{modified}".format(
                 	name = key.name,
                 	size = key.size,
@@ -313,7 +313,16 @@ Below is an example Python script for working with S3.  Generally, you will want
 	key.get_contents_to_filename('./testobject.txt')
 
 	### deleting a bucket -- bucket must be empty::
-	#conn.delete_bucket(bucket.name)
+	#conn.delete_bucket(bucket_name)
+
+	### get existing bucket::
+	mybucket = conn.get_bucket('my_bucket')
+
+
+	### Set public read to all objects in a bucket::
+	for key in mybucket.list():
+	    key.set_acl('public-read')
+
 
 S3 Bucket Naming
 ^^^^^^^^^^^^^^^^
@@ -334,11 +343,11 @@ Some Griffin users may wish to publicly expose their buckets to share data with 
 .. code-block:: bash
 		
 	### get existing bucket::
-	bucket = conn.get_bucket('my_Bucket')
+	mybucket = conn.get_bucket('my_Bucket')
 
 	### Set public read to all objects in a bucket::
-	for key in bucket.list():
-        key.set_acl('public-read')
+	for key in mybucket.list():
+            key.set_acl('public-read')
                 
 
 Accessing the Public Data Commons
