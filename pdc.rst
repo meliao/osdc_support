@@ -252,15 +252,15 @@ Below is an example Python script for working with S3.  Generally, you will want
 	mybucket = conn.create_bucket(bucket_name)
 
 	### creating an object directly::
-	key = mybucket.new_key('testobject.txt')
-	key.set_contents_from_string('working with s3 is fun')
+	mykey = mybucket.new_key('testobject.txt')
+	mykey.set_contents_from_string('working with s3 is fun')
 
 	### load existing files to the object storage::
 	files_to_put = ['myfavoritefile.txt','yourfavoritefile.txt']
 
 	for k in files_to_put:
-    		key = mybucket.new_key(k)
-    		key.set_contents_from_filename(k)
+    		mykey = mybucket.new_key(k)
+    		mykey.set_contents_from_filename(k)
 	
 	### list objects in bucket::
 	for key in mybucket.list():
@@ -271,8 +271,8 @@ Below is an example Python script for working with S3.  Generally, you will want
                 	)
 
 	### downloading an object to local::
-	key = bucket.get_key('testobject.txt')
-	key.get_contents_to_filename('./testobject.txt')
+	mykey = bucket.get_key('testobject.txt')
+	mykey.get_contents_to_filename('./testobject.txt')
 
 	### deleting a bucket -- bucket must be empty::
 	#conn.delete_bucket(bucket_name)
