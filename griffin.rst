@@ -343,11 +343,14 @@ Some Griffin users may wish to publicly expose their buckets to share data with 
 .. code-block:: bash
 		
 	### get existing bucket::
-	mybucket = conn.get_bucket('my_Bucket')
+	mybucket = conn.get_bucket('my_bucket')
 
 	### Set public read to all objects in a bucket::
 	for key in mybucket.list():
             key.set_acl('public-read')
+
+
+Once you have set the object acls to 'public-read' the data is accessible in a browser at ``https://griffin-objstore.opensciencedatacloud.org/<my_bucket>/<object_name>``.   You will need the entire path for each object.   
                 
 
 Accessing the Public Data Commons
