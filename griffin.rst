@@ -350,7 +350,7 @@ Some Griffin users may wish to publicly expose their buckets to share data with 
             key.set_acl('public-read')
 
 
-Once you have set the object acls to 'public-read' the data is accessible in a browser at ``https://griffin-objstore.opensciencedatacloud.org/<my_bucket>/<object_name>``.   You will need the entire path for each object.   
+Once you have set the object acls to 'public-read' the data is accessible in a browser at ``https://griffin-objstore.opensciencedatacloud.org/<my_bucket>/<object_name>``.   You will need to specify the entire path for each object.   
                 
 
 Accessing the Public Data Commons
