@@ -129,8 +129,7 @@ Protected Data Clouds
 
 What are protected data clouds?
 ******************************************************
-  The Bionimbus PDC is a HIPAA compliant cloud for analyzing and sharing protected data. The Bionimbus PDC is an 
-OpenStack cluster utilizing ephemeral storage in VMs with access to a separate S3 compatible storage system for persistent data storage.  
+  The Bionimbus PDC is a HIPAA compliant cloud for analyzing and sharing protected data. The Bionimbus PDC is an OpenStack cluster utilizing ephemeral storage in VMs with access to a separate S3 compatible storage system for persistent data storage.  
 
 .. _pdc-2:
 
