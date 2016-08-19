@@ -19,20 +19,16 @@ Root hosts about 1 PB of `public data sets
 <http://www.opensciencedatacloud.org/publicdata>`_ and is 
 accessible from all OSDC resources.
 
-.. NOTE:: OSDC resources are generally named after prominent Chicago Architects ie:  Griffin = Marion Griffin, Sullivan = Louis Sullivan;
-	Atwood = Charles Atwood,  etc...
+.. NOTE:: OSDC resources are generally named after prominent Chicago Architects ie:  Griffin = Marion Griffin, Sullivan = Louis Sullivan; etc...
 
-The OSDC also operates several protected clouds to provide platforms 
-for users to compute over large protected human genomic datasets. 
-These include the `Bionimbus Protected Data Cloud 
-<https://bionimbus-pdc.opensciencedatacloud.org>`_ and the 
-`Atwood Protected Data Cloud 
-<http://www.contechicago.org/conte-cores/core-b>`_. We generally refer to these as "PDCs".  
+The OSDC also operates protected clouds like the `Bionimbus Protected Data Cloud 
+<https://bionimbus-pdc.opensciencedatacloud.org>`_ to provide platforms 
+for users to compute over large protected human genomic datasets. We generally refer to these as "PDCs".  
 
 .. NOTE::   OSDC resources that are not specifically labeled as protected clouds are not designed to be used for the analysis or storage of any Protected Health Information (PHI) or other sensitive data.
 
-Each uses either a distributed `Gluster File System <http://www.gluster.org/>`_ or Ceph block and object storage and ephemeral storage in VMs 
-where users can store their data and access it from all of their VMs.
+Each uses either a distributed `Gluster File System <http://www.gluster.org/>`_ or object storage and ephemeral storage in VMs 
+where users can store their data and access it from all of their VMs.  
 
 The OSDC manages two Hadoop clusters, OCC-Y and Skidmore, for select projects. 
 
@@ -66,7 +62,7 @@ separate application process.
 	`InCommons members <https://incommon.org/federation/info/all-orgs.html>`_, 
 	`UK Federation members <http://www.ukfederation.org.uk/content/Documents/MemberList>`_, 
 	or `CANARIE members <http://www.canarie.ca/en/about/partners/members>`_, 
-	please apply using those credentials.   The Bionimbus PDC uses `eRA Commons <https://commons.era.nih.gov/>`_ 
+	please apply using those credentials.   The Bionimbus PDC also uses `eRA Commons <https://commons.era.nih.gov/>`_ 
 	for secure authentication. 
 
 Once you've applied, you'll hear back from us shortly with any additional follow up 

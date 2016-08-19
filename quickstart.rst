@@ -21,7 +21,6 @@ OSDC Quickstart Guide
   OSDC Sullivan         ``<username>@sullivan.opensciencedatacloud.org``       ``ubuntu@<VM.IP>`` 
   OSDC Griffin          ``<username>@griffin.opensciencedatacloud.org``        ``ubuntu@<VM.IP>`` 
   Bionimbus PDC         ``<username>@bionimbus-pdc.opensciencedatacloud.org``  ``ubuntu@<VM.IP>``
-  Atwood PDC            ``<username>@atwood.opensciencedatacloud.org``         ``<username>@<VM.IP>`` 
   ====================  =====================================================  ======================
 
 
@@ -39,13 +38,13 @@ Below is a screencapture of a terminal session showing the command line tools ne
 
 	<p><script type="text/javascript" src="https://asciinema.org/a/9880.js" id="asciicast-9880" async></script></p>
 	
-6. On Sullivan and the protected data clouds your user data is automatically mounted.  
+6. On Sullivan your user data is automatically mounted via GlusterFS.  On Griffin and the PDC, persistent data should be pushed to object storage in Ceph or Cleversafe with local scratch in ephemeral storage in VMs. 
 
 7. Install any software packages on the VM using ``apt-get install <packagename>``.   
 
-8. On Sullivan, you can find the datasets in the OSDC Public Data Commons at ``/glusterfs/osdc_public_data`` or your home folder at ``/glusterfs/users/<username>``.  For additional details and for other resources, please review the documents available on :ref:`Public Data Sets <publicdata>`
+8. On Sullivan, you can find the datasets in the OSDC Public Data Commons at ``/glusterfs/osdc_public_data`` or your home folder at ``/glusterfs/users/<username>``.  For other resources, please review the documents available on :ref:`Public Data Sets <publicdata>`
 
-9. Follow the Tutorial below for a hands-on demonstration of how to use the OSDC.
+9. If you are on Sullivan, follow the Tutorial below for a hands-on demonstration of how to use the OSDC.   For OSDC Griffin, take a look at this example of how to run a Jupyter Notebook to analyze :ref:`NEXRAD data <nexrad-example>`.   For the Bionimbus PDC, stay tuned...
 
 10.  When you have technical issues, please review this support guide.   If you are unable to resolve them, contact us at `support@opensciencedatacloud.org <support@opensciencedatacloud.org>`_.   A member of our support team will review and contact you as soon as possible. 
 
@@ -54,7 +53,7 @@ Below is a screencapture of a terminal session showing the command line tools ne
 OSDC EO-1 Quick Start Tutorial
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Now we'll take you step by step through a demo using NASA's Earth Observing-1 dataset that works on OSDC Sullivan or the Atwood PDC.
+Now we'll take you step by step through a demo using NASA's Earth Observing-1 dataset that works on OSDC Sullivan.
 In this tutorial, we will show you how to use OSDC to visualize and perform a simple 
 example analysis of NASA satellite imagery data.   You will perform many tasks common to
 using the OSDC during this demo like launching an instance, ssh'ing, in addition to those specific
