@@ -72,8 +72,8 @@ refer to the OSDC :doc:`Quickstart. <quickstart>`
 
 We maintain different storage hardware, with two different endpoints.   When your access is configured, you will be notified which endpoint to use.    
 
-* Ceph Storage - ``bionimbus-objstore.opensciencedatacloud.org``  
-* Cleversafe Storage - ``bionimbus-objstore-cs.opensciencedatacloud.org``
+* Ceph Storage - ``https://bionimbus-objstore.opensciencedatacloud.org``  
+* Cleversafe Storage - ``https://bionimbus-objstore-cs.opensciencedatacloud.org``
 
 See :ref:`the s3 example <pdcs3example>` to learn how to access the object storage.
 
@@ -222,8 +222,8 @@ There are 3 settings to access the S3 object store:
 
 The Keys can be found in the ``s3creds.txt`` file.   The ENDPOINT_URL will is either: 
 
-* Ceph Storage - ``bionimbus-objstore.opensciencedatacloud.org``  
-* Cleversafe Storage - ``bionimbus-objstore-cs.opensciencedatacloud.org``
+* Ceph Storage - ``https://bionimbus-objstore.opensciencedatacloud.org``  
+* Cleversafe Storage - ``https://bionimbus-objstore-cs.opensciencedatacloud.org``
 
 ..  note:: 
 	
@@ -247,13 +247,13 @@ For more information, reference the full `AWS CLI documentation <https://docs.aw
 		brew install pyenv
 		pyenv install 2.7.10
 		sudo pip install virtualenvwrapper
-		mkvirtualenv --python=~/.pyenv/versions/2.7.10/bin/python 2.7.10
+		mkvirtualenv --python=~/.pyenv/versions/2.7.10/bin/python myPY2.7env
 		pip install awscli
 
 		# exit virtual environment
 		deactivate
 		# start virtual environment
-		workon 2.7.10
+		workon myPY2.7env
 		########################################################################
 
 		########################################################################
@@ -280,7 +280,7 @@ For more information, reference the full `AWS CLI documentation <https://docs.aw
 		### 3 ### configure awscli
 
 		# make sure you are in your virtual environment
-		workon 2.7.10
+		workon myPY2.7env
 
 		aws configure --profile `my_project`
 
@@ -296,13 +296,14 @@ For more information, reference the full `AWS CLI documentation <https://docs.aw
 		# Use 'us-east-1' as the default region name
 
 		Default region name [us-east-1]: us-east-1
-		NOTE:  We will be ignoring this region and instead using one of our object store gateways.
-
+		#NOTE:  We will be ignoring this region and instead using one of our object store gateways.
 		########################################################################
 		### 4 ### work with data
 
 		### Now you can use the following commands to access your data
 		### beside that you specify the --endpoint-url, otherwise, awscli will try to contact amazon S3
+		### below we are trying to hit the Ceph object store.   
+		### If your profile storage is on Cleversafe, use 'https://bionimbus-objstore-cs.opensciencedatacloud.org' instead.
 		### Also be sure to specify the profile
 
 		# make a new bucket
