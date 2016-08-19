@@ -70,8 +70,12 @@ refer to the OSDC :doc:`Quickstart. <quickstart>`
   Bionimbus PDC         ``<eRA.Commons>@bionimbus-pdc.opensciencedatacloud.org``  ``ubuntu@<VM.IP>`` 
   ====================  ========================================================  ======================
 
-The object store address is:  ``bionimbus-objstore.opensciencedatacloud.org``.   See :ref:`the s3 example <pdcs3example>` 
-to learn how to access the object storage.
+We maintain different storage hardware, with two different endpoints.   When your access is configured, you will be notified which endpoint to use.    
+
+* Ceph Storage - ``bionimbus-objstore.opensciencedatacloud.org``  
+* Cleversafe Storage - ``bionimbus-objstore-cs.opensciencedatacloud.org``
+
+See :ref:`the s3 example <pdcs3example>` to learn how to access the object storage.
 
 To work on the command line, please refer to the OSDC support 
 on :doc:`Command Line Tools. <commandline>` 
@@ -174,7 +178,7 @@ provide reliable and fast data storage devices.   In brief, best practices on th
 		of the state of a running instance " - From `OpenStack documentation 
 		<http://docs.openstack.org/openstack-ops/content/storage_decision.html>`_.   
 		
-		Any data you want to persist beyond the life of your VM or access from multiple VMs must be pushed to the S3-compatible object storage through the PDC's Ceph Object Gateway.
+		Any data you want to persist beyond the life of your VM or access from multiple VMs must be pushed to the S3-compatible object storage through the PDC's Ceph or Cleversafe Object Gateways.
 
 
 Setting Up /mnt on Ephemeral Storage VMs
@@ -206,13 +210,122 @@ You can then easily ssh into the headnode using ``ssh bionimbus`` or straight to
 Using S3
 ^^^^^^^^
 
-The PDC Ceph Object Gateway supports a RESTful API that is basically compatible with Amazon's S3 API, with some limitations.  To push and pull data to the object storage, please refer to the `Ceph S3 API documentation <http://ceph.com/docs/master/radosgw/s3/>`_.  The documentation also provides example scripts in Python using the boto library as well as other common languages.
+The PDC Object Gateways support a RESTful API that is basically compatible with Amazon's S3 API, with some limitations.  To push and pull data to the object storage, please refer to the `Ceph S3 API documentation <http://ceph.com/docs/master/radosgw/s3/>`_.  If a users wishes to write their own S3 object store interface, the support team recommends the Boto python library. Otherwise there is a precompiled tool released by Amazon called 'aws-cli'.  This is the recommended command line tool (CLI), we will not provide support for other S3 tools.  
 
-To access the object storage via Ceph's S3, you only need your S3 credentials (access key and secret key) and the name of the gateway.  S3 credentials are dropped into the home directory on the login node in a file named ``s3creds.txt``.  When users are removed from the tenant, this key is regenerated for security.  The gateway for the object store is "bionimbus-objstore.opensciencedatacloud.org".
+To access the object storage via Ceph's S3, you only need your S3 credentials (access key and secret key) and the name of the gateway.  S3 credentials are dropped into the home directory on the login node in a file named ``s3creds.txt``.  When users are removed from the tenant, this key is regenerated for security.  
+
+There are 3 settings to access the S3 object store:
+
+* ACCESS_KEY
+* SECRET_KEY
+* ENDPOINT_URL
+
+The Keys can be found in the ``s3creds.txt`` file.   The ENDPOINT_URL will is either: 
+
+* Ceph Storage - ``bionimbus-objstore.opensciencedatacloud.org``  
+* Cleversafe Storage - ``bionimbus-objstore-cs.opensciencedatacloud.org``
 
 ..  note:: 
 	
 	The S3 protocol requires that files larger than 5 GiB be 'chunked' in order to transfer into buckets.   Python boto supports these efforts using the `copy_part_from_key() method <http://docs.pythonboto.org/en/latest/ref/s3.html#boto.s3.multipart.MultiPartUpload.copy_part_from_key>`_. 
+
+.. _pdcawscliexample:
+
+EXAMPLE:   Using AWSCLI to interact with S3
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+aws-cli can be installed via the Python pip utility "pip installaws-cli", or the Ubuntu package utility "apt-get install awscli".   What follows is an example of how to setup a virtual environment in OSX with awscli installed (recommended to get past a common SSL error), configure environment with keys and tools, and then access data.  
+
+For more information, reference the full `AWS CLI documentation <https://docs.aws.amazon.com/cli/latest/reference/s3/index.html>`_. 
+
+
+.. code-block:: bash
+
+		########################################################################
+		### 1 ### create a python virtual environment (will take care of ssl error):
+
+		brew install pyenv
+		pyenv install 2.7.10
+		sudo pip install virtualenvwrapper
+		mkvirtualenv --python=~/.pyenv/versions/2.7.10/bin/python 2.7.10
+		pip install awscli
+
+		# exit virtual environment
+		deactivate
+		# start virtual environment
+		workon 2.7.10
+		########################################################################
+
+		########################################################################
+		### 2 ###
+
+		# Get your credentials from PDC
+		# log into the headnode
+		# look for a file called "s3cred.txt"
+		# get the contents
+
+		less ~/s3cred.txt
+
+		# will look something like this:
+
+		[[tenant_namel]]
+		access_key=USOMESTRINGOFCHARACTERSB
+		secret_key=mANOTHERSTRINGOFCHARACTERSi
+
+		# These are the keys you'll need to access the tenant
+		# Note that our current policies do not accept sharing of keys.
+		########################################################################
+
+		########################################################################
+		### 3 ### configure awscli
+
+		# make sure you are in your virtual environment
+		workon 2.7.10
+
+		aws configure --profile `my_project`
+
+		# You will be queried to enter the access key from above
+		# you can cut/paste the values and press enter
+
+		AWS Access Key ID [****************]:
+
+		# Do the same for your secret key
+
+		AWS Secret Access Key [****************]:
+
+		# Use 'us-east-1' as the default region name
+
+		Default region name [us-east-1]: us-east-1
+		NOTE:  We will be ignoring this region and instead using one of our object store gateways.
+
+		########################################################################
+		### 4 ### work with data
+
+		### Now you can use the following commands to access your data
+		### beside that you specify the --endpoint-url, otherwise, awscli will try to contact amazon S3
+		### Also be sure to specify the profile
+
+		# make a new bucket
+		aws s3 mb s3://test-bucket --endpoint-url https://bionimbus-objstore.opensciencedatacloud.org --profile my_project
+		make_bucket: s3://test-bucket/
+
+		# list buckets
+		aws s3 ls --endpoint-url https://bionimbus-objstore.opensciencedatacloud.org --profile my_project
+
+		# list items in bucket
+		aws s3 ls s3://test_bucket/ --endpoint-url https://bionimbus-objstore.opensciencedatacloud.org --profile my_project
+
+		# copy a local file to the bucket
+		aws s3 cp test_file s3://test-bucket/test_file --endpoint-url https://bionimbus-objstore.opensciencedatacloud.org --profile my_project
+
+		# copy file from bucket to local
+		aws s3 cp s3://test-bucket/testobject.txt testobject.txt --endpoint-url http://bionimbus-objstore.opensciencedatacloud.org --profile my_project
+
+		# copy object from bucket to local
+		aws s3 get-object s3://test-bucket/testobject.txt ./ --endpoint-url https://bionimbus-objstore.opensciencedatacloud.org --profile my_project
+		########################################################################
+
+
 
 .. _pdcs3example:
 
