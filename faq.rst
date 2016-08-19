@@ -25,7 +25,6 @@ Protected Data Clouds
 - :ref:`pdc-5`
 - :ref:`pdc-6`
 - :ref:`pdc-7`
-- :ref:`pdc-8`
 
 General Questions
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
