@@ -212,7 +212,7 @@ Using S3
 
 The PDC Object Gateways support a RESTful API that is basically compatible with Amazon's S3 API, with some limitations.  To push and pull data to the object storage, please refer to the `Ceph S3 API documentation <http://ceph.com/docs/master/radosgw/s3/>`_.  If a users wishes to write their own S3 object store interface, the support team recommends the Boto python library. Otherwise there is a precompiled tool released by Amazon called 'aws-cli'.  This is the recommended command line tool (CLI), we will not provide support for other S3 tools.  
 
-To access the object storage via Ceph's S3, you only need your S3 credentials (access key and secret key) and the name of the gateway.  S3 credentials are dropped into the home directory on the login node in a file named ``s3creds.txt``.  When users are removed from the tenant, this key is regenerated for security.  
+To access the object storage via S3, you only need your S3 credentials (access key and secret key) and the name of the gateway.  S3 credentials are dropped into the home directory on the login node in a file named ``s3creds.txt``.  When users are removed from the tenant, this key is regenerated for security.  
 
 There are 3 settings to access the S3 object store:
 
@@ -220,7 +220,7 @@ There are 3 settings to access the S3 object store:
 * SECRET_KEY
 * ENDPOINT_URL
 
-The Keys can be found in the ``s3creds.txt`` file.   The ENDPOINT_URL will is either: 
+The Keys can be found in the ``s3creds.txt`` file.   The ENDPOINT_URL is either: 
 
 * Ceph Storage - ``https://bionimbus-objstore.opensciencedatacloud.org``  
 * Cleversafe Storage - ``https://bionimbus-objstore-cs.opensciencedatacloud.org``
@@ -333,9 +333,9 @@ For more information, reference the full `AWS CLI documentation <https://docs.aw
 EXAMPLE:   Using Python's boto package to interact with S3
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-One way users can interact with the object storage via S3 is by using the Python boto package.   
+Another way users can interact with the object storage via S3 is by using the Python boto package.   
 
-Below is an example Python script for working with S3.  Generally, you will want to use the ephemeral mnt of your vm as your primary working directory.  In the example script below you will need to update the access_key and secret_key variables to the values in the s3creds.txt file.    
+Below is an example Python script for working with S3.  Generally, you will want to use the ephemeral mnt of your vm as your primary working directory.  In the example script below you will need to update the access_key and secret_key variables to the values in the s3creds.txt file, and the gateway variable to the correct gateway.    
 
 
 .. code-block:: bash

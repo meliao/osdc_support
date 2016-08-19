@@ -245,19 +245,124 @@ You can then easily ssh into the headnode using ``ssh griffin`` or straight to y
 Using S3
 ^^^^^^^^
 
-The OSDC Ceph Object Gateway supports a RESTful API that is basically compatible with Amazon's S3 API, with some limitations.  To push and pull data to the object storage, please refer to the `Ceph S3 API documentation <http://ceph.com/docs/master/radosgw/s3/>`_.  The documentation also provides example scripts in Python using the boto library as well as other common languages.
+The OSDC Ceph Object Gateway supports a RESTful API that is basically compatible with Amazon's S3 API, with some limitations.  To push and pull data to the object storage, please refer to the `Ceph S3 API documentation <http://ceph.com/docs/master/radosgw/s3/>`_.  If a users wishes to write their own S3 object store interface, the support team recommends the Boto python library. Otherwise there is a precompiled tool released by Amazon called 'aws-cli'.  This is the recommended command line tool (CLI), we will not provide support for other S3 tools.  
 
-To access the object storage via Ceph's S3, you only need your S3 credentials (access key and secret key) and the name of the gateway.  S3 credentials are dropped into the home directory on the login node in a file named ``s3cred.txt``.  When users are removed from the tenant, this key is regenerated for security.  The gateway for the object store is "griffin-objstore.opensciencedatacloud.org".
+To access the object storage via Ceph's S3, you only need your S3 credentials (access key and secret key) and the name of the gateway.  S3 credentials are dropped into the home directory on the login node in a file named ``s3creds.txt``.  When users are removed from the tenant, this key is regenerated for security.  
+
+There are 3 settings to access the S3 object store:
+
+* ACCESS_KEY 
+* SECRET_KEY
+* ENDPOINT_URL
+
+The Keys can be found in the ``s3creds.txt`` file. The ENPOINT_URL for the object store is "griffin-objstore.opensciencedatacloud.org".
 
 ..  note:: 
 	
 	The S3 protocol requires that files larger than 5 GiB be 'chunked' in order to transfer into buckets.   Python boto supports these efforts using the `copy_part_from_key() method <http://docs.pythonboto.org/en/latest/ref/s3.html#boto.s3.multipart.MultiPartUpload.copy_part_from_key>`_. 
 
 
+.. _griffinawscliexample:
+
+EXAMPLE:   Using AWSCLI to interact with S3
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+aws-cli can be installed via the Python pip utility "pip installaws-cli", or the Ubuntu package utility "apt-get install awscli".   What follows is an example of how to setup a virtual environment in OSX with awscli installed (recommended to get past a common SSL error), configure environment with keys and tools, and then access data.  
+
+For more information, reference the full `AWS CLI documentation <https://docs.aws.amazon.com/cli/latest/reference/s3/index.html>`_. 
+
+
+.. code-block:: bash
+
+		########################################################################
+		### 1 ### create a python virtual environment (will take care of ssl error):
+
+		brew install pyenv
+		pyenv install 2.7.10
+		sudo pip install virtualenvwrapper
+		mkvirtualenv --python=~/.pyenv/versions/2.7.10/bin/python myPY2.7env
+		pip install awscli
+
+		# exit virtual environment
+		deactivate
+		# start virtual environment
+		workon myPY2.7env
+		########################################################################
+
+		########################################################################
+		### 2 ###
+
+		# Get your credentials from Griffin
+		# log into the headnode
+		# look for a file called "s3cred.txt"
+		# get the contents
+
+		less ~/s3cred.txt
+
+		# will look something like this:
+
+		[[tenant_namel]]
+		access_key=USOMESTRINGOFCHARACTERSB
+		secret_key=mANOTHERSTRINGOFCHARACTERSi
+
+		# These are the keys you'll need to access the tenant
+		# Note that our current policies do not accept sharing of keys.
+		########################################################################
+
+		########################################################################
+		### 3 ### configure awscli
+
+		# make sure you are in your virtual environment
+		workon myPY2.7env
+
+		aws configure --profile `my_project`
+
+		# You will be queried to enter the access key from above
+		# you can cut/paste the values and press enter
+
+		AWS Access Key ID [****************]:
+
+		# Do the same for your secret key
+
+		AWS Secret Access Key [****************]:
+
+		# Use 'us-east-1' as the default region name
+
+		Default region name [us-east-1]: us-east-1
+		#NOTE:  We will be ignoring this region and instead using one of our object store gateways.
+		########################################################################
+		### 4 ### work with data
+
+		### Now you can use the following commands to access your data
+		### beside that you specify the --endpoint-url, otherwise, awscli will try to contact amazon S3
+		### Also be sure to specify the profile
+
+		# make a new bucket
+		aws s3 mb s3://test-bucket --endpoint-url https://griffin-objstore.opensciencedatacloud.org --profile my_project
+		make_bucket: s3://test-bucket/
+
+		# list buckets
+		aws s3 ls --endpoint-url https://griffin-objstore.opensciencedatacloud.org --profile my_project
+
+		# list items in bucket
+		aws s3 ls s3://test_bucket/ --endpoint-url https://griffin-objstore.opensciencedatacloud.org --profile my_project
+
+		# copy a local file to the bucket
+		aws s3 cp test_file s3://test-bucket/test_file --endpoint-url https://griffin-objstore.opensciencedatacloud.org --profile my_project
+
+		# copy file from bucket to local
+		aws s3 cp s3://test-bucket/testobject.txt testobject.txt --endpoint-url https://griffin-objstore.opensciencedatacloud.org --profile my_project
+
+		# copy object from bucket to local
+		aws s3 get-object s3://test-bucket/testobject.txt ./ --endpoint-url https://griffin-objstore.opensciencedatacloud.org --profile my_project
+		########################################################################
+
+
+
 EXAMPLE:   Using Python's boto package to interact with S3
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-One way users can interact with the object storage via S3 is by using the Python boto package.   
+Another way users can interact with the object storage via S3 is by using the Python boto package.   
 
 Below is an example Python script for working with S3.  Generally, you will want to use the ephemeral mnt of your vm as your primary working directory.  In the example script below you will need to update the access_key and secret_key variables to the values in the s3cred.txt file.    
 
