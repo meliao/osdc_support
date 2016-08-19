@@ -85,6 +85,8 @@ Recipients of OSDC resource allocations are expected to
 *	Regularly respond to quarterly OSDC allocation surveys
 *       Submit tickets to the OSDC support ticketing system when encountering technical issues not covered by the OSDC support documentation.
 
+.. _pdcs:
+
 Protected Data Resources
 ^^^^^^^^^^^^^^^^^^^^^^^^
 

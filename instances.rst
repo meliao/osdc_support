@@ -51,11 +51,6 @@ has a bootable operating system installed on it.  Virtual machine images come in
 different formats.  On the OSDC we use the term "Image" to denote the plain vanilla 
 VMs we provide.
 
-The OSDC Sullivan cloud currently provides vanilla images like:
-
-*	CentOS-5.10-v1.0
-*	CentOS-6.0-v1.0
-*	Ubuntu-12.04-LTS-v1.3
 
 .. _snapshot:
 

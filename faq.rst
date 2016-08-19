@@ -129,15 +129,14 @@ Protected Data Clouds
 
 What are protected data clouds?
 ******************************************************
-  Protected data clouds provide a secure cloud computing environment to store and analyze sensitive data such as human genomic data. We operate two protected data clouds. One is the "Bionimbus Protected Data Cloud", which is a partnership with `The Cancer Genome Atlas <http://cancergenome.nih.gov/>`_ to store the Level 1 sequence data and provide computational resources that have direct access to this data. The other is "OSDC Atwood" which is the same architecture that is being used by several projects, including the `Conte Center for Computational Neuropsychiactric Genomics <http://www.contechicago.org/>`_.
+  The Bionimbus PDC is a HIPAA compliant cloud for analyzing and sharing protected data. The Bionimbus PDC is an 
+OpenStack cluster utilizing ephemeral storage in VMs with access to a separate S3 compatible storage system for persistent data storage.  
 
 .. _pdc-2:
 
 How do I gain access to the protected data clouds?
 ******************************************************
-  Bionimbus-PDC hosts protected Level 1 data from TCGA and so you must have dbGaP authorized access for the TCGA Level 1 and 2 data. The system uses your eRA commons to check against a list from NIH of authorized users for the TCGA protected data. This list is updated daily. You can apply for access via the `TCGA dbGaP project site <http://www.ncbi.nlm.nih.gov/projects/gap/cgi-bin/study.cgi?study_id=phs000178.v8.p7>`_. Once you have dbGaP access then you just need to provide us your information and eRA commons user name on the `Bionimbus-PDC application page <https://bionimbus-pdc.opensciencedatacloud.org/apply/>`_.
-
-  If you are part of a project hosted on OSDC Atwood, please fill out the main `OSDC application page <https://www.opensciencedatacloud.org/apply/>`_ and select "OSDC Atwood".
+  Please review the :ref:`PDC introduction<pdcs>` and consult the `Bionimbus PDC FAQ <https://bionimbus-pdc.opensciencedatacloud.org/static/BionimbusAccessFAQ.pdf>`_ to understand access requirements.  
 
 .. _pdc-3:
 
@@ -168,18 +167,7 @@ Why is http access blocked on the VMs?
 
 .. _pdc-7:
 
-How do I get access to TCGA data required to use the PDC?
-************************************************************************************************************
-  You can learn more about how to get the proper credentials to use the PDC `by reviewing this FAQ <https://bionimbus-pdc.opensciencedatacloud.org/static/BionimbusAccessFAQ.pdf>`_.
-  
-.. _pdc-8:
 
-How do I gain access to the Conte resource?
-******************************************************
-  The resource we maintain for Conte is called Atwood.   If you are part of a project hosted by 
-  Conte, please fill out the main OSDC application page and select Protected OpenStack Cloud - 
-  then in the Project description please note the need for access to the Atwood resource, and the 
-  protected Conte datasets to which you're requesting access.
   
 I've reviewed the available documentation, but still have an issue.  What now?
 --------------------------------------------------------------------------------------
