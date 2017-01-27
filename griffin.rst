@@ -86,39 +86,52 @@ by importing an ssh key as shown in :doc:`/ssh` or by command line.   You'll wan
 
 .. _griffinproxy:
 
-Installing Software to Your VMs
+Working with the Griffin Proxy
 ----------------------------------------------
-
-In order to keep OSDC Griffin a secure and compliant work environment, users must access outside resources through a proxy server.  
+In order to keep OSDC Griffin a secure and compliant work environment, users must access outside resources through a proxy server.
 
 Accessing External Websites/Repositories
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 In order to update or install packages via apt-get or to access external resources with tools like wget or curl you'll need
-to go through a proxy server.   Add these lines to your VM's .bashrc file and source to update your current session:
+to go through a proxy server.   Add these lines to your VM's .bashrc file and source to update your current session.
+
+1. Open your .bashrc file:
+``vi ~/.bashrc``
+
+2. Add these lines:
 
 .. code-block:: bash
 
-    export no_proxy="griffin-objstore.opensciencedatacloud.org"
-    function with_proxy() {
-         PROXY='http://cloud-proxy:3128'
-         http_proxy="${PROXY}" https_proxy="${PROXY}" $@
-    }
+  export no_proxy="griffin-objstore.opensciencedatacloud.org"
+  function with_proxy() {
+    PROXY='http://cloud-proxy:3128'
+    http_proxy="${PROXY}" https_proxy="${PROXY}" $@
+  }
+
+3. And then source the .bashrc file to make the changes active:
+``source ~/.bashrc``
 
 
-Any time you need to access external sources, you must prepend the command with ``with_proxy`` and use ``sudo -E`` as part of your install/update commands.  For example,  instead of ``sudo apt-get update`` use ``with_proxy sudo -E apt-get update`` and instead of ``git clone https://github.com/LabAdvComp/osdc_support.git`` use ``with_proxy git clone https://github.com/LabAdvComp/osdc_support.git``
 
-..  warning:: 
-	
-	If you do not take these steps and attempt to try commands that hit the internet w/o following the above, your session will hang and become unresponsive.
-	
-	If you are trying to access an external site and get a 403 error, the site is not currently on the 
-	whitelist.   You'll need to request access for that site by sending an email to 
-	support @ opensciencedatacloud dot org.
-	
-..  note:: 
-	
-	Once you have set your proxy, it's good practice when you are first spinning up a vanilla VM to run ``with_proxy sudo -E apt-get update`` to make sure you are starting with the latest packages. 	
+**ProTip:** Any time you need to access external sources, you must prepend the command with ``with_proxy`` and use ``sudo -E`` as part of your install/update commands.
+
+For example,  instead of ``sudo apt-get update`` use ``with_proxy sudo -E apt-get update`` and instead of ``git clone https://github.com/LabAdvComp/osdc_support.git`` use ``with_proxy git clone https://github.com/LabAdvComp/osdc_support.git``
+
+..  warning::
+
+  If you do not take these steps and attempt to try commands that hit the internet w/o following the above, your session will hang and become unresponsive.
+
+  If you are trying to access an external site and get a 403 error, the site is not currently on the
+  whitelist.   You'll need to request access for that site by sending an email to
+  support @ opensciencedatacloud dot org.
+
+..  note::
+
+  Once you have set your proxy, it's good practice when you are first spinning up a vanilla VM to run ``with_proxy sudo -E apt-get update`` to make sure you are starting with the latest packages.
+
+Installing Software to Your VMs
+----------------------------------------------
 
 Using a Docker Image
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -183,7 +196,7 @@ Section II: How to run Jupyter Notebook
 
 
 Understanding OSDC Griffin Storage Options and Workflow
-------------------------------------------------------
+---------------------------------------------------------
 
 OSDC Griffin uses a combination of ephemeral storage in VMs and S3-compatible object storage to
 provide reliable and fast data storage devices.   In brief, best practices on Griffin involve the following:
@@ -264,10 +277,12 @@ The Keys can be found in the ``s3creds.txt`` file. The ENPOINT_URL for the objec
 
 .. _griffinawscliexample:
 
-EXAMPLE:   Using AWSCLI to interact with S3
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+EXAMPLE:   Using AWSCLI to interact with S3 from a Griffin Ubuntu Instance
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-aws-cli can be installed via the Python pip utility "pip installaws-cli", or the Ubuntu package utility "apt-get install awscli".   What follows is an example of how to setup a virtual environment in OSX with awscli installed (recommended to get past a common SSL error), configure environment with keys and tools, and then access data.  
+..  warning::
+
+  The Ubuntu package awscli installed via apt-get is out of date. Do not install this! Instead using the python pip install command detailed below.
 
 For more information, reference the full `AWS CLI documentation <https://docs.aws.amazon.com/cli/latest/reference/s3/index.html>`_. 
 
@@ -275,25 +290,20 @@ For more information, reference the full `AWS CLI documentation <https://docs.aw
 .. code-block:: bash
 
 		########################################################################
-		### 1 ### create a python virtual environment (will take care of ssl error):
+		### 1 ### Update apt-get, install Python PIP if you haven't already and then pip install awscli
 
-		brew install pyenv
-		pyenv install 2.7.10
-		sudo pip install virtualenvwrapper
-		mkvirtualenv --python=~/.pyenv/versions/2.7.10/bin/python myPY2.7env
-		pip install awscli
+		sudo apt-get update
+		sudo apt-get upgrade
+		sudo apt-get install python-pip
+		with_proxy sudo -E pip install awscli
 
-		# exit virtual environment
-		deactivate
-		# start virtual environment
-		workon myPY2.7env
 		########################################################################
 
 		########################################################################
 		### 2 ###
 
 		# Get your credentials from Griffin
-		# log into the headnode
+		# log into the headnode (griffin.opensciencedatacloud.org)
 		# look for a file called "s3cred.txt"
 		# get the contents
 
@@ -312,9 +322,6 @@ For more information, reference the full `AWS CLI documentation <https://docs.aw
 		########################################################################
 		### 3 ### configure awscli
 
-		# make sure you are in your virtual environment
-		workon myPY2.7env
-
 		aws configure --profile `my_project`
 
 		# You will be queried to enter the access key from above
@@ -326,7 +333,7 @@ For more information, reference the full `AWS CLI documentation <https://docs.aw
 
 		AWS Secret Access Key [****************]:
 
-		# Use 'us-east-1' as the default region name
+		# Use 'us-east-1' as the default region name, awscli may not work if you do not specify a region name
 
 		Default region name [us-east-1]: us-east-1
 		#NOTE:  We will be ignoring this region and instead using one of our object store gateways.
@@ -427,6 +434,100 @@ Below is an example Python script for working with S3.  Generally, you will want
 	### Set public read to all objects in a bucket::
 	for key in mybucket.list():
 	    key.set_acl('public-read')
+
+
+EXAMPLE:   Using AWSCLI to interact with S3 from OS X
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+What follows is an example of how to setup a virtual environment in OSX with awscli installed (recommended to get past a common SSL error), configure environment with keys and tools, and then access data.
+
+For more information, reference the full `AWS CLI documentation <https://docs.aws.amazon.com/cli/latest/reference/s3/index.html>`_. 
+
+
+.. code-block:: bash
+
+		########################################################################
+		### 1 ### create a python virtual environment (will take care of ssl error):
+
+		brew install pyenv
+		pyenv install 2.7.10
+		sudo pip install virtualenvwrapper
+		mkvirtualenv --python=~/.pyenv/versions/2.7.10/bin/python myPY2.7env
+		pip install awscli
+
+		# exit virtual environment
+		deactivate
+		# start virtual environment
+		workon myPY2.7env
+		########################################################################
+
+		########################################################################
+		### 2 ###
+
+		# Get your credentials from Griffin
+		# log into the headnode
+		# look for a file called "s3cred.txt"
+		# get the contents
+
+		less ~/s3cred.txt
+
+		# will look something like this:
+
+		[[tenant_namel]]
+		access_key=USOMESTRINGOFCHARACTERSB
+		secret_key=mANOTHERSTRINGOFCHARACTERSi
+
+		# These are the keys you'll need to access the tenant
+		# Note that our current policies do not accept sharing of keys.
+		########################################################################
+
+		########################################################################
+		### 3 ### configure awscli
+
+		# make sure you are in your virtual environment
+		workon myPY2.7env
+
+		aws configure --profile `my_project`
+
+		# You will be queried to enter the access key from above
+		# you can cut/paste the values and press enter
+
+		AWS Access Key ID [****************]:
+
+		# Do the same for your secret key
+
+		AWS Secret Access Key [****************]:
+
+		# Use 'us-east-1' as the default region name
+
+		Default region name [us-east-1]: us-east-1
+		#NOTE:  We will be ignoring this region and instead using one of our object store gateways.
+		########################################################################
+		### 4 ### work with data
+
+		### Now you can use the following commands to access your data
+		### beside that you specify the --endpoint-url, otherwise, awscli will try to contact amazon S3
+		### Also be sure to specify the profile
+
+		# make a new bucket
+		aws s3 mb s3://test-bucket --endpoint-url https://griffin-objstore.opensciencedatacloud.org --profile my_project
+		make_bucket: s3://test-bucket/
+
+		# list buckets
+		aws s3 ls --endpoint-url https://griffin-objstore.opensciencedatacloud.org --profile my_project
+
+		# list items in bucket
+		aws s3 ls s3://test_bucket/ --endpoint-url https://griffin-objstore.opensciencedatacloud.org --profile my_project
+
+		# copy a local file to the bucket
+		aws s3 cp test_file s3://test-bucket/test_file --endpoint-url https://griffin-objstore.opensciencedatacloud.org --profile my_project
+
+		# copy file from bucket to local
+		aws s3 cp s3://test-bucket/testobject.txt testobject.txt --endpoint-url https://griffin-objstore.opensciencedatacloud.org --profile my_project
+
+		# copy object from bucket to local
+		aws s3 get-object s3://test-bucket/testobject.txt ./ --endpoint-url https://griffin-objstore.opensciencedatacloud.org --profile my_project
+		########################################################################
 
 
 S3 Bucket Naming
