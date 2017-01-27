@@ -30,8 +30,6 @@ for users to compute over large protected human genomic datasets. We generally r
 Each uses either a distributed `Gluster File System <http://www.gluster.org/>`_ or object storage and ephemeral storage in VMs 
 where users can store their data and access it from all of their VMs.  
 
-The OSDC manages two Hadoop clusters, OCC-Y and Skidmore, for select projects. 
-
 .. _allocations:
 
 OSDC Resource Allocations
