@@ -57,9 +57,7 @@ Special protected resources like the `Bionimbus-PDC
 separate application process. 
 
 .. NOTE:: The OSDC console uses federated login. If your organization is on the list of 
-	`InCommons members <https://incommon.org/federation/info/all-orgs.html>`_, 
-	`UK Federation members <http://www.ukfederation.org.uk/content/Documents/MemberList>`_, 
-	or `CANARIE members <http://www.canarie.ca/en/about/partners/members>`_, 
+	`InCommons members <https://incommon.org/federation/info/all-orgs.html>`_, `CANARIE members <http://www.canarie.ca/en/about/partners/members>`_, or is part of a federation that utilizes the `EduGAIN service <http://www.geant.org/Services/Trust_identity_and_security/eduGAIN>`_
 	please apply using those credentials.   The Bionimbus PDC also uses `eRA Commons <https://commons.era.nih.gov/>`_ 
 	for secure authentication. 
 
