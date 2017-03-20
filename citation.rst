@@ -76,7 +76,7 @@ McNerney ME, White KP and Grossman RL,  Bionimbus: A Cloud for Managing,
 Analyzing and Sharing Large Genomics Datasets. J Am Med Inform Assoc 
 (2014) doi:10.1136/amiajnl-2013-002155
 
-https://www.bionimbus-pdc.opensciencedatacloud.org/
+https://bionimbus-pdc.opensciencedatacloud.org/
 
 
 **LaTex:**
