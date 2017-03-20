@@ -68,10 +68,7 @@ https://www.opensciencedatacloud.org/
 Bionimbus PDC
 -------------
 
-"This work made use of the Bionimbus Protected Data Cloud (PDC), which is a collaboration between the Open Science Data Cloud (OSDC) 
-and the IGSB (IGSB), the Center for Research Informatics (CRI), the Institute for Translational 
-Medicine (ITM), and the University of Chicago Comprehensive Cancer Center (UCCCC).   The Bionimbus PDC is
-part of the OSDC ecosystem and is funded as a pilot project by the NIH." 
+"This work made use of the Bionimbus Protected Data Cloud (PDC), which is a collaboration between the University of Chicago Center for Data Intensive Science (CDIS) and the Open Commons Consortium (OCC). The Bionimbus PDC allows users authorized by NIH to compute over human genomic data in a secure compliant fashion.  The Bionimbus PDC is part of the OSDC ecosystem." 
 
 Reference:
 Heath AP, Greenway M, Powell R, Spring J, Suarez R, Hanley D, Bandlamudi C, 
