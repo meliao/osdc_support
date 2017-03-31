@@ -1,27 +1,26 @@
-============
-How to enable mfa on your PDC account
-============
+2FA - Enabling and Using TOTP for your OSDC Accounts
+====================================================
 
-This is a quick guide to enabling multi-factor authentication on your shell account. This will verify your identity using a one time password as well as your public-key. To do this we will be using either Google's Authenticator app or FreeOTP. 
+This is a quick guide to enabling multi-factor authentication on your shell account. This will verify your identity using a one time password as well as your public-key. To do this we will be using either Google's Authenticator app or FreeOTP.   2FA is currently only availble on your PDC or Griffin ssh accounts.
 
 First install the application on your phone
 ********************************************
- ANDROID
- -------
+ANDROID
+-------
 
  - Google Authenticator -- `https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2 <https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2>`_
 
  - FreeOTP -- `https://play.google.com/store/apps/details?id=org.fedorahosted.freeotp <https://play.google.com/store/apps/details?id=org.fedorahosted.freeotp>`_
 
- iPhone
- ------
+iPhone
+------
 
  - Google Authenticator -- `https://itunes.apple.com/us/app/google-authenticator <https://itunes.apple.com/us/app/google-authenticator>`_
 
  - FreeOTP -- `https://itunes.apple.com/us/app/freeotp-authenticator <https://itunes.apple.com/us/app/freeotp-authenticator>`_
 
 
-Next log into your PDC account and enable the authenticator.
+Next log into your account and enable the authenticator.
 ***********************************************************
  - SSH into your account
  - Run the following command::
@@ -34,6 +33,7 @@ Next log into your PDC account and enable the authenticator.
  - Open FreeOTP or Google Authenticator and add your key by either typing it  in manually or taking a screenshot of the QR code. 
 
   - If the QR code doesn't display correctly you should also see a link near the top of the QR code for a web version. It should look like this: 
+
 ``https://www.google.com/chart?chs=200x200&chld=M|0&cht=qr&chl=otpauth://totp/USERNAME@bionimbus-pdc.opensciencedatacloud.org%3Fsecret%3DX2HOCMZW2H2KTDII``
 
   - The section of the url after ``3Fsecret%3D`` should be your key to enter manually and should match the secret mentioned after "Your new secret key is:" below the QR code. 
@@ -97,7 +97,7 @@ Google Authenticator
      :scale: 10%
   - Tap ``Scan a barcode``
   - Place the QR code mentioned in your shell session in view of your camera. You may have to step back to get the entire QR code in view.
- - For manual entry:
+ - For manual entry
   - Tap the plus 
   - Tap ``Enter a provided key``
   - Fill out a name for your authenticator ie ``ACCOUNT@bionimbus-pdc``
@@ -105,7 +105,3 @@ Google Authenticator
 
     .. image:: images/google_auth4b.png
        :scale: 30%
-
-
-
-
