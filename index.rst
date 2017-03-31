@@ -19,9 +19,9 @@ Contents:
    quickstart
    console
    ssh
+   2fa
    instances
    commandline
-   hadoop
    griffin
    pdc
    sdk
