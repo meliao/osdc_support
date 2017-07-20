@@ -15,9 +15,9 @@ ANDROID
 iPhone
 ------
 
- - Google Authenticator -- `https://itunes.apple.com/us/app/google-authenticator <https://itunes.apple.com/us/app/google-authenticator>`_
+ - Google Authenticator -- `https://itunes.apple.com/us/app/google-authenticator <https://itunes.apple.com/us/app/google-authenticator/id388497605?mt=8>`_
 
- - FreeOTP -- `https://itunes.apple.com/us/app/freeotp-authenticator <https://itunes.apple.com/us/app/freeotp-authenticator>`_
+ - FreeOTP -- `https://itunes.apple.com/us/app/freeotp-authenticator <https://itunes.apple.com/us/app/freeotp-authenticator/id872559395?mt=8>`_
 
 
 Next log into your account and enable the authenticator.
@@ -60,12 +60,10 @@ Finally test your google authenticator app by re-logging into your account
   - That's it! 
  
 
--------------------------------------------------------------------------
-
 Client setup instructions
 
 FreeOTP
-=======
+-------
 
  - Open FreeOTP
 
@@ -88,7 +86,7 @@ FreeOTP
   - Click Add.
 
 Google Authenticator
-====================
+--------------------
 
  - Open Google's Authenticator app
  - For QR
