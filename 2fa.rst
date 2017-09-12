@@ -20,15 +20,12 @@ iPhone
  - FreeOTP -- `https://itunes.apple.com/us/app/freeotp-authenticator <https://itunes.apple.com/us/app/freeotp-authenticator/id872559395?mt=8>`_
 
 
-Next log into your account and enable the authenticator.
+Connect your OSDC account to your Authenticator
 ***********************************************************
- - SSH into your account
- - Run the following command::
-        ``google-authenticator -t -d -r 5 -R 30 -w 2``
- - It should return with something similar to below:
+ - When your account is created you will receive a link to a QR code.   This link will expire in 72 hours, so be sure to set this up ASAP.  
 
  .. image:: images/google-authenticator.png
-    :scale: 15%
+    :scale: 5%
 
  - Open FreeOTP or Google Authenticator and add your key by either typing it  in manually or taking a screenshot of the QR code. 
 
@@ -42,7 +39,7 @@ Next log into your account and enable the authenticator.
 
  - Answer ``y`` to update your ``.google_authenticator`` file.
 
-Finally test your google authenticator app by re-logging into your account
+Login to the OSDC account and test 2FA
 **************************************************************************
 
  - Log into your account
