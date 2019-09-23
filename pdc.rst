@@ -93,7 +93,7 @@ Working with the PDC Proxy Server
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 In order to update or install packages or to access external resources with tools like wget or curl you'll need
-to work with a proxy server.   You'll need to take these steps every time you want to access external resources
+to work with a proxy server.  On some virtual machines, the proxy server won't be mapped, so first check that your ``/etc/hosts`` file contains the following line: ``10.16.0.149 cloud-proxy``.   You'll need to take these steps every time you want to access external resources
 or install or update packages. 
 
 * Login to your VM
