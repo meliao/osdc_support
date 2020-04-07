@@ -234,7 +234,7 @@ The Keys can be found in the ``s3creds.txt`` file.   The ENDPOINT_URL is either:
 EXAMPLE:   Using AWSCLI to interact with S3
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-aws-cli can be installed via the Python pip utility "pip installaws-cli", or the Ubuntu package utility "apt-get install awscli".   What follows is an example of how to setup a virtual environment in OSX with awscli installed (recommended to get past a common SSL error), configure environment with keys and tools, and then access data.  
+``aws-cli`` can be installed via the Python pip utility ``pip install aws-cli==1.11.56``, or the Ubuntu package utility ``apt-get install awscli``. Note that version ``1.11.56`` is the version currently compatible with the PDC Object Gateway. What follows is an example of how to setup a virtual environment in OSX with awscli installed (recommended to get past a common SSL error), configure environment with keys and tools, and then access data.  
 
 For more information, reference the full `AWS CLI documentation <https://docs.aws.amazon.com/cli/latest/reference/s3/index.html>`_. 
 
@@ -248,7 +248,7 @@ For more information, reference the full `AWS CLI documentation <https://docs.aw
 		pyenv install 2.7.10
 		sudo pip install virtualenvwrapper
 		mkvirtualenv --python=~/.pyenv/versions/2.7.10/bin/python myPY2.7env
-		pip install awscli
+		pip install awscli==1.11.56
 
 		# exit virtual environment
 		deactivate
